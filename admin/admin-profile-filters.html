@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+  
+
+<head>
+  <title>Kalanjiyam Kalyana Malai</title>
+
+  <!--== META TAGS ==-->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f6af04">
+  <meta name="robots" content="noindex">
+  <meta name="description" content="">
+  <meta name="keyword" content="">
+  <!--== FAV ICON(BROWSER TAB ICON) ==-->
+  <link rel="shortcut icon" href="images/fevicon.ico" type="image/x-icon">
+    <!--== CSS FILES ==-->
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/animate.min.css">
+    <link rel="stylesheet" href="./css/admin-style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  </head>
+  <body>
+    <!-- HEAD -->
+    <section class="head">
+      <div class="container">
+        <div class="row header">
+          <div class="col-md-3">
+            <div class="logo">
+              <img src="./images/Dashboardlogo.png" alt="">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="top-sarch">
+              <input type="text" placeholder="Search here" id="searchBar">
+            </div>
+          </div>
+          
+            
+          
+        </div>
+      </div>
+    </section>
+    <div id="loader" class="loader-container" style="display: none;">
+      <div class="loader-content">
+        <div class="spinner"></div>
+        <p>loading...</p>
+      </div>
+    </div>
+    <!-- END -->
+    <!-- COPYRIGHTS -->
+    <section>
+      <div class="main">
+        <div class="incon" <div class="row">
+          <div class="pan-lhs ad-menu-main">
+            <div class="ad-menu">
+              <ul>
+                <li class="ic-db">
+                  <a href="dashboard.html">Dashboard</a>
+                </li>
+                <li class="ic-user">
+                  <a href="#" class="">Users</a>
+                  <div>
+                    <ol>
+                      <li>
+                        <a href="admin-new-user-requests.html"> User Verify Requests</a>
+                      </li>
+                      <li>
+                        <a href="admin-all-users.html">All Users</a>
+                      </li>
+                      <li>
+                        <a href="admin-free-users.html">Free Users</a>
+                      </li>
+                      
+                      <li>
+                        <a href="admin-platinum-users.html">Premium Users</a>
+                      </li>
+                      <li>
+                        <a href="admin-add-new-user.html">Add new User</a>
+                      </li>
+                    </ol>
+                  </div>
+                </li>
+                <li>
+                  <h4>Others</h4>
+                </li>
+                <li class="ic-febk">
+                  <a href="admin-enquiry.html">All Enquiry</a>
+                </li>
+                
+                
+                <li>
+                  <h4>Settings</h4>
+                </li>
+                <li class="ic-set">
+                  <a href="admin-setting.html">Site Setting</a>
+                </li>
+
+                
+
+                <li>
+                  <h4>Sign out </h4>
+                </li>
+                <li class="ic-lgo " id="logOut">
+                  <a>Log out</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+                   <div class="pan-rhs">
+                        <div class="row main-head">
+                            <div class="col-md-4">
+                                <div class="tit">
+                                    <h1>Filter settings</h1>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                      <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                      <li class="breadcrumb-item active" aria-current="page">Appriance</li>
+                                      <li class="breadcrumb-item active" aria-current="page">Search</li>
+                                    </ol>
+                                  </nav>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="box-com box-qui box-lig box-tab">
+                                    <div class="tit">
+                                        <h3>Filter options</h3>
+                                    </div>
+                                    <table class="table">
+                                        <thead>
+                                          <tr>
+                                            <th>No</th>
+                                            <th>Filters</th>
+                                            <th>Enable/disable</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                            <td>1</td>
+                                            <td><span class="hig-blu">I'm looking for</span></td>
+                                            <td>
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" id="mySwitch1" name="darkmode" value="yes" checked>
+                                                </div>
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <td>2</td>
+                                            <td><span class="hig-blu">Age</span></td>
+                                            <td>
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" id="mySwitch2" name="darkmode" value="yes" checked>
+                                                </div>
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <td>3</td>
+                                            <td><span class="hig-blu">Select Religion</span></td>
+                                            <td>
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" id="mySwitch3" name="darkmode" value="yes" checked>
+                                                </div>
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <td>4</td>
+                                            <td><span class="hig-blu">Location</span></td>
+                                            <td>
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" id="mySwitch4" name="darkmode" value="yes" checked>
+                                                </div>
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <td>5</td>
+                                            <td><span class="hig-blu">Availablity</span></td>
+                                            <td>
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" id="mySwitch5" name="darkmode" value="yes" checked>
+                                                </div>
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <td>6</td>
+                                            <td><span class="hig-blu">Profile</span></td>
+                                            <td>
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" id="mySwitch6" name="darkmode" value="yes" checked>
+                                                </div>
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <td>7</td>
+                                            <td><span class="hig-blu">Sort by</span></td>
+                                            <td>
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" type="checkbox" id="mySwitch7" name="darkmode" value="yes" checked>
+                                                </div>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END -->
+
+        <!-- COPYRIGHTS -->
+        <section>
+            <div class="cr">
+                <div class="container">
+                    <div class="row">
+                      <p style="display: flex; flex-wrap: wrap; align-items: center; gap: 5px; font-size: 14px; margin-left:350px;">
+                        Copyright © <span id="cry">2024</span> 
+                        <a href="#!" target="_blank">Kalanjiyam Kalyana Malai.com</a> 
+
+                        All rights reserved. Powered by 
+                        <u><a href="https://www.thinkinfoexpertsolutions.com/" target="_blank">ThinkInfoExpertSolution</a></u> 
+                        in Salem.
+                      </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END -->
+    <!-- Optional JavaScript -->
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/admin-custom.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+      
+</body>
+
+
+
+</html>

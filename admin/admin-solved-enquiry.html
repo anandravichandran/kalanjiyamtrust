@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Kalanjiyam Kalyana Malai</title>
+
+  <!--== META TAGS ==-->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f6af04">
+  <meta name="robots" content="noindex">
+  <meta name="description" content="">
+  <meta name="keyword" content="">
+  <!--== FAV ICON(BROWSER TAB ICON) ==-->
+  <link rel="shortcut icon" href="images/fevicon.ico" type="image/x-icon">
+    <!--== CSS FILES ==-->
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- <link rel="stylesheet" href="./css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="./css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/animate.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./css/admin-style.css">
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    
+  </head>
+  <body>
+    <!-- HEAD -->
+    <section class="head">
+      <div class="container">
+        <div class="row header">
+          <div class="col-md-3">
+            <div class="logo">
+              <img src="./images/Dashboardlogo.png" alt="">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="top-sarch">
+              <input type="text" placeholder="Search here" id="searchBar">
+            </div>
+          </div>
+         
+           
+        </div>
+      </div>
+    </section>
+    <!-- END -->
+    <!-- COPYRIGHTS -->
+    <section>
+      <div class="main">
+        <div class="incon" <div class="row">
+          <div class="pan-lhs ad-menu-main">
+            <div class="ad-menu">
+              <ul>
+                <li class="ic-db">
+                  <a href="dashboard.html">Dashboard</a>
+                </li>
+                <li class="ic-user">
+                  <a href="#" class="">Users</a>
+                  <div>
+                    <ol>
+                      <li>
+                        <a href="admin-new-user-requests.html"> User Verify Requests</a>
+                      </li>
+                      <li>
+                        <a href="admin-all-users.html">All Users</a>
+                      </li>
+                      <li>
+                        <a href="admin-free-users.html">Free Users</a>
+                      </li>
+                      
+                      <li>
+                        <a href="admin-platinum-users.html">Premium Users</a>
+                      </li>
+                      <li>
+                        <a href="admin-add-new-user.html">Add new User</a>
+                      </li>
+                    </ol>
+                  </div>
+                </li>
+
+               
+                
+                <li>
+                  <h4>Settings</h4>
+                </li>
+                <li class="ic-set">
+                  <a href="admin-setting.html">Site Setting</a>
+                </li>
+               
+                <li>
+                  <h4>Others</h4>
+                </li>
+                <li class="ic-febk">
+                  <a href="admin-enquiry.html">All Enquiry</a>
+                </li>
+
+                <li>
+                  <h4>Sign out </h4>
+                </li>
+                <li class="ic-lgo" id="logOut">
+                  <a>Log out</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div id="loader" class="loader-container" style="display: none;">
+            <div class="loader-content">
+              <div class="spinner"></div>
+              <p>loading...</p>
+            </div>
+          </div>
+                   <div class="pan-rhs">
+                        <div class="row main-head">
+                            <div class="row text-center">
+                                <div class="col-md-4">
+                                    <div class="tit">
+                                        <a href="admin-enquiry.html">
+                                            <h1 id="verification-header">Enquirys</h1>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="tit">
+                                        <a href="admin-solved-enquiry.html">
+                                            <h1 id="accepted-header">Solved</h1>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="tit">
+                                        <a href="admin-pending-enquiry.html">
+                                            <h1 id="denied-header">Pending</h1>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                          
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="box-com box-qui box-lig box-tab">
+                                      <div class="tit">
+                                        <h3>Enquiries & Leads</h3>
+                                        <p>Here you can manage your leads and enquiry.</p>
+                                    </div>
+                                    <table class="table">
+                                        <thead>
+                                          <tr>
+                                            <th>No</th>
+                                            <th>User</th>
+                                            <th>Name</th>
+                                            <th>E-mail id</th>
+                                            <th>Phone</th>
+                                            <th>Date</th>
+                                            <th>Time</th>
+                                            <th>Message</th>
+                                            <th>More</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                            <td>1</td>
+                                            <td>
+                                                <div class="prof-table-thum">
+                                                    <div class="pro">
+                                                        <img src="images/profiles/3.jpg" alt="">
+                                                    </div>
+                                                    <div class="pro-info">
+                                                        <h5>Ashley emyy</h5>
+                                                        <p>ashleyipsum@gmail.com</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>@132232324</td>
+                                            <td>01 321-998-91</td>
+                                            <td>New York</td>
+                                            <td><span class="hig-grn">Premium</span></td>
+                                            <td>
+                                                <div class="dropdown">
+                                                  <button type="button" class="btn btn-outline-secondary" data-bs-toggle="dropdown">
+            <img src="./images/three-dot-icon.png" alt="icon" style="width: 25px; height: 20px;">
+        </button>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Edit</a></li>
+            <li><a class="dropdown-item" href="#">Delete</a></li>
+            <li><a class="dropdown-item" href="#" onclick="openPopup()">Subscription Details</a></li>
+            <li><a class="dropdown-item" href="#" onclick="openPopupProfile()">Profile Verification</a></li>
+            <li><a class="dropdown-item" href="#">View profile</a></li>
+        </ul>
+    </div>
+
+                                            </td>
+                                          </tr>
+                                          
+                                        </tbody>
+                                      </table>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END -->
+    <div class="popup-overlay" id="popup" style="
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: rgba(0, 0, 0, 0.6); 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    z-index: 1000;
+    display: none;">
+    <div class="popup-content" style="
+        background-color: #fff; 
+        width: 80%; 
+        max-width: 800px; 
+        border-radius: 15px; 
+        padding: 20px 10px; 
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); 
+        position: relative; 
+        overflow: hidden; 
+        animation: fadeIn 0.5s forwards;">
+        
+        <!-- Close Button -->
+        <button class="close-btn" onclick="closePopupProfile()" style="
+        position: absolute; 
+        top: 15px; 
+        right: 15px; 
+        font-size: 20px; 
+        color: white; 
+        background: #d9534f; 
+        border: none; 
+        border-radius: 50%; 
+        width: 35px; 
+        height: 35px; 
+        cursor: pointer; 
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+        transition: background 0.3s;">
+        &times;
+    </button>
+    
+
+        <!-- Title Section -->
+        <div class="header" style="
+        text-align: center; 
+        margin-bottom: 20px;">
+        <h2 style="
+            font-size: 24px; 
+            font-weight: bold; 
+            color: #f7083c;">
+           Enquire Details
+        </h2>
+       
+    </div>
+
+    <div class="profile-section" style="
+    position: relative; /* Set relative positioning for parent container */
+    display: flex; 
+    align-items: center; 
+    margin-bottom: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #fff;
+">
+    <!-- Profile Picture -->
+    <img id="profilePicture" src="./images/images.jpg" alt="Profile Picture" style="
+        width: 100px; 
+        height: 100px; 
+        border-radius: 50%; 
+        margin-right: 20px; 
+        object-fit: cover;
+    ">
+
+    <!-- Profile Information -->
+    <div class="profile-info" style="flex: 1;">
+        <h3 id="profileName" style="color: #333; margin-bottom: 5px; font-size: 20px;">
+            John Doe
+        </h3>
+        <p id="profileId" style="font-size: 14px; color: #555; margin: 3px 0;">
+            ID: 12345
+        </p>
+        <p id="profileEmail" style="font-size: 14px; color: #555; margin: 3px 0;">
+            Email: johndoe@example.com
+        </p>
+        <p id="profileContact" style="font-size: 14px; color: #555; margin: 3px 0;">
+            Contact: +123456789
+        </p>
+        <p id="profileLocation" style="font-size: 14px; color: #555; margin: 3px 0;">
+            Location: Germany
+        </p>
+        <p id="profileSubject" style="font-size: 14px; color: #555; margin: 3px 0;">
+           Subject:
+        </p>
+        <div class="profile-about" style="
+            font-size: 14px; 
+            color: #3c3c3c; 
+            margin-top: 10px; 
+            max-height: 240px; 
+            overflow-y: auto; 
+            padding-right: 10px; 
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+        ">
+            <p id="profileDetails" style="margin: 0; color: #555;">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque imperdiet ipsum sed orci malesuada, at malesuada purus placerat. Vivamus malesuada feugiat nisi, a fermentum velit posuere vel. Curabitur aliquet volutpat risus, nec consectetur mauris fermentum in. Aliquam scelerisque odio eget velit consectetur eleifend. Cras tempus ex sed orci fermentum, non tristique elit aliquet. Donec ut urna at justo pellentesque malesuada eget quis nunc. Proin convallis vulputate lacus, at vehicula ex cursus id. Aenean ac semper lorem. Phasellus vel tortor in lorem bibendum auctor. Sed auctor magna sed dolor efficitur posuere. Quisque malesuada non ligula a auctor.
+            </p>
+        </div>
+    </div>
+
+    <!-- Arrow Icon for Profile Navigation -->
+    <a href="/profile" title="Go to Profile Page" style="
+        position: absolute; 
+        top: 10px; 
+        right:0px; 
+        text-decoration: none; 
+        display: flex; 
+        align-items: center;
+    ">
+        <img src="./images/up-right-arrow_5791216.png" alt="Profile Icon" style="
+            width: 30px; 
+            height: 30px; 
+            object-fit:contain;
+        ">
+    </a>
+</div>
+    </div>
+    </div>
+
+<style>
+    .profile-section {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        margin-left: 40px;
+        margin-right: 40px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        border-radius: 10px;
+        background-color: #fff;
+    }
+
+    .profile-info {
+        flex: 1;
+    }
+
+    .profile-about {
+        max-height: 240px; /* Limit height for about message (approximately 15 lines) */
+        overflow-y: auto; /* Add scrollbar for long messages */
+        padding-right: 10px; /* Prevent text overlap with scrollbar */
+        border-top: 1px solid #ddd; /* Separate the section visually */
+        padding-top: 10px;
+    }
+</style>
+     <!-- end of user verification -->
+        <!-- COPYRIGHTS -->
+        <section>
+            <div class="cr">
+                <div class="container">
+                    <div class="row">
+                      <p style="display: flex; flex-wrap: wrap; align-items: center; gap: 5px; font-size: 14px; margin-left:350px;">
+                        Copyright © <span id="cry">2024</span> 
+                        <a href="#!" target="_blank">Kalanjiyam Kalyana Malai.com</a> 
+
+                        All rights reserved. Powered by 
+                        <u><a href="https://www.thinkinfoexpertsolutions.com/" target="_blank">ThinkInfoExpertSolution</a></u> 
+                        in Salem.
+                      </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END -->
+    <!-- Optional JavaScript -->
+
+
+    <script>
+      function toggleDropdown() {
+        var dropdown = document.querySelector('.dropdown');
+        dropdown.classList.toggle('active');
+    }
+
+
+      // Open Popup
+      
+
+      // Close Popup
+      function closePopup() {
+          var popup = document.getElementById('popup');
+          popup.style.display = 'none';
+      }
+        
+            // Open Popup
+           
+      
+          // Close Popup
+          function closePopupProfile() {
+              var popup = document.getElementById('popup');
+              popup.style.display = 'none';
+          }
+  
+
+      // Close Dropdown and Popup when clicking outside
+  
+  </script>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/select-opt.js"></script>
+    <!-- <script src="js/chart.js"></script> -->
+    <script src="js/admin-custom.js"></script>
+    <script src="js/main/enquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    
+</body>
+
+
+<!-- Mirrored from rn53themes.net/themes/matrimo/admin/admin-all-users.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 01 Oct 2024 14:16:43 GMT -->
+</html>

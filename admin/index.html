@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+    
+
+<head>
+    <title>Kalanjiyam Kalyana Malai</title>
+
+        <!--== META TAGS ==-->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="theme-color" content="#f6af04">
+        <meta name="robots" content="noindex">
+        <meta name="description" content="">
+        <meta name="keyword" content="">
+        <!--== FAV ICON(BROWSER TAB ICON) ==-->
+        <link rel="shortcut icon" href="images/fevicon.ico" type="image/x-icon">
+        <!--== CSS FILES ==-->
+        <link rel="stylesheet" href="./css/bootstrap.css">
+        <link rel="stylesheet" href="./css/font-awesome.min.css">
+        <link rel="stylesheet" href="./css/animate.min.css">
+        <link rel="stylesheet" href="css/admin-style.css">
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    </head>
+    <body>
+        <!-- HEAD -->
+        <!-- COPYRIGHTS -->
+        <div id="loader" class="loader-container" style="display: none;">
+            <div class="loader-content">
+              <div class="spinner"></div>
+              <p>loading...</p>
+            </div>
+          </div>
+        <section>
+            <div class="login">
+                <div class="container">
+                    <div class="row">
+                        <div class="inn">
+                            <div class="rhs">
+                                <div>
+                                    <div class="log-1">
+                                        <div class="form-tit">
+                                            <h4>Access admin-panel</h4>
+                                            <h1>Admin login</h1>
+                                            <p></p>
+                                        </div>
+                                        <div class="form-login">
+                                            <form >
+                                                <div class="form-group">
+                                                    <label class="lb">User Name:</label>
+                                                    <input
+                                                        type="email"
+                                                        class="form-control"
+                                                        id="email"
+                                                        placeholder="Enter email"
+                                                        name="email",
+                                                        required
+                                                    >
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="lb">Password:</label>
+                                                    <input
+                                                        type="password"
+                                                        class="form-control"
+                                                        id="pwd"
+                                                        placeholder="Enter password"
+                                                        name="pswd"
+                                                        required
+                                                    >
+                                                </div>
+                                                <div id="otpContainer-l" style="display: none;">
+                                                    <div class="form-group">
+                                                        <label class="lb">OTP:</label>
+                                                        <input
+                                                            type="text"
+                                                            class="form-control"
+                                                            id="otpInput"
+                                                            placeholder="Enter the otp"
+                                                            name="otpInput"
+                                                            required
+                                                        >
+                                                    </div>
+                                                </div>
+                                                <button type="button" id="loginBtn" class="btn btn-primary">Sign in</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="log-2">
+                                      <div class="form-tit">
+                                          <h4>Access admin-panel</h4>
+                                          <h1>Forgot password</h1>
+                                          <p></p>
+                                      </div>
+                                      <div class="form-login">
+                                        <form id="otpForm" onsubmit="return false;">
+                                            <div class="form-group">
+                                                <label class="lb">Email:</label>
+                                                <input
+                                                    type="email"
+                                                    value=""
+                                                    class="form-control"
+                                                    id="verifyEmail"
+                                                    placeholder="Enter email"
+                                                    name="email"
+                                        
+                                                    style="margin: 10px 0;"
+                                                >
+                                                <div id="otpContainer" style="display: none;">
+                                                    <label class="lb">OTP:</label>
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        id="otp"
+                                                        placeholder="Enter OTP"
+                                                        name="otp"
+                                                        style="margin: 10px 0;"
+
+                                                    >
+                                                </div>
+                                                <div id="changePassword" style="display: none;">
+                                                    <label class="lb">New Password:</label>
+                                                    <input
+                                                        type="password"
+                                                        class="form-control"
+                                                        id="newPwd"
+                                                        placeholder="Enter New Password"
+                                                        name="newPwd"
+                                                        required
+                                                        style="margin: 10px 0;"
+
+                                                    >
+                                                    <label class="lb">Confirm Password:</label>
+                                                    <input
+                                                        type="password"
+                                                        class="form-control"
+                                                        id="comfirmPwd"
+                                                        placeholder="Enter Confirm Password"
+                                                        name="comfirmPwd"
+                                                        required
+                                                        style="margin: 10px 0;"
+
+                                                    >
+                                                </div>
+                                            </div>
+                                            <button id="verifyBtn" type="button" class="btn btn-primary">Send OTP</button>
+                                        </form>
+                                    </div>
+                                    
+                                  </div>
+                                    <div class="log-bot">
+                                        <ul>
+                                            <li>
+                                                <span class="ll-1">Login?</span>
+                                            </li>
+                                            <li>
+                                                <span class="ll-2" id="forgot">Forgot password?</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END -->
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/admin-custom.js"></script>
+        <script src="js/main/login.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+        
+        <script>
+           $('.ll-1').on('click', function () {
+            document.getElementById("forgot").style.display ="block";
+
+              $('.log-1').slideDown();
+              $('.log-2').slideUp();
+          });
+          $('.ll-2').on('click', function () {
+                document.getElementById("forgot").style.display ="none";
+              $('.log-2').slideDown();
+              $('.log-1').slideUp();
+          });
+        </script>
+    </body>
+</html>
