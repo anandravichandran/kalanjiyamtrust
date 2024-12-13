@@ -146,7 +146,7 @@ export const addMembers = async (req, res) => {
         let updatedImageUrl = null;
 
         if (Object.keys(files).length >0) {
-            console.log(files)
+            
             updatedImageUrl = await uploadImage("memberImage",files, "memberImages");
         };
         
@@ -167,7 +167,7 @@ export const addMembers = async (req, res) => {
         
         if (id) {
             // Update existing member
-            const member = allData.membersInformation.id(id); // Mongoose handles the ObjectId matching
+            const member = allData.membersInformation.id(id); 
 
 
             if (!member) {
@@ -299,6 +299,105 @@ export const addAndEditEvents = async (req, res) => {
         });
     }
 };
+
+
+
+
+// CONTROLLER FOR ALL DELETE OPERATIONS
+
+
+export const handleDeleteOperations = async (req, res) => {
+    const { type } = req.params;
+    const { id } = req.body;
+
+    if (!type || !id) {
+        return res.status(400).json({
+            success: false,
+            message: "Invalid request. 'type' and 'id' are required.",
+        });
+    }
+
+    try {
+        const allData = await adminModel.findById(process.env.ADMINMONGOID);
+
+        if (!allData) {
+            return res.status(404).json({
+                success: false,
+                message: "Admin data not found.",
+            });
+        }
+
+        let targetCollection, message;
+
+        // Determine the target collection based on type
+        switch (type) {
+            case "carouselImages":
+                if (!allData.carouselImages[id]) {
+                    return res.status(404).json({
+                        success: false,
+                        message: "Image not found.",
+                    });
+                }
+                 allData.carouselImages[id] = undefined;
+                message = "Image successfully deleted!";
+                break;
+
+            case "membersInformation":
+                targetCollection = allData.membersInformation.id(id);
+                if (!targetCollection) {
+                    return res.status(404).json({
+                        success: false,
+                        message: "Member information not found.",
+                    });
+                }
+                allData.membersInformation.pull(targetCollection);
+                message = "Member information successfully deleted!";
+                break;
+
+            case "event":
+                targetCollection = allData.events.id(id);
+                if (!targetCollection) {
+                    return res.status(404).json({
+                        success: false,
+                        message: "Event details not found.",
+                    });
+                }
+                allData.events.pull(targetCollection);
+                message = "Event details successfully deleted!";
+                break;
+
+            default:
+                return res.status(400).json({
+                    success: false,
+                    message: "Invalid type provided.",
+                });
+        }
+
+        // Save changes
+        await allData.save();
+
+        return res.status(200).json({
+            success: true,
+            message,
+        });
+    } catch (error) {
+        console.error("Error processing request:", error);
+        return res.status(500).json({
+            success: false,
+            message: "Internal Server Error",
+            error: error.message,
+        });
+    }
+};
+
+
+
+
+
+
+
+
+
 
 
 

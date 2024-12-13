@@ -1,5 +1,5 @@
 import express from "express";
-import {  addAndEditEvents, addCarouselImages, addMembers, changeAdminCredential } from "../controller/adminActivitiesController.js";
+import {  addAndEditEvents, addCarouselImages, addMembers, changeAdminCredential, handleDeleteOperations } from "../controller/adminActivitiesController.js";
 import authMiddleware from "../middleware/auth.js";
 import upload from "../config/multer.js";
 
@@ -13,7 +13,7 @@ adminActivityRouter.post("/change-credential",authMiddleware,changeAdminCredenti
 adminActivityRouter.post("/carousel-images",authMiddleware,upload,addCarouselImages);
 adminActivityRouter.post("/add-members",authMiddleware,upload,addMembers);
 adminActivityRouter.post("/handle-events",authMiddleware,upload,addAndEditEvents);
-
+adminActivityRouter.delete("/:type/delete",authMiddleware,handleDeleteOperations);
 
 
 
