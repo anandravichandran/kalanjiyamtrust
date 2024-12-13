@@ -1,8 +1,8 @@
+import ObjectId  from "mongoose"
 import adminModel from "../model/adminModel.js";
 import axios from "axios"
 import bcrypt from "bcryptjs"
 import cloudinary from "../config/cloudinary.js";
-
 
 
 
@@ -67,6 +67,7 @@ try {
 
 // CONTROLLER FOR ADD CAROSUAL IMAGES
 
+const imageURLs = {};
 
 export const addCarouselImages = async (req, res) => {
     try {
@@ -90,29 +91,16 @@ export const addCarouselImages = async (req, res) => {
             return res.status(400).json({ success: false, message: "No Files Uploaded!" });
         }
 
-        const imageURLs = {};
 
-        // Helper function to upload an image
-        const uploadImage = async (fileKey) => {
-            const image = files[fileKey][0];
-            const result = await new Promise((resolve, reject) => {
-                cloudinary.uploader.upload_stream(
-                    { folder: "carouselImages" },
-                    (error, result) => {
-                        if (error) return reject(error);
-                        resolve(result);
-                    }
-                ).end(image.buffer);
-            });
-            imageURLs[fileKey] = result.secure_url;
-            adminProfile.carouselImages[fileKey] = result.secure_url;
-        };
+      
 
         // Upload images dynamically
         const imageKeys = ["carouselImage1", "carouselImage2", "carouselImage3"];
         for (const key of imageKeys) {
             if (files[key]) {
-                await uploadImage(key);
+              const url =   await uploadImage(key,files,"carouselImages");
+              adminProfile.carouselImages[key] = url;
+              imageURLs[key]= url;
             }
         }
 
@@ -126,6 +114,101 @@ export const addCarouselImages = async (req, res) => {
         });
     } catch (error) {
         console.error("Error uploading images:", error);
+        return res.status(500).json({
+            success: false,
+            message: "Internal Server Error",
+            error: error.message,
+        });
+    }
+};
+
+
+
+// CONTROLLER FOR ADD MEMBERS
+
+
+
+export const addMembers = async (req, res) => {
+    const { id, name, designation, degree, standings } = req.body;
+    const { files } = req;
+
+    try {
+        const allData = await adminModel.findById(process.env.ADMINMONGOID);
+        if (!allData) {
+            return res.status(404).json({
+                success: false,
+                message: "Admin data not found.",
+            });
+        }
+
+        const membersInformation = allData.membersInformation;
+        let message = "";
+        let updatedImageUrl = null;
+
+        if (Object.keys(files).length >0) {
+            console.log(files)
+            updatedImageUrl = await uploadImage("memberImage",files, "memberImages");
+        };
+        
+        
+        if (!!standings) {
+            const isSameStanding = membersInformation.some(
+                 member => member.standings == standings,
+
+            );
+        console.log(standings);
+            if (isSameStanding) {
+                return res.status(400).json({
+                    success: false,
+                    message: "Sorry! The Standing Number is Already Allocated."
+                });
+            }
+        };
+        
+        if (id) {
+            // Update existing member
+            const member = allData.membersInformation.id(id); // Mongoose handles the ObjectId matching
+
+
+            if (!member) {
+                return res.status(404).json({
+                    success: false,
+                    message: "Member not found.",
+                });
+            }
+
+            Object.assign(member, {
+                name,
+                designation,
+                degree,
+                standings,
+                image: updatedImageUrl || member.image,
+            });
+
+            message = `${member.name}'s details successfully updated!`;
+        } else {
+            // Add new member
+            const newMember = {
+                name,
+                designation,
+                degree,
+                standings,
+                image: updatedImageUrl,
+            };
+
+            membersInformation.push(newMember);
+            message = "Member added successfully!";
+        }
+
+        await allData.save();
+
+        return res.status(200).json({
+            success: true,
+            message,
+            image: updatedImageUrl,
+        });
+    } catch (error) {
+        console.error("Error processing request:", error);
         return res.status(500).json({
             success: false,
             message: "Internal Server Error",
@@ -150,12 +233,20 @@ export const addCarouselImages = async (req, res) => {
 
 
 
-
-
-
-
-
-
+// Helper function to upload an image
+const uploadImage = async (fileKey,files,folder) => {
+    const image = files[fileKey][0];
+    const result = await new Promise((resolve, reject) => {
+        cloudinary.uploader.upload_stream(
+            { folder:folder },
+            (error, result) => {
+                if (error) return reject(error);
+                resolve(result);
+            }
+        ).end(image.buffer);
+    });
+    return result.secure_url;
+};
 
 
 

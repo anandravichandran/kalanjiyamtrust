@@ -49,7 +49,7 @@ const adminSchema = new mongoose.Schema(
             carouselImage3: { type: String },
             default: {}
         },
-        membesrsInformation: {
+        membersInformation: {
             type: [memberSchema],
             default: []
         },
