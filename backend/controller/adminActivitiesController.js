@@ -392,7 +392,40 @@ export const handleDeleteOperations = async (req, res) => {
 
 
 
+// CONTROLLER FOR GET WEBSITE DATA
 
+
+export const getWebsiteData = async (req,res)=>{
+
+    const id = req.id;
+
+    try {
+        const allData = await adminModel.findById(id);
+
+        if (!allData) {
+            return res.status(404).json({
+                success: false,
+                message: "Admin data not found.",
+            });
+        }
+
+        return res.status(200).json({
+            success: true,
+            data:allData
+        });
+           
+
+    } catch (error) {
+         console.error("Error processing request:", error);
+        return res.status(500).json({
+            success: false,
+            message: "Internal Server Error",
+            error: error.message,
+        });
+    }
+
+
+}
 
 
 
