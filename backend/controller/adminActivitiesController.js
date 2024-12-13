@@ -1,6 +1,7 @@
 import adminModel from "../model/adminModel.js";
 import axios from "axios"
 import bcrypt from "bcryptjs"
+import cloudinary from "../config/cloudinary.js";
 
 
 
@@ -64,7 +65,75 @@ try {
 
 
 
-// 
+// CONTROLLER FOR ADD CAROSUAL IMAGES
+
+
+export const addCarouselImages = async (req, res) => {
+    try {
+        const { files } = req;
+        const id = req.id;
+
+        // Validate Admin ID
+        if (!id) {
+            return res.status(400).json({ success: false, message: "Invalid Admin ID" });
+        }
+
+        const adminProfile = await adminModel.findById(id);
+
+        // Check if admin data exists
+        if (!adminProfile) {
+            return res.status(404).json({ success: false, message: "Admin Data Not Found" });
+        }
+
+        // Check if files are uploaded
+        if (!files || Object.keys(files).length === 0) {
+            return res.status(400).json({ success: false, message: "No Files Uploaded!" });
+        }
+
+        const imageURLs = {};
+
+        // Helper function to upload an image
+        const uploadImage = async (fileKey) => {
+            const image = files[fileKey][0];
+            const result = await new Promise((resolve, reject) => {
+                cloudinary.uploader.upload_stream(
+                    { folder: "carouselImages" },
+                    (error, result) => {
+                        if (error) return reject(error);
+                        resolve(result);
+                    }
+                ).end(image.buffer);
+            });
+            imageURLs[fileKey] = result.secure_url;
+            adminProfile.carouselImages[fileKey] = result.secure_url;
+        };
+
+        // Upload images dynamically
+        const imageKeys = ["carouselImage1", "carouselImage2", "carouselImage3"];
+        for (const key of imageKeys) {
+            if (files[key]) {
+                await uploadImage(key);
+            }
+        }
+
+        // Save updated admin profile
+        await adminProfile.save();
+
+        return res.status(200).json({
+            success: true,
+            message: "Images Uploaded Successfully!",
+            data: imageURLs,
+        });
+    } catch (error) {
+        console.error("Error uploading images:", error);
+        return res.status(500).json({
+            success: false,
+            message: "Internal Server Error",
+            error: error.message,
+        });
+    }
+};
+
 
 
 

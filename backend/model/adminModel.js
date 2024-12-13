@@ -44,8 +44,10 @@ const adminSchema = new mongoose.Schema(
             minlength: 8
         },
         carouselImages: {
-            type: [String], // Specify that this is an array of strings
-            default: []
+            carouselImage1: { type: String },
+            carouselImage2: { type: String },
+            carouselImage3: { type: String },
+            default: {}
         },
         membesrsInformation: {
             type: [memberSchema],
