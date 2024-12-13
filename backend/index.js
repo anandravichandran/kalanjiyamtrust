@@ -1,6 +1,7 @@
 import express from "express";
 import connectDB from "./config/db.js";
 import adminAuthRouter from "./routes/userRoute.js";
+import adminActivityRouter from "./routes/adminActivitiesRoute.js";
 // import adminModel from "./model/adminModel.js";
 // import bcrypt from "bcryptjs"
 
@@ -23,7 +24,7 @@ app.use(express.json())
 
 
 app.use("/api/admin",adminAuthRouter);
-
+app.use("/api/admin",adminActivityRouter);
 
 
 // CREATE THE SERVER
