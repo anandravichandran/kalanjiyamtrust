@@ -219,6 +219,86 @@ export const addMembers = async (req, res) => {
 
 
 
+// CONTROLLER FOR ADD EVENTS DETAILS
+
+
+export const addAndEditEvents = async (req, res) => {
+    const { id, title, description, location, date, time } = req.body;
+    const { files } = req;
+
+    try {
+        // Fetch admin data
+        const allData = await adminModel.findById(process.env.ADMINMONGOID);
+        if (!allData) {
+            return res.status(404).json({
+                success: false,
+                message: "Admin data not found.",
+            });
+        }
+
+        const events = allData.events;
+        let message = "";
+        let updatedImageUrl = null;
+
+        // Handle image upload if files are provided
+        if (files && Object.keys(files).length > 0) {
+            updatedImageUrl = await uploadImage("eventImage", files, "eventImages");
+        }
+
+        if (id) {
+            // Update existing event
+            const event = events.id(id); // Use Mongoose's built-in subdocument query
+
+            if (!event) {
+                return res.status(404).json({
+                    success: false,
+                    message: "Event not found.",
+                });
+            }
+
+            // Update event properties
+            Object.assign(event, {
+                title,
+                description,
+                location,
+                date,
+                time,
+                image: updatedImageUrl || event.image,
+            });
+
+            message = `${event.title} details successfully updated!`;
+        } else {
+            // Add new event
+            const newEvent = {
+                title,
+                description,
+                location,
+                date,
+                time,
+                image: updatedImageUrl || null, // Ensure image is null if not provided
+            };
+
+            events.push(newEvent);
+            message = "Event added successfully!";
+        }
+
+        // Save the updated admin data
+        await allData.save();
+
+        return res.status(200).json({
+            success: true,
+            message,
+            image: updatedImageUrl,
+        });
+    } catch (error) {
+        console.error("Error processing request:", error);
+        return res.status(500).json({
+            success: false,
+            message: "Internal Server Error",
+            error: error.message,
+        });
+    }
+};
 
 
 
