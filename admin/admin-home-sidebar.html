@@ -20,10 +20,142 @@
     <link rel="stylesheet" href="./css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/animate.min.css">
     <link rel="stylesheet" href="./css/admin-style.css">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="css/style.css">
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+    <style>
+      body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        /* Form container */
+        #imageForm {
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-upload {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px dashed #ddd;
+            border-radius: 8px;
+            position: relative;
+            background-color: #f4f4f4;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .image-upload:hover {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border-color: #4CAF50;
+        }
+
+        .image-upload label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        /* File input styling */
+        input[type="file"] {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* Image preview */
+        .image-preview {
+            width: 100%;
+            max-width: 576px;
+            height: auto;
+            aspect-ratio: 5760 / 3840;
+            object-fit: cover;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .image-preview:hover {
+            transform: scale(1.02);
+        }
+
+        /* Buttons */
+        button {
+            margin-right: 10px;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 15px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+            border-radius: 15px;
+        }
+
+        .delete-btn {
+            background-color: #f44336;
+            border-radius: 15px;
+        }
+
+        .delete-btn:hover {
+            background-color: #e53935;
+            border-radius: 15px;
+        }
+
+        /* Submit button */
+        #submitBtn {
+            display: block;
+            width: 100%;
+            background-color: #007BFF;
+            color: white;
+            padding: 10px;
+            font-size: 16px;
+            text-align: center;
+            border-radius: 15px;
+            transition: background-color 0.3s ease;
+        }
+
+        #submitBtn:hover {
+            background-color: #0056b3;
+        }
+
+        /* File upload placeholder text */
+        input[type="file"]::file-selector-button {
+            padding: 5px 10px;
+            background-color: #6c757d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="file"]::file-selector-button:hover {
+            background-color: #5a6268;
+        }
+      
+  </style>
   </head>
   <body>
     <!-- HEAD -->
@@ -31,7 +163,7 @@
       <div class="container">
         <div class="row header">
           <div class="col-md-3">
-            <div class="logo">
+            <div class="logo" style="width:65%; height:65%; margin-bottom: 0px; margin-top: -10px;">
               <img src="./images/Dashboardlogo.png" alt="">
             </div>
           </div>
@@ -40,18 +172,10 @@
               <input type="text" placeholder="Search here" id="searchBar">
             </div>
           </div>
-          
-           
          
         </div>
       </div>
     </section>
-    <div id="loader" class="loader-container" style="display: none;">
-      <div class="loader-content">
-        <div class="spinner"></div>
-        <p>loading...</p>
-      </div>
-    </div>
     <!-- END -->
     <!-- COPYRIGHTS -->
     <section>
@@ -63,7 +187,8 @@
                 <li class="ic-db">
                   <a href="dashboard.html">Dashboard</a>
                 </li>
-                <li class="ic-user">
+
+                <!-- <li class="ic-user">
                   <a href="#" class="">Users</a>
                   <div>
                     <ol>
@@ -85,7 +210,7 @@
                       </li>
                     </ol>
                   </div>
-                </li>
+                </li> -->
 
                
                 
@@ -97,11 +222,29 @@
                 </li>
                
                 <li>
-                  <h4>Others</h4>
+                  <h4>Edit Website</h4>
                 </li>
-                <li class="ic-febk">
-                  <a href="admin-enquiry.html">All Enquiry</a>
+                <li class="">
+                  <!-- event --> 
+                  <a href="admin-event.html"> 
+                    <img src="./images/icons/event_change.png" alt="Event" style="width: 16px; height: 16px; margin-right:2px;">
+                    Event
+                  </a>
                 </li>
+                <li class="">
+                  <!-- memeber --> 
+                    <a href="admin-member.html">
+                        <img src="./images/icons/member_edit.png" alt="Member" style="width: 16px; height: 16px; margin-right:2px;">
+                        Members</a>
+                  </li>
+                  <li class="">
+                    <!-- sidebar --> 
+                    <a href="admin-home-sidebar.html">
+                        <img src="./images/icons/sidebar_edit.png" alt="Sidebar" style="width: 16px; height: 16px; margin-right:2px;">
+                        Home Sidebar Change
+                    </a>
+                </li>
+                
 
                 <li>
                   <h4>Sign out </h4>
@@ -116,7 +259,7 @@
                         <div class="row main-head">
                             <div class="col-md-4">
                                 <div class="tit">
-                                    <h1>All users</h1>
+                                    <h1>SideBar Changes</h1>
                                 </div>
                             </div>
                           
@@ -125,7 +268,7 @@
                             <div class="col-md-12">
                                 <div class="box-com box-qui box-lig box-tab">
 
-                                    <table class="table">
+                                    <!-- <table class="table">
                                         <thead>
                                           <tr>
                                             <th>No</th>
@@ -173,7 +316,40 @@
                                           </tr>
                                           
                                         </tbody>
-                                      </table>
+                                      </table> -->
+
+
+                                      <!--- Image Upload Form -->
+    <form id="imageForm">
+      <!-- Image 1 -->
+      <div class="image-upload">
+          <label>Upload Image 1:</label>
+          <input type="file" accept="image/*" id="image1" onchange="previewImage(this, 'preview1')">
+          <img id="preview1" class="image-preview" src="" alt="Image Preview 1">
+          <button type="button" class="delete-btn" onclick="deleteImage('preview1')">Delete</button>
+      </div>
+
+      <!-- Image 2 -->
+      <div class="image-upload">
+          <label>Upload Image 2:</label>
+          <input type="file" accept="image/*" id="image2" onchange="previewImage(this, 'preview2')">
+          <img id="preview2" class="image-preview" src="" alt="Image Preview 2">
+          <button type="button" class="delete-btn" onclick="deleteImage('preview2')">Delete</button>
+      </div>
+
+      <!-- Image 3 -->
+      <div class="image-upload">
+          <label>Upload Image 3:</label>
+          <input type="file" accept="image/*" id="image3" onchange="previewImage(this, 'preview3')">
+          <img id="preview3" class="image-preview" src="" alt="Image Preview 3">
+          <button type="button" class="delete-btn" onclick="deleteImage('preview3')">Delete</button>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" id="submitBtn">Submit</button>
+  </form>
+
+                                      <!-- ------------input form end -->
                                 </div>
                             </div>
 
@@ -184,6 +360,12 @@
             </div>
         </div>
     </section>
+    <div id="loader" class="loader-container" style="display: none;">
+      <div class="loader-content">
+        <div class="spinner"></div>
+        <p>loading...</p>
+      </div>
+    </div>
     <!-- END -->
     <div class="popup-overlay" id="popup" style="
     position: fixed; 
@@ -619,24 +801,6 @@
                     <div class="row">
                       <p style="display: flex; flex-wrap: wrap; align-items: center; gap: 5px; font-size: 14px; margin-left:350px;">
                         Copyright © <span id="cry">2024</span> 
-                        <a href="#!" target="_blank">Company.com</a> 
-                        All rights reserved. Powered by 
-                        <u><a href="https://www.thinkinfoexpertsolutions.com/" target="_blank">ThinkInfoExpertSolution</a></u> 
-                        in Salem.
-                      </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    <!-- END -->
-
-        <!-- COPYRIGHTS -->
-        <section>
-            <div class="cr">
-                <div class="container">
-                    <div class="row">
-                      <p style="display: flex; flex-wrap: wrap; align-items: center; gap: 5px; font-size: 14px; margin-left:350px;">
-                        Copyright © <span id="cry">2024</span> 
                         <a href="#!" target="_blank">Kalanjiyam Kalyana Malai.com</a> 
 
                         All rights reserved. Powered by 
@@ -650,39 +814,35 @@
         <!-- END -->
     <!-- Optional JavaScript -->
     <script>
-      function toggleDropdown() {
-        var dropdown = document.querySelector('.dropdown');
-        dropdown.classList.toggle('active');
-    }
+               // Preview uploaded image
+               function previewImage(input, previewId) {
+            const file = input.files[0];
+            const preview = document.getElementById(previewId);
 
-      // Open Popup
-      function openPopup() {
-          var popup = document.getElementById('popup');
-          popup.style.display = 'flex'; // Use flex to center the popup
-      }
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            } else {
+                preview.src = "";
+            }
+        }
 
-      // Close Popup
-      function closePopup() {
-          var popup = document.getElementById('popup');
-          popup.style.display = 'none';
-      }
+        // Delete Image Preview
+        function deleteImage(previewId) {
+            document.getElementById(previewId).src = "";
+            document.getElementById(previewId.replace('preview', 'image')).value = "";
+        }
 
-      // Open Popup
-      function openPopupProfile() {
-        var popup = document.getElementById('popup01');
-        popup.style.display = 'flex'; // Use flex to center the popup
-    }
+        // Handle form submission
+        document.getElementById('imageForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Images submitted successfully!');
+            // Implement backend upload logic here
+        });
 
-    // Close Popup
-    function closePopupProfile() {
-        var popup = document.getElementById('popup01');
-        popup.style.display = 'none';
-    }
-
-  
-
-      // Close Dropdown and Popup when clicking outside
-  
   </script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="js/jquery.min.js"></script>
@@ -693,7 +853,6 @@
     <script src="js/admin-custom.js"></script>
     <script src="js/main/common.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-        
     
 </body>
 

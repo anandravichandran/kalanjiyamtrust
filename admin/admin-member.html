@@ -20,13 +20,96 @@
     <!-- <link rel="stylesheet" href="./css/font-awesome.min.css"> -->
     <link rel="stylesheet" href="./css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/animate.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="css/admin-style.css"> -->
     <link rel="stylesheet" href="./css/admin-style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
    
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    
+    <style>
+        /* General Styling */
+
+        .leader-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .leader-upload {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .image-preview {
+            width: 100%;
+            max-width: 300px;
+            aspect-ratio: 6912 / 6979;
+            object-fit: cover;
+            margin: 10px 0;
+            border: 2px solid #ccc;
+        }
+
+        .leader-info input,
+        .leader-info select {
+            width: 100%;
+            max-width: 300px;
+            margin: 5px 0;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .button-group button {
+            margin: 5px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 40px;
+            cursor: pointer;
+            color: #fff;
+            font-size: 1em;
+        }
+
+        .add-btn{
+       background: linear-gradient(45deg, #5fae34, #017e33);
+       padding: 10px 15px;
+       border-radius: 40px;
+      display: inline-block;
+      margin-right: 40%;
+      cursor: pointer;
+      text-align: center;
+}
+
+        .submit-btn{
+          background: linear-gradient(45deg,#1b59e9,#8e54e9);
+            padding: 10px 15px;
+            border-radius: 20px;
+            margin-left: 40%;
+          
+        }
+
+        .delete-btn {
+    background: linear-gradient(45deg, #ed4264, #fcd25f);
+    border-radius: 20px;
+    margin-left: 60%; /* Move it to the right */
+    cursor: pointer;
+    text-align: center;
+}
+
+        /* Notes */
+        .note {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #fb003a;
+            text-align: center;
+        }
+
+        /* Hover Effects */
+        .button-group button:hover {
+            opacity: 0.8;
+        }
+  </style>
   </head>
   <body>
     <!-- HEAD -->
@@ -40,7 +123,7 @@
           </div>
           <div class="col-md-6">
             <div class="top-sarch">
-              <input type="text" placeholder="Search here" id="searchBar">
+              <input type="text" placeholder="Search here" id="searchBar" >
             </div>
           </div>
          
@@ -65,7 +148,7 @@
                   <div>
                     <ol>
                       <li>
-                        <a href="admin-new-user-requests.html">User Verify Requests</a>
+                        <a href="admin-new-user-requests.html">New User Verify Requests</a>
                       </li>
                       <li>
                         <a href="admin-all-users.html">All Users</a>
@@ -84,7 +167,7 @@
                   </div>
                 </li> -->
 
-               
+              
                 
                 <li>
                   <h4>Settings</h4>
@@ -127,35 +210,11 @@
               </ul>
             </div>
           </div>
-          <div id="loader" class="loader-container" style="display: none;">
-            <div class="loader-content">
-              <div class="spinner"></div>
-              <p>loading...</p>
-            </div>
-          </div>
                    <div class="pan-rhs">
                         <div class="row main-head">
-                            <div class="row text-center">
-                                <div class="col-md-4">
-                                    <div class="tit">
-                                        <a href="admin-enquiry.html">
-                                            <h1 id="verification-header">Enquirys</h1>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="tit">
-                                        <a href="admin-solved-enquiry.html">
-                                            <h1 id="accepted-header">Solved</h1>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="tit">
-                                        <a href="admin-pending-enquiry.html">
-                                            <h1 id="denied-header">Pending</h1>
-                                        </a>
-                                    </div>
+                            <div class="col-md-4">
+                                <div class="tit">
+                                    <h3>Organization Leaders</h3>
                                 </div>
                             </div>
                           
@@ -163,21 +222,16 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="box-com box-qui box-lig box-tab">
-                                      <div class="tit">
-                                        <h3>Enquiries & Leads</h3>
-                                        <p>Here you can manage your leads and enquiry.</p>
-                                    </div>
+<!-- 
                                     <table class="table">
                                         <thead>
                                           <tr>
                                             <th>No</th>
-                                            <th>User</th>
-                                            <th>Name</th>
-                                            <th>E-mail id</th>
+                                            <th>Profile</th>
+                                            <th>Profile Id</th>
                                             <th>Phone</th>
-                                            <th>Date</th>
-                                            <th>Time</th>
-                                            <th>Message</th>
+                                            <th>City</th>
+                                            <th>Plan type</th>
                                             <th>More</th>
                                           </tr>
                                         </thead>
@@ -217,7 +271,24 @@
                                           </tr>
                                           
                                         </tbody>
-                                      </table>
+                                      </table> -->
+
+                                      <!-- ------------------profile start==== -->
+                                     
+                                       <!-- Leader Upload Form -->
+                                       <form id="leaderForm">
+                                        <div id="leadersContainer"></div>
+                                        <div class="button-groups">
+                                            <button type="button" class="add-btn" id="addLeaderBtn">Add Leader</button>
+                                        </div>
+                                        <button type="submit" class="submit-btn">Submit</button>
+                                    </form>
+
+  <div class="note">
+      Note: Please upload images with dimensions **6912x6979** for proper display and fitting on the website.
+  </div>
+
+                                      <!-- -----------------profile end======== -->
                                 </div>
                             </div>
 
@@ -228,165 +299,16 @@
             </div>
         </div>
     </section>
+    <div id="loader" class="loader-container" style="display: none;">
+      <div class="loader-content">
+        <div class="spinner"></div>
+        <p>loading...</p>
+      </div>
+    </div>
     <!-- END -->
-    <div class="popup-overlay" id="popup" style="
-    position: fixed; 
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%; 
-    background: rgba(0, 0, 0, 0.6); 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    z-index: 1000;
-    display: none;">
-    <div class="popup-content" style="
-        background-color: #fff; 
-        width: 80%; 
-        max-width: 800px; 
-        border-radius: 15px; 
-        padding: 20px 10px; 
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); 
-        position: relative; 
-        overflow: hidden; 
-        animation: fadeIn 0.5s forwards;">
-        
-        <!-- Close Button -->
-        <button class="close-btn" onclick="closePopupProfile()" style="
-        position: absolute; 
-        top: 15px; 
-        right: 15px; 
-        font-size: 20px; 
-        color: white; 
-        background: #d9534f; 
-        border: none; 
-        border-radius: 50%; 
-        width: 35px; 
-        height: 35px; 
-        cursor: pointer; 
-        display: flex; 
-        justify-content: center; 
-        align-items: center; 
-        transition: background 0.3s;">
-        &times;
-    </button>
+  
     
-
-        <!-- Title Section -->
-        <div class="header" style="
-        text-align: center; 
-        margin-bottom: 20px;">
-        <h2 style="
-            font-size: 24px; 
-            font-weight: bold; 
-            color: #f7083c;">
-           Enquire Details
-        </h2>
-       
-    </div>
-
-    <div class="profile-section" style="
-    position: relative; /* Set relative positioning for parent container */
-    display: flex; 
-    align-items: center; 
-    margin-bottom: 20px;
-    margin-left: 40px;
-    margin-right: 40px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    border-radius: 10px;
-    background-color: #fff;
-">
-    <!-- Profile Picture -->
-    <img id="profilePicture" src="./images/images.jpg" alt="Profile Picture" style="
-        width: 100px; 
-        height: 100px; 
-        border-radius: 50%; 
-        margin-right: 20px; 
-        object-fit: cover;
-    ">
-
-    <!-- Profile Information -->
-    <div class="profile-info" style="flex: 1;">
-        <h3 id="profileName" style="color: #333; margin-bottom: 5px; font-size: 20px;">
-            John Doe
-        </h3>
-        <p id="profileId" style="font-size: 14px; color: #555; margin: 3px 0;">
-            ID: 12345
-        </p>
-        <p id="profileEmail" style="font-size: 14px; color: #555; margin: 3px 0;">
-            Email: johndoe@example.com
-        </p>
-        <p id="profileContact" style="font-size: 14px; color: #555; margin: 3px 0;">
-            Contact: +123456789
-        </p>
-        <p id="profileLocation" style="font-size: 14px; color: #555; margin: 3px 0;">
-            Location: Germany
-        </p>
-        <p id="profileSubject" style="font-size: 14px; color: #555; margin: 3px 0;">
-           Subject:
-        </p>
-        <div class="profile-about" style="
-            font-size: 14px; 
-            color: #3c3c3c; 
-            margin-top: 10px; 
-            max-height: 240px; 
-            overflow-y: auto; 
-            padding-right: 10px; 
-            border-top: 1px solid #ddd;
-            padding-top: 10px;
-        ">
-            <p id="profileDetails" style="margin: 0; color: #555;">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque imperdiet ipsum sed orci malesuada, at malesuada purus placerat. Vivamus malesuada feugiat nisi, a fermentum velit posuere vel. Curabitur aliquet volutpat risus, nec consectetur mauris fermentum in. Aliquam scelerisque odio eget velit consectetur eleifend. Cras tempus ex sed orci fermentum, non tristique elit aliquet. Donec ut urna at justo pellentesque malesuada eget quis nunc. Proin convallis vulputate lacus, at vehicula ex cursus id. Aenean ac semper lorem. Phasellus vel tortor in lorem bibendum auctor. Sed auctor magna sed dolor efficitur posuere. Quisque malesuada non ligula a auctor.
-            </p>
-        </div>
-    </div>
-
-    <!-- Arrow Icon for Profile Navigation -->
-    <a href="/profile" title="Go to Profile Page" style="
-        position: absolute; 
-        top: 10px; 
-        right:0px; 
-        text-decoration: none; 
-        display: flex; 
-        align-items: center;
-    ">
-        <img src="./images/up-right-arrow_5791216.png" alt="Profile Icon" style="
-            width: 30px; 
-            height: 30px; 
-            object-fit:contain;
-        ">
-    </a>
 </div>
-    </div>
-    </div>
-
-<style>
-    .profile-section {
-        display: flex;
-        align-items: center;
-        margin-bottom: 20px;
-        margin-left: 40px;
-        margin-right: 40px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        padding: 10px;
-        border-radius: 10px;
-        background-color: #fff;
-    }
-
-    .profile-info {
-        flex: 1;
-    }
-
-    .profile-about {
-        max-height: 240px; /* Limit height for about message (approximately 15 lines) */
-        overflow-y: auto; /* Add scrollbar for long messages */
-        padding-right: 10px; /* Prevent text overlap with scrollbar */
-        border-top: 1px solid #ddd; /* Separate the section visually */
-        padding-top: 10px;
-    }
-</style>
      <!-- end of user verification -->
         <!-- COPYRIGHTS -->
         <section>
@@ -410,33 +332,120 @@
 
 
     <script>
-      function toggleDropdown() {
-        var dropdown = document.querySelector('.dropdown');
-        dropdown.classList.toggle('active');
+   // Leader Counter to differentiate sections
+   let leaderCount = 0;
+
+// Load saved leaders from Local Storage
+function loadLeaders() {
+    const savedLeaders = JSON.parse(localStorage.getItem('leaders')) || [];
+    leaderCount = savedLeaders.length;
+
+    savedLeaders.forEach((leader, index) => {
+        addLeader(false, leader, index + 1);
+    });
+}
+
+// Save leaders to Local Storage
+function saveLeaders() {
+    const leaders = [];
+    for (let i = 1; i <= leaderCount; i++) {
+        const leaderImage = document.getElementById(`leaderImage${i}`);
+        const leaderName = document.getElementById(`leaderName${i}`).value;
+        const leaderPosition = document.getElementById(`leaderPosition${i}`).value;
+        if (leaderImage && leaderImage.src) {
+            leaders.push({
+                image: leaderImage.src,
+                name: leaderName,
+                position: leaderPosition,
+            });
+        }
     }
+    localStorage.setItem('leaders', JSON.stringify(leaders));
+}
 
+// Add a new leader section
+function addLeader(save = true, leader = null, count = null) {
+    leaderCount = count || leaderCount + 1;
 
-      // Open Popup
-      
+    const leaderSection = document.createElement('div');
+    leaderSection.classList.add('leader-upload');
+    leaderSection.id = `leaderSection${leaderCount}`;
+    leaderSection.innerHTML = `
+        <label>Upload Leader Image (Leader ${leaderCount}):</label>
+        <input type="file" accept="image/*" id="fileInput${leaderCount}" onchange="previewImage(this, 'leaderImage${leaderCount}')">
+        <img id="leaderImage${leaderCount}" class="image-preview" src="${leader ? leader.image : ''}" alt="Leader ${leaderCount} Preview">
+        <div class="leader-info">
+            <input type="text" placeholder="Leader Name" id="leaderName${leaderCount}" value="${leader ? leader.name : ''}">
+           <select id="leaderPosition" class="position-select">
+    ${[
+      "நிறுவனர்",
+      "தலைவர்",
+      "செயலாளர்",
+      "பொருளாளர்",
+      "துணை தலைவர்",
+      "இணை செயலாளர்",
+      "ஆலோசகர்",
+      "செயற்குழு உறுப்பினர்",
+      "நிர்வாகி",
+      "இயக்குநர்",
+      "இணை நிறுவனர்",
+      "பொதுச் செயலாளர்",
+      "துணை பொருளாளர்",
+      "இளைஞர் அணி தலைவர்",
+      "ஊடகப் பொறுப்பாளர்",
+    ]
+      .map(
+        (position) =>
+          `<option value="${position}" ${
+            leader?.position === position ? "selected" : ""
+          }>${position}</option>`
+      )
+      .join("")}
+</select>
 
-      // Close Popup
-      function closePopup() {
-          var popup = document.getElementById('popup');
-          popup.style.display = 'none';
-      }
-        
-            // Open Popup
-           
-      
-          // Close Popup
-          function closePopupProfile() {
-              var popup = document.getElementById('popup');
-              popup.style.display = 'none';
-          }
-  
+        </div>
+        <div class="button-group">
+            <button type="button" class="delete-btn" onclick="deleteLeader(${leaderCount})">Delete Leader</button>
+        </div>
+    `;
+    document.getElementById('leadersContainer').appendChild(leaderSection);
 
-      // Close Dropdown and Popup when clicking outside
-  
+    if (save) saveLeaders();
+}
+
+// Preview uploaded image
+function previewImage(input, imageId) {
+    const file = input.files[0];
+    const image = document.getElementById(imageId);
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            image.src = e.target.result;
+            saveLeaders();
+        };
+        reader.readAsDataURL(file);
+    }
+}
+
+// Delete a leader section
+function deleteLeader(leaderId) {
+    const leaderSection = document.getElementById(`leaderSection${leaderId}`);
+    leaderSection.remove();
+    saveLeaders();
+}
+
+// Add event listener to the "Add Leader" button
+document.getElementById('addLeaderBtn').addEventListener('click', () => addLeader(true));
+
+// Handle form submission
+document.getElementById('leaderForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    alert('Leaders data submitted successfully!');
+    localStorage.removeItem('leaders'); // Optional: Clear Local Storage after submission
+});
+
+// Load leaders on page load
+window.onload = loadLeaders;
   </script>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -444,12 +453,12 @@
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/select-opt.js"></script>
-    <!-- <script src="js/chart.js"></script> -->
+   
     <script src="js/admin-custom.js"></script>
-    <script src="js/main/enquery.js"></script>
+    <script src="js/main/common.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     
-
+    
 </body>
 
 
