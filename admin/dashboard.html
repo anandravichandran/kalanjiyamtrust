@@ -54,54 +54,32 @@
                   <a href="dashboard.html">Dashboard</a>
                 </li>
 
-                <!-- <li class="ic-user">
-                  <a href="#" class="">Users</a>
-                  <div>
-                    <ol>
-                      <li>
-                        <a href="admin-new-user-requests.html"> User Verify Requests</a>
-                      </li>
-                      <li>
-                        <a href="admin-all-users.html">All Users</a>
-                      </li>
-                      <li>
-                        <a href="admin-free-users.html">Free Users</a>
-                      </li>
-                   
-                      <li>
-                        <a href="admin-platinum-users.html">Premium Users</a>
-                      </li>
-                      <li>
-                        <a href="admin-add-new-user.html">Add new User</a>
-                      </li>
-                    </ol>
-                  </div>
-                </li>
-                 -->
+                
                  <li>
                   <h4>Edit Website</h4>
                 </li>
-                <li class="">
-                  <!-- event --> 
-                  <a href="admin-event.html"> 
-                    <img src="./images/icons/event_change.png" alt="Event" style="width: 16px; height: 16px; margin-right:2px;">
-                    Event
+                <li>
+                  <!-- Event -->
+                  <a href="admin-event.html">
+                      <i class="fas fa-calendar-alt" style="font-size: 18px; margin-right: 5px;"></i>
+                      Event
                   </a>
-                </li>
-                <li class="">
-                  <!-- memeber --> 
-                    <a href="admin-member.html">
-                        <img src="./images/icons/member_edit.png" alt="Member" style="width: 16px; height: 16px; margin-right:2px;">
-                        Members</a>
-                  </li>
-                  <li class="">
-                    <!-- sidebar --> 
-                    <a href="admin-home-sidebar.html">
-                        <img src="./images/icons/sidebar_edit.png" alt="Sidebar" style="width: 16px; height: 16px; margin-right:2px;">
-                        Home Sidebar Change
-                    </a>
-                </li>
-                
+              </li>
+              <li>
+                  <!-- Member -->
+                  <a href="admin-member.html">
+                      <i class="fas fa-users" style="font-size: 18px; margin-right: 5px;"></i>
+                      Members
+                  </a>
+              </li>
+              <li>
+                  <!-- Sidebar -->
+                  <a href="admin-home-sidebar.html">
+                      <i class="fas fa-columns" style="font-size: 18px; margin-right: 5px;"></i>
+                      Home Sidebar Change
+                  </a>
+              </li>
+              
                 <li>
                   <h4>Settings</h4>
                 </li>
@@ -128,95 +106,22 @@
               </div>
               
             </div>
-            <div class="row">
-              <div class="col-md-3">
-                <div class="box-com box-qui box-drk grn-box">
-                  <h4>New Users</h4>
-                  <h2>User Verify requests</h2>
-                  <span class="bnum" id="requestCount">69</span>
-                  <p>This count for  how many users can send verify request.</p>
-                  <a href="admin-new-user-requests.html" class="fclick"></a>
-                </div>
-                <div class="box-com box-qui box-lig ali-cen">
-                  <h3>
-                    <span>All</span> Members
-                  </h3>
-                  <span class="bnum" id="membersCount">6900</span>
-                  <canvas id="Chart_users"></canvas>
-                  
-                </div>
-                
-              </div>
-              <div class="col-md-3">
-                <div class="box-com box-qui box-lig box-new-user">
-                  <h2>Total Profiles</h2>
-                  <a href="admin-all-users.html" class="fclick"></a>
-                  <span class="bnum" id="profileCount"></span>
-                  <div class="users-cir-thum-hori" id="profileIcons">
-                
+            <div class="tit">
+              <h1 >Home Page  Slider</h1>
+            </div>
+             
+                <div class="zany-carousel">
+                  <div class="twisty-slides" id="slideContainer">
+                    <div class="whimsical-slide"><img src="../frontend/final photos/6R9A8185.JPG" alt="Slide 1"></div>
+                    <div class="whimsical-slide"><img src="../frontend/final photos/6R9A7871.JPG" alt="Slide 2"></div>
+                    <div class="whimsical-slide"><img src="../frontend/final photos/6R9A7788.JPG" alt="Slide 3"></div>
+                  </div>
+                  <div class="whirly-controls">
+                    <button class="fancy-button" id="prevButton">❮</button>
+                    <button class="fancy-button" id="nextButton">❯</button>
                   </div>
                 </div>
-                <div class="box-com box-qui box-lig ali-cen">
-                  <h3>
-                    <span>Total</span> Earnings
-                  </h3>
-                  <span class="bnum" id="totalEarnings">
-                    <sub>₹</sub> </span>
-                  <canvas id="Chart_earni"></canvas>
-                </div>
-                
-              </div>
-              <div class="col-md-6">
-                <div class="box-com box-qui box-lig ali-cen">
-                  <h3>
-                    <span>Monthly</span> Earnings
-                  </h3>
-                  <span class="bnum" id="MonthlyEarnings">
-                    <sub>$</sub>10,069 </span>
-                  <canvas id="Chart_earni_rece"></canvas>
-                </div>
-                
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6 " >
-                <div class="tit">
-                  <h3>Recent members</h3>
-                  <p>Recently joined members</p>
-                </div>
-                <div class="box-com box-qui box-lig box-tab" style="max-height:100%;padding: 0;" id="membersContainer">
-
-                        <!-- ------------------------- -->
-                         <!-- card -1  -->
-                         
-                        <!-- --------------- -->
-
-                </div>
-              </div>
-
-              <!-- =============================================================================== -->
-              <div id="loader" class="loader-container" style="display: none;">
-                <div class="loader-content">
-                  <div class="spinner"></div>
-                  <p>loading...</p>
-                </div>
-              </div>
-
-              <div class="col-md-6">
-                <div class="tit">
-                  <h3>Renewal Reminder</h3>
-                  <p>Below listed profils going to expairy soon.</p>
-                </div>
-                <div class="box-com box-qui box-lig box-tab" style="max-height:98%;" id="renewMembersContainer">
-
-                     
-                       
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+       
       </div>
     </section>
     <!-- END -->
@@ -250,12 +155,24 @@
       
     <script src="js/main/dashBoard.js"></script>
     <script>
-      //EARNING CHART
-    
-      //USER CHART
-      
-      //USER CHART
-      
+      const slideContainer = document.getElementById('slideContainer');
+      const slideCount = slideContainer.children.length;
+      let currentIndex = 0;
+
+      function updateCarousel() {
+        const offset = -currentIndex * 100; // Move by 100% for each slide
+        slideContainer.style.transform = `translateX(${offset}%)`;
+      }
+
+      document.getElementById('nextButton').addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % slideCount;
+        updateCarousel();
+      });
+
+      document.getElementById('prevButton').addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+        updateCarousel();
+      });
     </script>
   </body>
 

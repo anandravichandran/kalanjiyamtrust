@@ -126,13 +126,14 @@
         /* Submit button */
         #submitBtn {
             display: block;
-            width: 100%;
+            width: 600px;
+            margin-left: 145px;
             background-color: #007BFF;
             color: white;
             padding: 10px;
             font-size: 16px;
             text-align: center;
-            border-radius: 15px;
+            border-radius: 5px;
             transition: background-color 0.3s ease;
         }
 
@@ -188,61 +189,37 @@
                   <a href="dashboard.html">Dashboard</a>
                 </li>
 
-                <!-- <li class="ic-user">
-                  <a href="#" class="">Users</a>
-                  <div>
-                    <ol>
-                      <li>
-                        <a href="admin-new-user-requests.html"> User Verify Requests</a>
-                      </li>
-                      <li>
-                        <a href="admin-all-users.html">All Users</a>
-                      </li>
-                      <li>
-                        <a href="admin-free-users.html">Free Users</a>
-                      </li>
-                      
-                      <li>
-                        <a href="admin-platinum-users.html">Premium Users</a>
-                      </li>
-                      <li>
-                        <a href="admin-add-new-user.html">Add new User</a>
-                      </li>
-                    </ol>
-                  </div>
-                </li> -->
-
-               
                 
+                 <li>
+                  <h4>Edit Website</h4>
+                </li>
+                <li>
+                  <!-- Event -->
+                  <a href="admin-event.html">
+                      <i class="fas fa-calendar-alt" style="font-size: 18px; margin-right: 5px;"></i>
+                      Event
+                  </a>
+              </li>
+              <li>
+                  <!-- Member -->
+                  <a href="admin-member.html">
+                      <i class="fas fa-users" style="font-size: 18px; margin-right: 5px;"></i>
+                      Members
+                  </a>
+              </li>
+              <li>
+                  <!-- Sidebar -->
+                  <a href="admin-home-sidebar.html">
+                      <i class="fas fa-columns" style="font-size: 18px; margin-right: 5px;"></i>
+                      Home Sidebar Change
+                  </a>
+              </li>
+              
                 <li>
                   <h4>Settings</h4>
                 </li>
                 <li class="ic-set">
                   <a href="admin-setting.html">Site Setting</a>
-                </li>
-               
-                <li>
-                  <h4>Edit Website</h4>
-                </li>
-                <li class="">
-                  <!-- event --> 
-                  <a href="admin-event.html"> 
-                    <img src="./images/icons/event_change.png" alt="Event" style="width: 16px; height: 16px; margin-right:2px;">
-                    Event
-                  </a>
-                </li>
-                <li class="">
-                  <!-- memeber --> 
-                    <a href="admin-member.html">
-                        <img src="./images/icons/member_edit.png" alt="Member" style="width: 16px; height: 16px; margin-right:2px;">
-                        Members</a>
-                  </li>
-                  <li class="">
-                    <!-- sidebar --> 
-                    <a href="admin-home-sidebar.html">
-                        <img src="./images/icons/sidebar_edit.png" alt="Sidebar" style="width: 16px; height: 16px; margin-right:2px;">
-                        Home Sidebar Change
-                    </a>
                 </li>
                 
 
@@ -259,7 +236,7 @@
                         <div class="row main-head">
                             <div class="col-md-4">
                                 <div class="tit">
-                                    <h1>SideBar Changes</h1>
+                                    <h1>Change Slider Images</h1>
                                 </div>
                             </div>
                           
@@ -267,87 +244,58 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="box-com box-qui box-lig box-tab">
+        
+                                    <div class="large-image-input">
+                                        <span class="header-text">Image 1</span>
+                                        <button class="delete-icon" title="Delete">&times;</button>
+                                        <label for="horoscopeImage">
+                                          <img
+                                            id="horoscopePhoto"
+                                            src="https://static.vecteezy.com/system/resources/previews/026/631/445/non_2x/add-photo-icon-symbol-design-illustration-vector.jpg"
+                                            alt="Choose Image"
+                                            class="image-icon"
+                                          />
+                                        </label>
+                                        <input required type="file" accept="image/*" id="horoscopeImage" />
+                                      </div>
+                                      
+                                      
+      <br>
 
-                                    <!-- <table class="table">
-                                        <thead>
-                                          <tr>
-                                            <th>No</th>
-                                            <th>Profile</th>
-                                            <th>Profile Id</th>
-                                            <th>Phone</th>
-                                            <th>City</th>
-                                            <th>Plan type</th>
-                                            <th>More</th>
-                                          </tr>
-                                        </thead>
-                                        <tbody>
-                                          <tr>
-                                            <td>1</td>
-                                            <td>
-                                                <div class="prof-table-thum">
-                                                    <div class="pro">
-                                                        <img src="images/profiles/3.jpg" alt="">
-                                                    </div>
-                                                    <div class="pro-info">
-                                                        <h5>Ashley emyy</h5>
-                                                        <p>ashleyipsum@gmail.com</p>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>@132232324</td>
-                                            <td>01 321-998-91</td>
-                                            <td>New York</td>
-                                            <td><span class="hig-grn">Premium</span></td>
-                                            <td>
-                                                <div class="dropdown">
-                                                  <button type="button" class="btn btn-outline-secondary" data-bs-toggle="dropdown">
-            <img src="./images/three-dot-icon.png" alt="icon" style="width: 25px; height: 20px;">
-        </button>
-        <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Edit</a></li>
-            <li><a class="dropdown-item" href="#">Delete</a></li>
-            <li><a class="dropdown-item" href="#" onclick="openPopup()">Subscription Details</a></li>
-            <li><a class="dropdown-item" href="#" onclick="openPopupProfile()">Profile Verification</a></li>
-            <li><a class="dropdown-item" href="#">View profile</a></li>
-        </ul>
-    </div>
-
-                                            </td>
-                                          </tr>
-                                          
-                                        </tbody>
-                                      </table> -->
-
-
-                                      <!--- Image Upload Form -->
-    <form id="imageForm">
-      <!-- Image 1 -->
-      <div class="image-upload">
-          <label>Upload Image 1:</label>
-          <input type="file" accept="image/*" id="image1" onchange="previewImage(this, 'preview1')">
-          <img id="preview1" class="image-preview" src="" alt="Image Preview 1">
-          <button type="button" class="delete-btn" onclick="deleteImage('preview1')">Delete</button>
+      <div class="large-image-input">
+        <span class="header-text">Image 2</span>
+        <button class="delete-icon" title="Delete">&times;</button>
+        <label for="horoscopeImage">
+          <img
+            id="horoscopePhoto"
+            src="https://static.vecteezy.com/system/resources/previews/026/631/445/non_2x/add-photo-icon-symbol-design-illustration-vector.jpg"
+            alt="Choose Image"
+            class="image-icon"
+          />
+        </label>
+        <input required type="file" accept="image/*" id="horoscopeImage" />
       </div>
 
-      <!-- Image 2 -->
-      <div class="image-upload">
-          <label>Upload Image 2:</label>
-          <input type="file" accept="image/*" id="image2" onchange="previewImage(this, 'preview2')">
-          <img id="preview2" class="image-preview" src="" alt="Image Preview 2">
-          <button type="button" class="delete-btn" onclick="deleteImage('preview2')">Delete</button>
-      </div>
+      <br>
 
-      <!-- Image 3 -->
-      <div class="image-upload">
-          <label>Upload Image 3:</label>
-          <input type="file" accept="image/*" id="image3" onchange="previewImage(this, 'preview3')">
-          <img id="preview3" class="image-preview" src="" alt="Image Preview 3">
-          <button type="button" class="delete-btn" onclick="deleteImage('preview3')">Delete</button>
+      <div class="large-image-input">
+        <span class="header-text">Image 3</span>
+        <button class="delete-icon" title="Delete">&times;</button>
+        <label for="horoscopeImage">
+          <img
+            id="horoscopePhoto"
+            src="https://static.vecteezy.com/system/resources/previews/026/631/445/non_2x/add-photo-icon-symbol-design-illustration-vector.jpg"
+            alt="Choose Image"
+            class="image-icon"
+          />
+        </label>
+        <input required type="file" accept="image/*" id="horoscopeImage" />
       </div>
+      <br>
 
       <!-- Submit Button -->
       <button type="submit" id="submitBtn">Submit</button>
-  </form>
+  
 
                                       <!-- ------------input form end -->
                                 </div>
@@ -367,431 +315,7 @@
       </div>
     </div>
     <!-- END -->
-    <div class="popup-overlay" id="popup" style="
-    position: fixed; 
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%; 
-    background: rgba(0, 0, 0, 0.6); 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    z-index: 1000;
-    display: none;">
-    <div class="popup-content" style="
-        background-color: #fff; 
-        width: 80%; 
-        max-width: 500px; 
-        border-radius: 15px; 
-        padding: 20px 10px; 
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); 
-        position: relative; 
-        overflow: hidden; 
-        animation: fadeIn 0.5s forwards;">
-        
-        <!-- Close Button -->
-        <button class="close-btn" onclick="closePopup()" style="
-        position: absolute; 
-        top: 15px; 
-        right: 15px; 
-        font-size: 20px; 
-        color: white; 
-        background: #d9534f; 
-        border: none; 
-        border-radius: 50%; 
-        width: 35px; 
-        height: 35px; 
-        cursor: pointer; 
-        display: flex; 
-        justify-content: center; 
-        align-items: center; 
-        transition: background 0.3s;">
-        &times;
-    </button>
-    
 
-        <!-- Title Section -->
-        <div class="header" style="
-        text-align: center; 
-        margin-bottom: 20px;">
-        <h2 style="
-            font-size: 24px; 
-            font-weight: bold; 
-            color: #f7083c;">
-            Subscription Details
-        </h2>
-        <p class="subtext" style="
-            color: #666; 
-            font-size: 14px; 
-            margin-top: 5px;">
-            Manage your subscription seamlessly
-        </p>
-    </div>
-    
-    <!-- User Image Section -->
-    <div class="profile-section" style="
-    display: flex; 
-    align-items: center; 
-    margin-bottom: 20px;
-    margin-left: 40px;
-    margin-right:40px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow here */
-    padding: 10px; /* Optional: adds some padding for better spacing */
-    border-radius: 10px; /* Optional: adds rounded corners */
-">
-<img id="profilePicture" src="./images/images.jpg" alt="Profile Picture" style="
-    width: 100px; 
-    height: 100px; 
-    border-radius: 5%; 
-    margin-right:55px; 
-    object-fit: cover;">
-<div class="profile-info" style="
-    flex: 1;">
-    <p id="profileName" style="
-        color: #333; 
-        margin-bottom: 5px; 
-        font-size: 14px;">
-        John Doe
-    </p>
-    <p id="profileId" style="
-        font-size: 14px; 
-        color: #555; 
-        margin: 3px 0;">
-        ID: 12345
-    </p>
-    <p id="profileContact" style="
-        font-size: 14px; 
-        color: #555; 
-        margin: 3px 0;">
-        Contact: +123456789
-    </p>
-    <p id="profileLocation" style="
-        font-size: 14px; 
-        color: #555; 
-        margin: 3px 0;">
-        Location: Germany
-    </p>
-</div>
-</div>
-
-    
-    <!-- Subscription Section -->
-    <div class="subscription-section" style="
-        margin-bottom: 20px;
-        margin-left:40px">
-        <div class="status-section" style="
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            margin-bottom: 15px;">
-            <span style="
-                font-size: 14px; 
-                color: #333;">
-                Status:
-            </span>
-            <div class="toggle-container" style="
-            display: flex; 
-            gap: 15px; 
-            align-items: center; 
-            margin-right: 115px;">
-            <input type="radio" id="disabled" name="status" value="disabled" style="display: none;">
-            <label for="disabled" id="disabled-label" style="
-                display: inline-block; 
-                padding: 10px 20px; 
-                border-radius: 20px; 
-                font-size: 14px; 
-                font-weight: bold; 
-                cursor: pointer; 
-                text-align: center; 
-                color: rgb(2, 1, 1); 
-                box-shadow: 0 4px 8px rgba(247, 106, 106, 0.3); 
-                transition: all 0.3s ease;
-                background-color: #fce4e4;">
-                Disabled
-            </label>
-            
-            <input type="radio" id="enabled" name="status" value="enabled" style="display: none;">
-            <label for="enabled" id="enabled-label" style="
-                display: inline-block; 
-                padding: 10px 20px; 
-                border-radius: 20px; 
-                font-size: 14px; 
-                font-weight: bold; 
-                cursor: pointer; 
-                text-align: center;  
-                color: rgb(2, 1, 1); 
-                box-shadow: 0 4px 8px rgba(106, 195, 106, 0.3); 
-                transition: all 0.3s ease;
-                background-color: #e4fce4;">
-                Enabled
-            </label>
-            
-        </div>
-        
-        </div>
-    <div id="details">
-        <label for="duration" style="
-            font-size: 14px; 
-            color: #333; 
-            margin-bottom: 5px; 
-            display: block;
-             margin-right:40px;">
-            Subscription Days
-        </label>
-        <input id="duration" type="number" min="1" max="31" placeholder="1" style="
-            width: 90%; 
-            padding: 10px; 
-            border: 1px solid #ccc; 
-            border-radius: 8px; 
-            margin-bottom: 15px; 
-            font-size: 14px; 
-            color: #333;
-             margin-right:40px;">
-    
-        <label for="price" style="
-            font-size: 14px; 
-            color: #333; 
-            margin-bottom: 5px; 
-            display: block;
-             margin-right:40px;">
-            Price
-        </label>
-        <input id="price" type="number" min="0" placeholder="Enter Price" style="
-            width: 90%; 
-            padding: 10px; 
-            border: 1px solid #ccc; 
-            border-radius: 8px; 
-            margin-bottom: 15px; 
-            font-size: 14px; 
-            color: #333;
-             margin-right:40px;">
-  </div>
-    </div>
-    <!-- Actions -->
-    <div class="actions" style="
-        display: flex; 
-        justify-content: space-between;">
-        <button id="subscription-saveBtn" style="
-             align-items: center; 
-            width: 18%; 
-            padding: 10px; 
-            border: none; 
-            border-radius: 8px; 
-            font-size: 14px; 
-            color: white; 
-            background: linear-gradient(135deg, #4e27ec, #0219cb); 
-            cursor: pointer; 
-            transition: transform 0.2s;
-            margin-left:190px;
-            "
-            >
-            Save
-        </button>
-    </div>
-    
-
-        <!-- Action Button Section -->
-        
-    </div>
-</div>
-    <!-- user verification -->
-    <div class="popup-overlay" id="popup01" style="
-    position: fixed; 
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%; 
-    background: rgba(0, 0, 0, 0.6); 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    z-index: 1000;
-    display: none;">
-    <div class="popup-content" style="
-        background-color: #fff; 
-        width: 80%; 
-        max-width: 500px; 
-        border-radius: 15px; 
-        padding: 20px 10px; 
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); 
-        position: relative; 
-        overflow: hidden; 
-        animation: fadeIn 0.5s forwards;">
-        
-        <!-- Close Button -->
-        <button class="close-btn" onclick="closePopupProfile()" style="
-        position: absolute; 
-        top: 15px; 
-        right: 15px; 
-        font-size: 20px; 
-        color: white; 
-        background: #d9534f; 
-        border: none; 
-        border-radius: 50%; 
-        width: 35px; 
-        height: 35px; 
-        cursor: pointer; 
-        display: flex; 
-        justify-content: center; 
-        align-items: center; 
-        transition: background 0.3s;">
-        &times;
-    </button>
-    
-
-        <!-- Title Section -->
-        <div class="header" style="
-        text-align: center; 
-        margin-bottom: 20px;">
-        <h2 style="
-            font-size: 24px; 
-            font-weight: bold; 
-            color: #f7083c;">
-            Verification Details
-        </h2>
-        <p class="subtext" style="
-            color: #666; 
-            font-size: 14px; 
-            margin-top: 5px;">
-            Manage profile verification status
-        </p>
-    </div>
-    
-    <!-- User Image Section -->
-    <div class="profile-section" style="
-    display: flex; 
-    align-items: center; 
-    margin-bottom: 20px;
-    margin-left: 40px;
-    margin-right:40px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow here */
-    padding: 10px; /* Optional: adds some padding for better spacing */
-    border-radius: 10px; /* Optional: adds rounded corners */
-">
-<img id="profilePicture2" src="./images/images.jpg" alt="Profile Picture" style="
-    width: 100px; 
-    height: 100px; 
-    border-radius: 5%; 
-    margin-right: 55px; 
-    object-fit: cover;">
-<div class="profile-info" style="
-    flex: 1;">
-    <h3 id="profileName2" style="
-        color: #333; 
-        margin-bottom: 5px; 
-        font-size: 18px;">
-        John Doe
-    </h3>
-    <p id="profileId2" style="
-        font-size: 14px; 
-        color: #555; 
-        margin: 3px 0;">
-        ID: 12345
-    </p>
-    <p id="profileContact2" style="
-        font-size: 14px; 
-        color: #555; 
-        margin: 3px 0;">
-        Contact: +123456789
-    </p>
-    <p id="profileLocation2" style="
-        font-size: 14px; 
-        color: #555; 
-        margin: 3px 0;">
-        Location: Germany
-    </p>
-</div>
-</div>
-
-    
-    <!-- Subscription Section -->
-    <div class="subscription-section" style="
-        margin-bottom: 20px;
-        margin-left:40px">
-        <div class="status-section" style="
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            margin-bottom: 15px;">
-            <span style="
-                font-size: 14px; 
-                color: #333;">
-                Status:
-            </span>
-            <div class="toggle-container" style="
-            display: flex; 
-            gap: 15px; 
-            align-items: center; 
-            margin-right: 115px;">
-            <input type="radio" id="unverified" name="status" value="UnVerified" style="display: none;">
-            <label for="unverified" id="unverified-label" style="
-                display: inline-block; 
-                padding: 10px 20px; 
-                border-radius: 20px; 
-                font-size: 14px; 
-                font-weight: bold; 
-                cursor: pointer; 
-                text-align: center; 
-                color: rgb(7, 1, 1); 
-                box-shadow: 0 4px 8px rgba(87, 87, 87, 0.3); 
-                transition: all 0.3s ease;
-                background-color: #f4f4f4;">
-                UnVerified
-            </label>
-            
-            <input type="radio" id="verified" name="status" value="Verified" style="display: none;">
-            <label for="verified" id="verified-label" style="
-                display: inline-block; 
-                padding: 10px 20px; 
-                border-radius: 20px; 
-                font-size: 14px; 
-                font-weight: bold; 
-                cursor: pointer; 
-                text-align: center; 
-                color: rgb(4, 3, 3); 
-                box-shadow: 0 4px 8px rgba(104, 104, 104, 0.3); 
-                transition: all 0.3s ease;
-                background-color: #f4f4f4;">
-                Verified
-            </label>
-            
-        </div>
-        
-        </div>
-    
-        
-    </div>
-    
-    <!-- Actions -->
-    <div class="actions" style="
-        display: flex; 
-        justify-content: space-between;">
-        <button id="verification-saveBtn" style="
-             align-items: center; 
-            width: 98%; 
-            padding: 10px; 
-            border: none; 
-            border-radius: 8px; 
-            font-size: 14px; 
-            color: white; 
-           background: linear-gradient(135deg, #f0076c, #f26cbc); 
-            cursor: pointer; 
-            transition: transform 0.2s;
-           
-            ">
-            Save
-        </button>
-    </div>
-    
-
-
-
-
-
-</div>
-</div>
-     <!-- end of user verification -->
      
 
         <!-- COPYRIGHTS -->
@@ -812,38 +336,6 @@
             </div>
         </section>
         <!-- END -->
-    <!-- Optional JavaScript -->
-    <script>
-               // Preview uploaded image
-               function previewImage(input, previewId) {
-            const file = input.files[0];
-            const preview = document.getElementById(previewId);
-
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    preview.src = e.target.result;
-                };
-                reader.readAsDataURL(file);
-            } else {
-                preview.src = "";
-            }
-        }
-
-        // Delete Image Preview
-        function deleteImage(previewId) {
-            document.getElementById(previewId).src = "";
-            document.getElementById(previewId.replace('preview', 'image')).value = "";
-        }
-
-        // Handle form submission
-        document.getElementById('imageForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Images submitted successfully!');
-            // Implement backend upload logic here
-        });
-
-  </script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>

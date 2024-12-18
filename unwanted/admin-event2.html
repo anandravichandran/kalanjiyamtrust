@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="en">
+  
+
+<head>
+  <title>Kalanjiyam Kalyana Malai</title>
+
+  <!--== META TAGS ==-->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f6af04">
+  <meta name="robots" content="noindex">
+  <meta name="description" content="">
+  <meta name="keyword" content="">
+  <!--== FAV ICON(BROWSER TAB ICON) ==-->
+  <link rel="shortcut icon" href="images/fevicon.ico" type="image/x-icon">
+    <!--== CSS FILES ==-->
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/animate.min.css">
+    <link rel="stylesheet" href="./css/admin-style.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+   
+    <!-- style -->
+    <style>
+       /* Global styles */
+
+        header {
+            background: linear-gradient(45deg,
+#ece9e6,
+#ffffff);
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header img {
+            height: 50px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+
+        .containers {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .event-card {
+            background: linear-gradient(45deg, #f3f3f3, #ffffff);
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .event-card h3 {
+            margin-top: 0;
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        .event-details {
+            font-size: 0.9em;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .event-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+            color: white;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .btn-edit {
+            background: linear-gradient(45deg, #36d1dc, #5b86e5);
+        }
+
+        .btn-delete {
+            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+        }
+
+        .add-event-btn {
+            background: linear-gradient(45deg, #00c6ff, #0072ff);
+            color: white;
+            position: fixed;
+            bottom: 40px;
+            right: 20px;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 40%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .modal.active {
+            display:flex;
+        }
+
+        .modal-content {
+          background: white;
+            padding: 25px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 90%;
+            overflow-y: auto;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-content h2 {
+            margin-top: 0;
+            font-size: 1.5em;
+        }
+
+        .modal-content label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9em;
+        }
+
+        .modal-content input,
+        .modal-content textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 0.9em;
+        }
+
+        .modal-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+        .image-preview {
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .image-preview img {
+            max-width: 100%;
+            max-height: 200px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+  </style>
+    <!-- style -->
+  </head>
+  <body>
+    <!-- HEAD -->
+    <section class="head">
+      <div class="container">
+        <div class="row header">
+          <div class="col-md-3">
+            <div class="logo">
+              <img src="./images/Dashboardlogo.png" alt="">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="top-sarch">
+              <input type="text" placeholder="Search here" id="searchBar">
+            </div>
+          </div>
+         
+           
+          
+        </div>
+      </div>
+    </section>
+    <!-- END -->
+    <!-- COPYRIGHTS -->
+    <section>
+      <div class="main">
+        <div class="incon" <div class="row">
+          <div class="pan-lhs ad-menu-main">
+            <div class="ad-menu">
+              <ul>
+                <li class="ic-db">
+                  <a href="dashboard.html">Dashboard</a>
+                </li>
+                <li>
+                
+                <li>
+                  <h4>Settings</h4>
+                </li>
+                <li class="ic-set">
+                  <a href="admin-setting.html">Site Setting</a>
+                </li>
+                <li>
+                  <h4>Edit Website</h4>
+                </li>
+                <li class="">
+                  <!-- event --> 
+                  <a href="admin-event.html"> 
+                    <img src="./images/icons/event_change.png" alt="Event" style="width: 16px; height: 16px; margin-right:2px;">
+                    Event
+                  </a>
+                </li>
+                <li class="">
+                  <!-- memeber --> 
+                    <a href="admin-member.html">
+                        <img src="./images/icons/member_edit.png" alt="Member" style="width: 16px; height: 16px; margin-right:2px;">
+                        Members</a>
+                  </li>
+                  <li class="">
+                    <!-- sidebar --> 
+                    <a href="admin-home-sidebar.html">
+                        <img src="./images/icons/sidebar_edit.png" alt="Sidebar" style="width: 16px; height: 16px; margin-right:2px;">
+                        Home Sidebar Change
+                    </a>
+                </li>
+                
+                
+                <li>
+                  <h4>Sign out </h4>
+                </li>
+                <li class="ic-lgo" id="logOut">
+                  <a>Log out</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+                   <div class="pan-rhs">
+                        <div class="row main-head">
+                          <div class="row text-center">
+                            <div class="col-md-4">
+                                <div class="tit">
+                                    <a href="#">
+                                        <h1 id="verification-header">Organization Event</h1>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                           
+                        </div>
+                      
+            
+                        </div>
+                        <div id="loader" class="loader-container" style="display: none;">
+                          <div class="loader-content">
+                            <div class="spinner"></div>
+                            <p>loading...</p>
+                          </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="box-com box-qui box-lig box-tab">
+                                  
+                                 <!-- ------------------------------------ -->
+                                 <header>
+                                  
+                                  <img src="./images/icons/event-logo.png" alt="Organization Logo">
+                              </header>
+                          
+                              <div class="containers" id="event-list">
+                                <!-- Event cards will be dynamically added here -->
+                            </div>
+                        
+                            <button class="add-event-btn" id="add-event-btn">+</button>
+                        
+                            <div class="modal" id="event-modal">
+                                <div class="modal-content">
+                                    <h2>Add/Edit Event</h2>
+                                    <form id="event-form">
+                                        <!-- Event Heading -->
+                                        <label for="event-heading">Event Heading</label>
+                                        <input type="text" id="event-heading" name="event-heading" placeholder="Enter event heading" required>
+                                        
+                                        <!-- Event Date -->
+                                        <label for="event-date">Date</label>
+                                        <input type="date" id="event-date" name="event-date" required>
+                                        
+                                        <!-- Event Time -->
+                                        <label for="event-time">Time</label>
+                                        <input type="text" id="event-time" name="event-time" placeholder="HH:MM AM/PM" required>
+                                        
+                                        <!-- Event Place -->
+                                        <label for="event-place">Place</label>
+                                        <input type="text" id="event-place" name="event-place" placeholder="Enter event place" required>
+                                        
+                                        <!-- Organization Name -->
+                                        <label for="organization-name">Organization Name</label>
+                                        <input type="text" id="organization-name" name="organization-name" placeholder="Enter organization name" required>
+                                        
+                                        <!-- Organization Logo -->
+                                        <label for="organization-logo">Organization Logo</label>
+                                        <input type="file" id="organization-logo" name="organization-logo" accept="image/*" onchange="previewImage(event, 'logo-preview')">
+                                        <div class="image-preview" id="logo-preview"></div>
+                                        
+                                        <!-- Event Image -->
+                                        <label for="event-image">Event Image</label>
+                                        <input type="file" id="event-image" name="event-image" accept="image/*" onchange="previewImage(event, 'event-image-preview')">
+                                        <div class="image-preview" id="event-image-preview"></div>
+                                        
+                                        <!-- Content Text -->
+                                        <label for="content-text">Content</label>
+                                        <textarea id="content-text" name="content-text" placeholder="Enter event details..." maxlength="150" required></textarea>
+                                        
+                                        <!-- Actions -->
+                                        <div class="modal-actions">
+                                            <button type="button" class="btn btn-cancel" id="cancel-btn">Cancel</button>
+                                            <button type="submit" class="btn btn-save">Save</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            
+    
+                           <!-- ==========end of profile popup -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END -->
+
+        <!-- COPYRIGHTS -->
+        <section>
+            <div class="cr">
+                <div class="container">
+                    <div class="row">
+                      <p style="display: flex; flex-wrap: wrap; align-items: center; gap: 5px; font-size: 14px; margin-left:350px;">
+                        Copyright © <span id="cry">2024</span> 
+                        <a href="#!" target="_blank">Kalanjiyam Kalyana Malai.com</a> 
+
+                        All rights reserved. Powered by 
+                        <u><a href="https://www.thinkinfoexpertsolutions.com/" target="_blank">ThinkInfoExpertSolution</a></u> 
+                        in Salem.
+                      </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END -->
+    <!-- Optional JavaScript -->
+    <script>
+    const eventList = document.getElementById('event-list');
+    const addEventBtn = document.getElementById('add-event-btn');
+    const eventModal = document.getElementById('event-modal');
+    const cancelBtn = document.getElementById('cancel-btn');
+    const eventForm = document.getElementById('event-form');
+    let events = JSON.parse(localStorage.getItem('events')) || [];
+
+    function saveEventsToLocalStorage() {
+        localStorage.setItem('events', JSON.stringify(events));
+    }
+
+    function formatTime(time) {
+    const [hours, minutes] = time.split(':');
+    let formattedTime = '';
+    let suffix = 'AM';
+
+    let hoursInt = parseInt(hours, 10);
+    if (hoursInt >= 12) {
+        suffix = 'PM';
+        if (hoursInt > 12) hoursInt -= 12;
+    } else if (hoursInt === 0) {
+        hoursInt = 12;
+    }
+
+    formattedTime = `${hoursInt}:${minutes} ${suffix}`;
+    return formattedTime;
+}
+
+
+    function renderEvents() {
+        eventList.innerHTML = '';
+        events.forEach((event, index) => {
+            const eventCard = document.createElement('div');
+            eventCard.className = 'event-card';
+            eventCard.innerHTML = `
+                <h3>${event.heading}</h3>
+                <p class="event-details">
+                    ${event.date} at  ${formatTime(event.time)}<br>
+                    ${event.place}<br>
+                    <small>Organized by: ${event.organization}</small>
+                </p>
+                ${event.logo ? `<img src="${event.logo}" alt="Organization Logo" style="max-height: 50px; margin-bottom: 10px;">` : ''}
+                ${event.image ? `<img src="${event.image}" alt="Event Image" style="max-height: 200px; margin-bottom: 10px;">` : ''}
+                <p>${event.content}</p>
+                <div class="event-actions">
+                    <button class="btn btn-edit" onclick="editEvent(${index})">Edit</button>
+                    <button class="btn btn-delete" onclick="deleteEvent(${index})">Delete</button>
+                </div>
+            `;
+            eventList.appendChild(eventCard);
+        });
+    }
+
+    function toggleModal() {
+        eventModal.classList.toggle('active');
+    }
+
+    function handleEventSubmission(event) {
+        event.preventDefault();
+
+        const logoInput = eventForm['organization-logo'].files[0];
+        const eventImageInput = eventForm['event-image'].files[0];
+
+        const newEvent = {
+            heading: eventForm['event-heading'].value,
+            date: eventForm['event-date'].value,
+            time: eventForm['event-time'].value, // Time now stored as user input (HH:MM AM/PM)
+            place: eventForm['event-place'].value,
+            organization: eventForm['organization-name'].value,
+            content: eventForm['content-text'].value,
+            logo: logoInput ? URL.createObjectURL(logoInput) : null,
+            image: eventImageInput ? URL.createObjectURL(eventImageInput) : null,
+        };
+
+        if (eventForm.dataset.editIndex) {
+            const editIndex = eventForm.dataset.editIndex;
+            events[editIndex] = newEvent;
+            delete eventForm.dataset.editIndex;
+        } else {
+            events.push(newEvent);
+        }
+
+        saveEventsToLocalStorage();
+        renderEvents();
+        toggleModal();
+        eventForm.reset();
+    }
+
+    function editEvent(index) {
+        const event = events[index];
+        eventForm['event-heading'].value = event.heading;
+        eventForm['event-date'].value = event.date;
+        eventForm['event-time'].value = event.time;
+        eventForm['event-place'].value = event.place;
+        eventForm['organization-name'].value = event.organization;
+        eventForm['content-text'].value = event.content;
+
+        if (event.logo) {
+            document.getElementById('logo-preview').innerHTML = `<img src="${event.logo}" alt="Organization Logo">`;
+        }
+        if (event.image) {
+            document.getElementById('event-image-preview').innerHTML = `<img src="${event.image}" alt="Event Image">`;
+        }
+
+        eventForm.dataset.editIndex = index;
+        toggleModal();
+    }
+
+    function deleteEvent(index) {
+        events.splice(index, 1);
+        saveEventsToLocalStorage();
+        renderEvents();
+    }
+
+    function previewImage(event, previewId) {
+        const file = event.target.files[0];
+        const preview = document.getElementById(previewId);
+
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                preview.innerHTML = `<img src="${e.target.result}" alt="Preview">`;
+            };
+            reader.readAsDataURL(file);
+        } else {
+            preview.innerHTML = '';
+        }
+    }
+
+    addEventBtn.addEventListener('click', toggleModal);
+    cancelBtn.addEventListener('click', () => {
+        toggleModal();
+        eventForm.reset();
+        delete eventForm.dataset.editIndex;
+    });
+    eventForm.addEventListener('submit', handleEventSubmission);
+
+    renderEvents();
+  </script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/select-opt.js"></script>
+    <script src="js/chart.js"></script>
+    <script src="js/admin-custom.js"></script>
+    <script src="js/main/verifyRequest.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    
+</body>
+
+</html>
