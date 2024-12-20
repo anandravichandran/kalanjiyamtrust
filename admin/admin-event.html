@@ -161,7 +161,7 @@
             <img src="./images/three-dot-icon.png" alt="icon" style="width: 25px; height: 20px;">
         </button>
         <ul class="dropdown-menu">
-          <a class="dropdown-item" href="#" >Edit</a>
+          <a class="dropdown-item" onclick="openNewPopup()" href="#" >Edit</a>
           <a class="dropdown-item" href="#" >Delete</a>
 
         </ul>
@@ -193,14 +193,14 @@
 
 
         <div class="modal-header">
-            <h2 >Add Event</h2>
+            <h2 style="color: green;" >Add Event</h2>
         </div>
 
         <div class="modal-body">
             <!-- Left side: Image -->
             <div class="modal-left">
                 <div class="image-upload">
-                    <img id="event-image-preview" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVPZ-C0boHqPOqJooiuFBzA7xYuoPLVnzhCNT-5J9zM0ZEPffq9tkAu6kpEBQ-d8ONcL0&usqp=CAU"
+                    <img id="event-image-preview" src="https://static.vecteezy.com/system/resources/previews/026/631/445/non_2x/add-photo-icon-symbol-design-illustration-vector.jpg"
                     alt="Event Image" />
                     <input type="file" id="event-image" name="event-image" accept="image/*" onchange="previewEventImage(event)" />
                 </div>
@@ -209,7 +209,7 @@
             <!-- Right side: Form Inputs -->
             <div class="modal-right">
                 <!-- Event Heading -->
-                <label for="event-heading">Event Heading</label>
+                <label for="event-heading">Event Title</label>
                 <input type="text" id="event-heading" name="event-heading" placeholder="Event Heading" required>
                 
                 <!-- Event Date and Time (inline) -->

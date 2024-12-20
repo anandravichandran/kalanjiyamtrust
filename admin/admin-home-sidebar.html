@@ -246,50 +246,51 @@
                                 <div class="box-com box-qui box-lig box-tab">
         
                                     <div class="large-image-input">
-                                        <span class="header-text">Image 1</span>
+                                        <span class="header-text" id="1">Image 1</span>
                                         <button class="delete-icon" title="Delete">&times;</button>
                                         <label for="horoscopeImage">
                                           <img
-                                            id="horoscopePhoto"
+                                            id="image1"
                                             src="https://static.vecteezy.com/system/resources/previews/026/631/445/non_2x/add-photo-icon-symbol-design-illustration-vector.jpg"
                                             alt="Choose Image"
                                             class="image-icon"
                                           />
                                         </label>
-                                        <input required type="file" accept="image/*" id="horoscopeImage" />
+                                        <input required type="file" onchange="handleImage(event, '1')" accept="image/*" id="horoscopeImage" />
+
                                       </div>
                                       
                                       
       <br>
 
       <div class="large-image-input">
-        <span class="header-text">Image 2</span>
+        <span class="header-text" id="2">Image 2</span>
         <button class="delete-icon" title="Delete">&times;</button>
         <label for="horoscopeImage">
           <img
-            id="horoscopePhoto"
+            id="image2"
             src="https://static.vecteezy.com/system/resources/previews/026/631/445/non_2x/add-photo-icon-symbol-design-illustration-vector.jpg"
             alt="Choose Image"
             class="image-icon"
           />
         </label>
-        <input required type="file" accept="image/*" id="horoscopeImage" />
+        <input required type="file" onchange="handleImage(event,'2')" accept="image/*" id="horoscopeImage" />
       </div>
 
       <br>
 
       <div class="large-image-input">
-        <span class="header-text">Image 3</span>
+        <span class="header-text" id="3">Image 3</span>
         <button class="delete-icon" title="Delete">&times;</button>
         <label for="horoscopeImage">
           <img
-            id="horoscopePhoto"
+            id="image3"
             src="https://static.vecteezy.com/system/resources/previews/026/631/445/non_2x/add-photo-icon-symbol-design-illustration-vector.jpg"
             alt="Choose Image"
             class="image-icon"
           />
         </label>
-        <input required type="file" accept="image/*" id="horoscopeImage" />
+        <input required type="file" onchange="handleImage(event,'3')" accept="image/*" id="horoscopeImage" />
       </div>
       <br>
 
@@ -345,7 +346,22 @@
     <script src="js/admin-custom.js"></script>
     <script src="js/main/common.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script>
+
+  function handleImage(event,elementNo){
     
+    const reader = new FileReader();
+    reader.onload = function () {
+      const output = document.getElementById(`image${elementNo}`);
+      output.src = reader.result;
+      output.style.width = "100%";
+      const text = document.getElementById(elementNo);
+      text.style.display = "none";
+    };
+    reader.readAsDataURL(event.target.files[0]);
+  }
+
+    </script>
 </body>
 
 </html>
