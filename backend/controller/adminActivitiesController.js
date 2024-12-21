@@ -25,20 +25,37 @@ try {
     return res.status(400).json({ success: false, message: "Please enter a valid email!" });
 }
 
+const adminProfile = await adminModel.findById(user_id);
 
-  if (!strongPasswordRegex.test(password)) {
-    return res.status(400).json({ success: false, message: "Your password is too weak. Please include uppercase, lowercase letters, numbers, and a special character." });
-}
+const isMatch = password == adminProfile.password;
+
+ 
+ if(!isMatch){
+     if (!strongPasswordRegex.test(password)) {
+       return res.status(400).json({ success: false, message: "Your password is too weak. Please include uppercase, lowercase letters, numbers, and a special character." });
+    }
+ }
+
+
   
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password,salt);
     
-    const newCredential = {
-          userName:userName,
-          password:hashedPassword,
-          email:email
-    };
+    let newCredential
 
+    if(isMatch){
+        newCredential = {
+            userName:userName,
+            email:email
+      };
+    }else{
+        newCredential = {
+             userName:userName,
+             password:hashedPassword,
+             email:email
+       };
+    }
+    
     const admin = await adminModel.findByIdAndUpdate(user_id,newCredential, { new: true } );
 
     if(admin){
@@ -309,7 +326,7 @@ export const addAndEditEvents = async (req, res) => {
 export const handleDeleteOperations = async (req, res) => {
     const { type ,id} = req.params;
    
-  console.log({type,id})
+  
     if (!type || !id) {
         return res.status(400).json({
             success: false,

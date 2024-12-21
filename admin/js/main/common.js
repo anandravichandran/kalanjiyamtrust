@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             
             
             allProfiles = data.allProfilesData; // Store all profiles
-            updateSettings(data.adminData); // Update admin settings
+            updateSettings(data.data); // Update admin settings
 
             // Filter profiles based on the current page
             filteredProfiles = isFreeUsersPage
