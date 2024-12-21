@@ -208,7 +208,7 @@ async function fetchData() {
     if (token) {
         try {
             showLoader()
-            const response = await fetch("https://backend-green-seven-44.vercel.app/api/admin/get-website-data", {
+            const response = await fetch("http://localhost:5000/api/admin/get-website-data", {
                 method: "GET",
                 headers: { token },
             });

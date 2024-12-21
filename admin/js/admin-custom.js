@@ -71,19 +71,19 @@ logOutBtn.addEventListener("click",()=>{
 })
 }
 
-// if(!window.location.pathname.endsWith("index.html")){
+if(!window.location.pathname.endsWith("index.html")){
     
-//     const token = sessionStorage.getItem("token");
-//     if(!token){
-//         window.location.href="index.html";
-//     }
+    const token = sessionStorage.getItem("token");
+    if(!token){
+        window.location.href="index.html";
+    }
 
-// }
-// if(window.location.pathname.endsWith("index.html")){
+}
+if(window.location.pathname.endsWith("index.html")){
     
-//     const token = sessionStorage.getItem("token");
-//     if(token){
-//         window.location.href="dashboard.html";
-//     }
+    const token = sessionStorage.getItem("token");
+    if(token){
+        window.location.href="dashboard.html";
+    }
 
-// }
+}

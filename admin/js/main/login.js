@@ -15,7 +15,7 @@ document.getElementById("loginBtn").addEventListener("click", async (e) => {
         if (logInCurrentStep === "verify") {
             // Step 1: Verify user credentials and send OTP
             showLoader()
-            const response = await fetch("https://backend-green-seven-44.vercel.app/api/user/admin/verify", {
+            const response = await fetch("http://localhost:5000/api/admin/verify", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -31,6 +31,9 @@ document.getElementById("loginBtn").addEventListener("click", async (e) => {
                 document.getElementById("loginBtn").innerText = "Submit";
                 logInCurrentStep = "logIn";
                 email = data.email;
+                document.getElementById("email").setAttribute("disabled", "true");
+                document.getElementById("pwd").setAttribute("disabled", "true");
+                
             } else {
                 showErrorToast(data.message);
             }
@@ -46,7 +49,7 @@ document.getElementById("loginBtn").addEventListener("click", async (e) => {
             showLoader();
           console.log(email)
             // Verify OTP
-            const otpResponse = await fetch("https://backend-green-seven-44.vercel.app/api/user/verify-otp", {
+            const otpResponse = await fetch("http://localhost:5000/api/admin/verify-otp", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email: email, otp }),
@@ -59,7 +62,7 @@ document.getElementById("loginBtn").addEventListener("click", async (e) => {
                 // Log in user after OTP verification
                 showLoader();
 
-                const loginResponse = await fetch("https://backend-green-seven-44.vercel.app/api/admin/login", {
+                const loginResponse = await fetch("http://localhost:5000/api/admin/login", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -95,28 +98,30 @@ let currentStep = "sendOTP";
 document.getElementById("verifyBtn").addEventListener("click", async (e) => {
     e.preventDefault();
 
-    const email = document.getElementById("verifyEmail").value;
+    const email = document.getElementById("verifyEmail");
     const otp = document.getElementById("otp").value;
     const newPassword = document.getElementById("newPwd").value;
     const comfirmPassword = document.getElementById("comfirmPwd").value;
     const verifyBtn = document.getElementById("verifyBtn");
 
-
-
+     let emailValue = email.value;
+   
+     
     if (currentStep === "sendOTP") {
         try {
             showLoader()
-            const response = await fetch("https://backend-green-seven-44.vercel.app/api/user/admin/forgot-password", {
+            const response = await fetch("http://localhost:5000/api/admin/forgot-password", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ email }),
+                body: JSON.stringify({ email:emailValue }),
             });
 
             const data = await response.json();
           hideLoader()
             if (data.success) {
                 showSuccessToast(data.message);
-                
+                email.value = emailValue;
+                email.setAttribute("disabled", "true");
                 document.getElementById("otpContainer").style.display = "block";
                 verifyBtn.innerHTML = "Verify OTP";
                 currentStep = "verifyOTP";
@@ -136,10 +141,10 @@ document.getElementById("verifyBtn").addEventListener("click", async (e) => {
 
         try {
             showLoader()
-            const response = await fetch("https://backend-green-seven-44.vercel.app/api/user/verify-otp", {
+            const response = await fetch("http://localhost:5000/api/admin/verify-otp", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ email, otp }),
+                body: JSON.stringify({ email:emailValue, otp }),
             });
 
             const data = await response.json();
@@ -150,7 +155,9 @@ document.getElementById("verifyBtn").addEventListener("click", async (e) => {
                 document.getElementById("changePassword").style.display = "block";
                 verifyBtn.innerHTML = "Change Password";
                 currentStep = "changePassword";
-                
+                email.value = emailValue;
+                email.setAttribute("disabled", "true");
+                newPassword.value = "";
             } else {
                 showErrorToast(data.message);
             }
@@ -171,10 +178,10 @@ document.getElementById("verifyBtn").addEventListener("click", async (e) => {
 
         try {
             showLoader()
-            const response = await fetch("https://backend-green-seven-44.vercel.app/api/user/admin/reset-password", {
+            const response = await fetch("http://localhost:5000/api/admin/reset-password", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ email, newPassword,comfirmPassword }),
+                body: JSON.stringify({ email:emailValue, newPassword,comfirmPassword }),
             });
 
             const data = await response.json();

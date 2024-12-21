@@ -2,6 +2,7 @@ import bcrypt from "bcryptjs";
 import adminModel from "../model/adminModel.js";
 import jwt from "jsonwebtoken"
 import CryptoJS from "crypto-js";
+import axios from "axios"
 import dotenv from "dotenv";
 import nodemailer from "nodemailer";
 dotenv.config();
@@ -90,7 +91,9 @@ export const forgotPassword = async(req,res)=>{
 
     const {email} = req.body;
   
-    let user;
+    if (!(await validateEmailWithIPQS(email))) {
+        return res.status(400).json({ success: false, message: "Please enter a valid email!" });
+    }
     try {
         
           const user = await adminModel.findOne({email});
@@ -122,7 +125,7 @@ export const verifyOTP = async(req,res)=>{
     try {
     
     const{otp,email} = req.body;
-
+  console.log({otp,email})
     const storedOtp = otpStore[email];
     const{OTP,expireTime} = storedOtp;
     
@@ -152,11 +155,17 @@ export const resetPassword = async(req,res)=>{
 
     const{newPassword,comfirmPassword,email} = req.body;
   
-   
+    const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
     if(newPassword !== comfirmPassword){
         return res.json({success:false,message:"Pasword Does't Match !"})
     }else{
+        if (!strongPasswordRegex.test(newPassword)) {
+            return res.status(400).json({ success: false, message: "Your password is too weak. Please include uppercase, lowercase letters, numbers, and a special character." });
+        }
+
         try {
+
              const user = await adminModel.findOne({email});
 
             const salt = await bcrypt.genSalt(10);
@@ -325,3 +334,35 @@ const generateOTP = (length)=>{
     }
     return otp;
 }
+
+
+
+
+
+
+
+// VALIDATE EMAIL
+
+
+async function validateEmailWithIPQS(email) {
+    const API_KEY = "w0REndl0EIym4aly4naTP21ATEq1p335"; 
+    const url = `https://ipqualityscore.com/api/json/email/${API_KEY}/${email}`;
+    
+    try {
+        const response = await axios.get(url);
+        const data = response.data;
+          
+        if (data.success) {
+            if (data.valid && !data.disposable) {
+                return true
+            } else {
+                return false;
+            }
+        } else {
+            return "Error in verifying email: " + data.message;
+        }
+    } catch (error) {
+        console.error("API request failed:", error);
+        return "Failed to validate the email.";
+    }
+  }

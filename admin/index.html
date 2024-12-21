@@ -50,7 +50,7 @@
                                                 <div class="form-group">
                                                     <label class="lb">User Name:</label>
                                                     <input
-                                                        type="email"
+                                                        type="text"
                                                         class="form-control"
                                                         id="email"
                                                         placeholder="Enter email"
@@ -103,7 +103,7 @@
                                                     id="verifyEmail"
                                                     placeholder="Enter email"
                                                     name="email"
-                                        
+                                                    
                                                     style="margin: 10px 0;"
                                                 >
                                                 <div id="otpContainer" style="display: none;">
@@ -151,7 +151,7 @@
                                     <div class="log-bot">
                                         <ul>
                                             <li>
-                                                <span class="ll-1">Login?</span>
+                                                <span class="ll-1" style="display: none;" id="log">Login?</span>
                                             </li>
                                             <li>
                                                 <span class="ll-2" id="forgot">Forgot password?</span>
@@ -178,12 +178,15 @@
         <script>
            $('.ll-1').on('click', function () {
             document.getElementById("forgot").style.display ="block";
+            document.getElementById("log").style.display ="none";
 
               $('.log-1').slideDown();
               $('.log-2').slideUp();
           });
           $('.ll-2').on('click', function () {
                 document.getElementById("forgot").style.display ="none";
+                document.getElementById("log").style.display ="block";
+
               $('.log-2').slideDown();
               $('.log-1').slideUp();
           });
