@@ -307,9 +307,9 @@ export const addAndEditEvents = async (req, res) => {
 
 
 export const handleDeleteOperations = async (req, res) => {
-    const { type } = req.params;
-    const { id } = req.body;
-
+    const { type ,id} = req.params;
+   
+  console.log({type,id})
     if (!type || !id) {
         return res.status(400).json({
             success: false,

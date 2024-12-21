@@ -13,7 +13,7 @@ adminActivityRouter.post("/change-credential",authMiddleware,changeAdminCredenti
 adminActivityRouter.post("/carousel-images",authMiddleware,upload,addCarouselImages);
 adminActivityRouter.post("/add-members",authMiddleware,upload,addMembers);
 adminActivityRouter.post("/handle-events",authMiddleware,upload,addAndEditEvents);
-adminActivityRouter.delete("/:type/delete",authMiddleware,handleDeleteOperations);
+adminActivityRouter.delete("/:type/delete/:id",authMiddleware,handleDeleteOperations);
 adminActivityRouter.get("/get-website-data",authMiddleware,getWebsiteData);
 
 

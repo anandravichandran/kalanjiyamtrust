@@ -247,7 +247,7 @@
         
                                     <div class="large-image-input">
                                         <span class="header-text" id="1">Image 1</span>
-                                        <button class="delete-icon" title="Delete">&times;</button>
+                                        <button class="delete-icon" onclick="handleDelete('carouselImage1')" style="display: none;" id="d1" title="Delete">&times;</button>
                                         <label for="horoscopeImage">
                                           <img
                                             id="image1"
@@ -256,7 +256,7 @@
                                             class="image-icon"
                                           />
                                         </label>
-                                        <input required type="file" onchange="handleImage(event, '1')" accept="image/*" id="horoscopeImage" />
+                                        <input required type="file" name="carouselImage1" onchange="handleImage(event, '1')" accept="image/*" id="horoscopeImage" />
 
                                       </div>
                                       
@@ -265,7 +265,7 @@
 
       <div class="large-image-input">
         <span class="header-text" id="2">Image 2</span>
-        <button class="delete-icon" title="Delete">&times;</button>
+        <button class="delete-icon" id="d2" style="display: none;" onclick="handleDelete('carouselImage2')" title="Delete">&times;</button>
         <label for="horoscopeImage">
           <img
             id="image2"
@@ -274,14 +274,14 @@
             class="image-icon"
           />
         </label>
-        <input required type="file" onchange="handleImage(event,'2')" accept="image/*" id="horoscopeImage" />
+        <input required type="file" name="carouselImage2" onchange="handleImage(event,'2')" accept="image/*" id="horoscopeImage" />
       </div>
 
       <br>
 
       <div class="large-image-input">
         <span class="header-text" id="3">Image 3</span>
-        <button class="delete-icon" title="Delete">&times;</button>
+        <button class="delete-icon" style="display: none;" onclick="handleDelete('carouselImage3')" id="d3" title="Delete">&times;</button>
         <label for="horoscopeImage">
           <img
             id="image3"
@@ -290,7 +290,7 @@
             class="image-icon"
           />
         </label>
-        <input required type="file" onchange="handleImage(event,'3')" accept="image/*" id="horoscopeImage" />
+        <input required type="file" name="carouselImage3" onchange="handleImage(event,'3')" accept="image/*" id="horoscopeImage" />
       </div>
       <br>
 
@@ -344,22 +344,11 @@
     <script src="js/select-opt.js"></script>
     <script src="js/chart.js"></script>
     <script src="js/admin-custom.js"></script>
-    <script src="js/main/common.js"></script>
+    <script src="js/main/homeSlider.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script>
 
-  function handleImage(event,elementNo){
-    
-    const reader = new FileReader();
-    reader.onload = function () {
-      const output = document.getElementById(`image${elementNo}`);
-      output.src = reader.result;
-      output.style.width = "100%";
-      const text = document.getElementById(elementNo);
-      text.style.display = "none";
-    };
-    reader.readAsDataURL(event.target.files[0]);
-  }
+ 
 
     </script>
 </body>
