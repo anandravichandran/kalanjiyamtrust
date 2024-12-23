@@ -138,7 +138,7 @@
                                         </thead>
                                         <tbody>
                                           <tr>
-                                            <td>1</td>
+                                            <!-- <td>1</td>
                                             <td>
                                               <div class="pro">
                                                 <img
@@ -167,7 +167,7 @@
         </ul>
     </div>
 
-                                            </td>
+                                            </td> -->
                                           </tr>
                                           
                                         </tbody>
@@ -185,11 +185,12 @@
     <!-- END -->
     
  <!-- Floating Action Button -->
-<div class="new-floating-action-button" onclick="openNewPopup()">+</div>
+<div class="new-floating-action-button" onclick="openPopup()">+</div>
 
 <!-- New Modal (Popup) -->
 <div class="new-modal" id="new-event-modal">
     <div class="modal-content">
+      <span class="close-icon"  onclick="closeNewPopup()">&times;</span>
 
 
         <div class="modal-header">
@@ -211,7 +212,10 @@
                 <!-- Event Heading -->
                 <label for="event-heading">Event Title</label>
                 <input type="text" id="event-heading" name="event-heading" placeholder="Event Heading" required>
-                
+                <div class="form-group" style="display: none;">
+                  <label for="id">ID</label>
+                  <input type="text" id="id" name="id" required />
+                </div>
                 <!-- Event Date and Time (inline) -->
                 <div class="event-date-time">
                     <div>
@@ -238,8 +242,8 @@
 
         <!-- Save Button -->
         <div class="modal-actions">
-            <button type="button" class="btn btn-cancel" onclick="closeNewPopup()">Cancel</button>
-            <button type="submit" class="btn btn-save">Save</button>
+            
+            <button type="submit" id="add-btn" class="btn btn-save">Save</button>
         </div>
     </div>
 </div>
@@ -272,14 +276,12 @@
         var dropdown = document.querySelector('.dropdown');
         dropdown.classList.toggle('active');
     }
-// Function to open the popup modal
-function openNewPopup() {
-    document.getElementById("new-event-modal").style.display = "flex";
-}
+
 
 // Function to close the popup modal
 function closeNewPopup() {
     document.getElementById("new-event-modal").style.display = "none";
+    location.reload()
 }
 
 // Function to preview the uploaded image
@@ -302,10 +304,8 @@ function previewEventImage(event) {
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/select-opt.js"></script>
-   
+   <script src="js/main/event.js"></script>
     <script src="js/admin-custom.js"></script>
-    <script src="js/main/enquery.js"></script>
-   
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     
 </body>

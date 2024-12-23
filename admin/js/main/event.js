@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded",async()=>{
 
     if(websiteData){
         
-        updateMembersDetails(websiteData.data.membersInformation);
+        updateEventsDetails(websiteData.data.events);
  
     }
 
@@ -22,20 +22,20 @@ document.addEventListener("DOMContentLoaded",async()=>{
 
 
 
-function updateMembersDetails(membersDetails) {
+function updateEventsDetails(EventsDetails) {
     try {
         const tableBody = document.querySelector("table tbody"); // Get the tbody of the table
-        console.log(tableBody);
+        
 
-        if (!Array.isArray(membersDetails)) {
-            throw new Error("Invalid data format. Expected an array of member details.");
+        if (!Array.isArray(EventsDetails)) {
+            throw new Error("Invalid data format. Expected an array of event details.");
         }
 
-        if (membersDetails.length === 0) {
+        if (EventsDetails.length === 0) {
             tableBody.innerHTML = `
                 <tr>
                     <td colspan="8" style="text-align: center; padding: 20px;">
-                        <strong>No Members available to display.</strong>
+                        <strong>No Events available to display.</strong>
                     </td>
                 </tr>
             `;
@@ -44,55 +44,60 @@ function updateMembersDetails(membersDetails) {
 
         tableBody.innerHTML = ''; // Clear existing table rows
 
-        membersDetails.forEach((member, index) => {
+        EventsDetails.forEach((event, index) => {
             const row = document.createElement("tr");
 
-            const imageSrc = member.image?member.image : defaultProfileImage;
-            const name = member.name?member.name : 'N/A';
-            const degree = member.degree?member.degree : 'N/A';
-            const designation = member.designation?member.designation : 'N/A';
-            const standings = member.standings?member.standings : 'N/A';
+            const imageSrc = event.image?event.image : defaultProfileImage;
+            const title = event.title?event.title : 'N/A';
+            const description = event.description?event.description : 'N/A';
+            const location = event.location?event.location : 'N/A';
+            const date = event.date?event.date : 'N/A';
+            const time = event.time?event.time : 'N/A';
 
             row.innerHTML = `
-                <td>${index + 1}</td>
-                <td>
-                    <div class="pro">
-                        <img src="${imageSrc}" alt="Profile Image">
-                    </div>
-                </td>
-                <td>
-                    <div class="pro-info">
-                        <h5>${name}</h5>
-                    </div>
-                </td>
-                <td>${degree}</td>
-                <td>${designation}</td>
-                <td>${standings}</td>
-                <td>
-                    <div class="dropdown">
-                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="dropdown">
-                            <img src="./images/three-dot-icon.png" alt="icon" style="width: 25px; height: 20px;">
-                        </button>
-                        <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" data-member='${JSON.stringify(member)}' onclick="handleOpenPopup(this)">Edit</a></li>
-                            <li><a class="dropdown-item" onclick="handleDelete('${member._id}')">Delete</a></li>
-                        </ul>
-                    </div>    
-                </td>
+            <td>1</td>
+            <td>
+              <div class="pro">
+                <img
+                  src="${imageSrc}"
+                  alt=""
+                  class="image-size"
+                />
+              </div>
+            </td>
+            <td><div class="pro-info">
+              <h5>${title}</h5>
+          
+          </div></td>
+            <td>${time}</td>
+            <td>${date}</td>
+            <td>${location}</td>
+            <td>
+                <div class="dropdown">
+                  <button type="button" class="btn btn-outline-secondary" data-bs-toggle="dropdown">
+                  <img src="./images/three-dot-icon.png" alt="icon" style="width: 25px; height: 20px;">
+                  </button>
+                  <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" data-event='${JSON.stringify(event)}' onclick="handleOpenPopup(this)">Edit</a></li>
+                  <li><a class="dropdown-item" onclick="handleDelete('${event._id}')">Delete</a></li>
+                </ul>
+                </div>
+
+            </td>
             `;
 
             tableBody.appendChild(row);
         });
     } catch (error) {
-        console.error("Error updating member details:", error);
+        console.error("Error updating event details:", error);
        
     }
 }
 ;
 
 function handleOpenPopup(element) {
-    const member = JSON.parse(element.getAttribute('data-member'));
-    openPopup(member);
+    const event = JSON.parse(element.getAttribute('data-event'));
+    openPopup(event);
 }
 
 
@@ -105,18 +110,19 @@ function handleOpenPopup(element) {
 
 
 
-function openPopup(member) {
-    
-    document.getElementById("popupModal").style.display = "flex";
+function openPopup(event) {
  
-    if(member){
+    document.getElementById("new-event-modal").style.display = "flex";
+ 
+    if(event){
        
-    document.getElementById("name").value = member.name?member.name :"N/A";
-    document.getElementById("designation").value = member.designation?member.designation :"N/A";
-    document.getElementById("degree").value = member.degree?member.degree :"N/A";
-    document.getElementById("standingPosition").value = member.standings?member.standings :"N/A";
-    document.getElementById("id").value = member?member._id: null;
-    document.getElementById("imagePreview").src= member.image?member.image : defaultProfileImage;
+    document.getElementById("event-heading").value = event.title?event.title :"N/A";
+    document.getElementById("content-text").value = event.description?event.description :"N/A";
+    document.getElementById("event-place").value = event.location?event.location :"N/A";
+    document.getElementById("event-date").value = event.date?event.date :"N/A";
+    document.getElementById("event-time").value = event.time?event.time :"N/A";
+    document.getElementById("id").value = event?event._id: null;
+    document.getElementById("event-image-preview").src= event.image?event.image : defaultProfileImage;
     }
     
     
@@ -126,35 +132,30 @@ function openPopup(member) {
 document.getElementById("add-btn").addEventListener("click", async (event) => {
     event.preventDefault();
 
-    const name = document.getElementById("name");
-    const designation = document.getElementById("designation");
-    const degree = document.getElementById("degree");
-    const standingPosition = document.getElementById("standingPosition");
-    const memberImage = document.getElementById("imageInput");
-    const imagePreview = document.getElementById("imagePreview");
+    const title = document.getElementById("event-heading");
+    const description = document.getElementById("content-text");
+    const date = document.getElementById("event-date");
+    const time = document.getElementById("event-time");
+    const location = document.getElementById("event-place");
+    const imagePreview = document.getElementById("event-image-preview");
+    const image = document.getElementById("event-image");
     const id = document.getElementById("id");
 
-    // Validate form inputs
-    if (!name.value.trim() || !designation.value.trim() || !degree.value.trim() || !standingPosition.value.trim()) {
-        showErrorToast("Please fill in all required fields.");
-        return;
-    }
-
-    
-
+   
     const formData = new FormData();
-    formData.append("name", name.value);
-    formData.append("designation", designation.value);
-    formData.append("degree", degree.value);
-    formData.append("standings", standingPosition.value);
-    formData.append("memberImage", memberImage.files[0]);
+    formData.append("title", title.value);
+    formData.append("description", description.value);
+    formData.append("date", date.value);
+    formData.append("time", time.value);
+    formData.append("location", location.value);
+    formData.append("eventImage", image.files[0]);
   if(!!id){
     formData.append("id",id.value);
   }
     try {
         showLoader(); // Display loading indicator
 
-        const response = await fetch("http://localhost:5000/api/admin/add-members", {
+        const response = await fetch("http://localhost:5000/api/admin/handle-events", {
             method: "POST",
             headers: {
                 token, // Ensure the `token` variable is defined
@@ -170,18 +171,18 @@ document.getElementById("add-btn").addEventListener("click", async (event) => {
             showSuccessToast(data.message);
 
             // Clear form fields after successful submission
-            name.value = "";
-            designation.value = "";
-            degree.value = "";
-            standingPosition.value = "";
-            memberImage.value ="";
-            imagePreview.src = "https://static.thenounproject.com/png/65474-200.png";
+            title.value = "";
+            description.value = "";
+            date.value = "";
+            time.value = "";
+            location.value ="";
+            imagePreview.src = "https://static.vecteezy.com/system/resources/previews/026/631/445/non_2x/add-photo-icon-symbol-design-illustration-vector.jpg";
         } else {
-            showErrorToast(data.message || "An error occurred while adding the member.");
+            showErrorToast(data.message || "An error occurred while adding the event.");
         }
     } catch (error) {
         hideLoader(); // Ensure loader is hidden even on error
-        showErrorToast("Failed to add member. Please try again later.");
+        showErrorToast("Failed to add event. Please try again later.");
         console.error("Error:", error);
     }
 });
@@ -204,7 +205,7 @@ async function handleDelete(id) {
         showLoader();
 
         // Send the DELETE request
-        const response = await fetch(`http://localhost:5000/api/admin/membersInformation/delete/${id}`, {
+        const response = await fetch(`http://localhost:5000/api/admin/event/delete/${id}`, {
             method: "DELETE",
             headers: {
                 token,
@@ -223,7 +224,7 @@ async function handleDelete(id) {
         const data = await response.json();
 
         if (data.success) {
-            showSuccessToast(data.message || "Member details deleted successfully");
+            showSuccessToast(data.message || "event details deleted successfully");
             // Delay reload for user feedback visibility
             setTimeout(() => {
                 window.location.reload();
