@@ -131,12 +131,22 @@ export const addCarouselImages = async (req, res) => {
         });
     } catch (error) {
         console.error("Error uploading images:", error);
-        return res.status(500).json({
-            success: false,
-            message: "Internal Server Error",
-            error: error.message,
-        });
+    
+        if (error.message.includes("File size too large")) {
+            return res.json({
+                success: false,
+                message: "File size too large, Please select the file under 10MB",
+                error: error.message,
+            });
+        } else {
+            return res.json({
+                success: false,
+                message: "Server Error",
+                error: error.message,
+            });
+        }
     }
+    
 };
 
 
@@ -167,20 +177,21 @@ export const addMembers = async (req, res) => {
             updatedImageUrl = await uploadImage("memberImage",files, "memberImages");
         };
         
-        
-        if (!!standings) {
-            const isSameStanding = membersInformation.some(
-                 member => member.standings == standings,
-
-            );
-        console.log(standings);
-            if (isSameStanding) {
-                return res.status(400).json({
-                    success: false,
-                    message: "Sorry! The Standing Number is Already Allocated."
-                });
-            }
-        };
+        if(!id){
+            if (!!standings) {
+                const isSameStanding = membersInformation.some(
+                     member => member.standings == standings,
+    
+                );
+            
+                if (isSameStanding) {
+                    return res.status(400).json({
+                        success: false,
+                        message: "Sorry! The Standing Number is Already Allocated."
+                    });
+                }
+            };
+        }
         
         if (id) {
             // Update existing member
