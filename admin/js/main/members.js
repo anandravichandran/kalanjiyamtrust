@@ -1,7 +1,7 @@
 const defaultProfileImage = "https://static.vecteezy.com/system/resources/previews/026/631/445/non_2x/add-photo-icon-symbol-design-illustration-vector.jpg"
 const token = sessionStorage.getItem("token");
 
-
+let isChanged = false;
 document.addEventListener("DOMContentLoaded",async()=>{
 
 
@@ -108,7 +108,8 @@ function handleOpenPopup(element) {
 function openPopup(member) {
     
     document.getElementById("popupModal").style.display = "flex";
- 
+    isChanged = false;
+
     if(member){
        
     document.getElementById("name").value = member.name?member.name :"N/A";
@@ -168,7 +169,7 @@ document.getElementById("add-btn").addEventListener("click", async (event) => {
 
         if (data.success) {
             showSuccessToast(data.message);
-
+            isChanged = true;
             // Clear form fields after successful submission
             name.value = "";
             designation.value = "";
@@ -187,7 +188,29 @@ document.getElementById("add-btn").addEventListener("click", async (event) => {
 });
 
 
+function closePopup() {
+    if(isChanged){
+        location.reload();
+    }
+    const name = document.getElementById("name");
+    const designation = document.getElementById("designation");
+    const degree = document.getElementById("degree");
+    const standingPosition = document.getElementById("standingPosition");
+    const memberImage = document.getElementById("imageInput");
+    const imagePreview = document.getElementById("imagePreview");
+    const id = document.getElementById("id");
+ 
+         name.value = "";
+            designation.value = "";
+            degree.value = "";
+            standingPosition.value = "";
+            memberImage.value ="";
+            imagePreview.src = "https://static.thenounproject.com/png/65474-200.png";
 
+    document.getElementById("popupModal").style.display = "none";
+
+    
+  }
 
 
 

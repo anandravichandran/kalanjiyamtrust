@@ -2448,7 +2448,13 @@ img{
 
 
 
-
+  .member-image {
+    width: 200px; /* Set desired width */
+    height: 200px; /* Set desired height */
+    object-fit: cover; /* Ensures the image fills the box while maintaining aspect ratio */
+    border-radius: 10px; /* Optional: adds rounded corners */
+  }
+  
 
 
 

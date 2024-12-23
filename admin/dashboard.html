@@ -40,7 +40,7 @@
           </div>
           <div class="col-md-6">
             <div class="top-sarch">
-              <input type="text" placeholder="Search here" id="searchBar">
+              <!-- <input type="text" placeholder="Search here" id="searchBar"> -->
             </div>
           </div>
          
@@ -125,9 +125,9 @@
                      </div>
                 </div>
                   <div class="twisty-slides" id="slideContainer">
-                    <div class="whimsical-slide"><img src="../frontend/final photos/6R9A8185.JPG" alt="Slide 1"></div>
-                    <div class="whimsical-slide"><img src="../frontend/final photos/6R9A7871.JPG" alt="Slide 2"></div>
-                    <div class="whimsical-slide"><img src="../frontend/final photos/6R9A7788.JPG" alt="Slide 3"></div>
+                    <div class="whimsical-slide"><img id="carouselImage1" src="../frontend/final photos/6R9A8185.JPG" alt="Slide 1"></div>
+                    <div class="whimsical-slide"><img id="carouselImage2" src="../frontend/final photos/6R9A7871.JPG" alt="Slide 2"></div>
+                    <div class="whimsical-slide"><img id="carouselImage3" src="../frontend/final photos/6R9A7788.JPG" alt="Slide 3"></div>
                   </div>
                   <div class="whirly-controls">
                     <button class="fancy-button" id="prevButton">❮</button>
@@ -153,33 +153,23 @@
                   <!-- Centered Year Selection Section -->
                   <div class="flex justify-center mb-8">
                     <!-- Year selection dropdown with improved UI design -->
-                    <select class="border border-gray-300 rounded-lg p-3 text-lg font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 hover:bg-gray-100 transition-all">
-                      <option value="" disabled selected>Choose Year</option>
+                    <select id="year" class="border border-gray-300 rounded-lg p-3 text-lg font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 hover:bg-gray-100 transition-all">
+                      <option value=""  selected>Choose Year</option>
                       <!-- The years will be dynamically populated here -->
                     </select>
                   </div>
                 
                   <!-- Cards Section -->
-                  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <div id="events" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <!-- Card 1 -->
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden relative group card">
+                    <!-- <div class="bg-white rounded-lg shadow-lg overflow-hidden relative group card">
                       <img alt="Group of people on stage receiving awards" class="w-full h-48 object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/4Cv5sxldMj4yKdCHKvCmuRrZ4UGKhyZDNJFxLl4hcqZ4sKfJA.jpg" width="600"/>
                       <div class="p-4">
                         <p class="text-orange-500 text-lg font-semibold">விழிப்புணர்வு பிரச்சாரங்கள்</p>
                       </div>
-                    </div>
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden relative group card">
-                      <img alt="Group of people on stage receiving awards" class="w-full h-48 object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/4Cv5sxldMj4yKdCHKvCmuRrZ4UGKhyZDNJFxLl4hcqZ4sKfJA.jpg" width="600"/>
-                      <div class="p-4">
-                        <p class="text-orange-500 text-lg font-semibold">விழிப்புணர்வு பிரச்சாரங்கள்</p>
-                      </div>
-                    </div>
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden relative group card">
-                      <img alt="Group of people on stage receiving awards" class="w-full h-48 object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/4Cv5sxldMj4yKdCHKvCmuRrZ4UGKhyZDNJFxLl4hcqZ4sKfJA.jpg" width="600"/>
-                      <div class="p-4">
-                        <p class="text-orange-500 text-lg font-semibold">விழிப்புணர்வு பிரச்சாரங்கள்</p>
-                      </div>
-                    </div>
+                    </div> -->
+                  
+                    
                   </div>
                 </div>
 
@@ -187,23 +177,23 @@
 <div id="popup" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
   <div class="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full">
     <div class="flex items-center justify-between text-sm text-white bg-yellow-500 rounded-t-lg p-2">
-      <span>24 ஜனவரி 2024</span>
-      <span class="flex items-center">
+      <span id="date">24 ஜனவரி 2024</span>
+      <span class="flex items-center" id="time">
         <i class="fas fa-clock mr-1"></i>10:00 AM
       </span>
-      <span class="flex items-center">
+      <span class="flex items-center" id="location">
         <i class="fas fa-map-marker-alt mr-1"></i>இடம்
       </span>
     </div>
     <div class="flex items-center mt-4">
-      <img alt="Event logo" class="w-12 h-12 rounded-full" height="50" src="https://storage.googleapis.com/a1aa/image/IhW7EzjamOLfRSWf60MY0PyLl4oJhwnxhA3CQxziFkJ9Nr8TA.jpg" width="50"/>
+      <img alt="Event logo" class="w-12 h-12 rounded-full" height="50"  src="images/organiser4.png" width="50"/>
       <div class="ml-3">
         <span class="text-sm text-gray-500">Organised by :</span>
         <span class="text-sm font-semibold text-gray-700">களஞ்சியம்</span>
       </div>
     </div>
-    <h1 class="mt-4 text-xl font-bold text-gray-800">விழிப்புணர்வு பிரச்சாரங்கள்</h1>
-    <p class="mt-2 text-gray-700">
+    <h1 class="mt-4 text-xl font-bold text-gray-800" id="title">விழிப்புணர்வு பிரச்சாரங்கள்</h1>
+    <p class="mt-2 text-gray-700" id="description">
       விழிப்புணர்வு முகாம்கள், சமூக மாற்றத்தின் முதல் படியாகும்! 
       செய்ப் மாற்றங்கள், எப்போதும் சமூக முன்னேற்றத்திற்கான அடிப்படையாக இருக்கும்!
     </p>
@@ -224,8 +214,8 @@
    <p class="text-lg mb-10">
     களஞ்சியம் தமிழ் கலை பண்டாட்டுக் குழுவின் முதன்மை நிர்வாக குழு உறுப்பினர்கள் மற்றும் அவர்களின் சிறப்பு திறன்கள்.
    </p>
-   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-    <div class="text-center">
+   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" id="members">
+    <!-- <div class="text-center">
      <img alt="A person sitting in an office with a golden shield and statue in the background" class="rounded-lg mx-auto mb-4" height="200" src="../frontend/wp-content/uploads/sites/8/2023/05/Image4.png" width="200"/>
      <p class="font-semibold">
       Er.M.பழனிசாமி, B.E., M.B.A.,
@@ -233,34 +223,8 @@
      <p>
       நிறுவனர்
      </p>
-    </div>
-    <div class="text-center">
-     <img alt="A person smiling in a white shirt" class="rounded-lg mx-auto mb-4" height="200" src="../frontend/wp-content/uploads/sites/8/2023/05/Image5.jpg" width="200"/>
-     <p class="font-semibold">
-      K.G.பால முருகன், B.A.,
-     </p>
-     <p>
-      தலைவர்
-     </p>
-    </div>
-    <div class="text-center">
-     <img alt="A person in a blue shirt with glasses" class="rounded-lg mx-auto mb-4" height="200" src="../frontend/wp-content/uploads/sites/8/2023/05/Image3.jpg" width="200"/>
-     <p class="font-semibold">
-      P.ஹரிகுமார், B.Sc.,
-     </p>
-     <p>
-      செயலாளர்
-     </p>
-    </div>
-    <div class="text-center">
-     <img alt="A person in a white shirt" class="rounded-lg mx-auto mb-4" height="200" src="../frontend/wp-content/uploads/sites/8/2023/05/Image1.jpg" width="200"/>
-     <p class="font-semibold">
-      R.ராம்பிரபு, B.E.,
-     </p>
-     <p>
-      பொருளாளர்
-     </p>
-    </div>
+    </div> -->
+    
    </div>
   </div>
  
@@ -322,14 +286,8 @@
         updateCarousel();
       });
 
-      const card = document.querySelector('.card');
   const popup = document.getElementById('popup');
   const closePopup = document.getElementById('closePopup');
-
-  // Show popup on card click
-  card.addEventListener('click', () => {
-    popup.classList.remove('hidden');
-  });
 
   // Close popup on button click
   closePopup.addEventListener('click', () => {

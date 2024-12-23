@@ -1,7 +1,7 @@
 const defaultProfileImage = "https://static.vecteezy.com/system/resources/previews/026/631/445/non_2x/add-photo-icon-symbol-design-illustration-vector.jpg"
 const token = sessionStorage.getItem("token");
 
-
+let isChanged = false;
 document.addEventListener("DOMContentLoaded",async()=>{
 
 
@@ -113,7 +113,7 @@ function handleOpenPopup(element) {
 function openPopup(event) {
  
     document.getElementById("new-event-modal").style.display = "flex";
- 
+    isChanged = false;
     if(event){
        
     document.getElementById("event-heading").value = event.title?event.title :"N/A";
@@ -168,8 +168,8 @@ document.getElementById("add-btn").addEventListener("click", async (event) => {
         const data = await response.json();
 
         if (data.success) {
-            showSuccessToast(data.message);
-
+            showSuccessToast(data.message); 
+            isChanged = true;
             // Clear form fields after successful submission
             title.value = "";
             description.value = "";
@@ -188,7 +188,31 @@ document.getElementById("add-btn").addEventListener("click", async (event) => {
 });
 
 
+function closeNewPopup() {
+    if(isChanged){
+        location.reload();
+    }
+    const title = document.getElementById("event-heading");
+    const description = document.getElementById("content-text");
+    const date = document.getElementById("event-date");
+    const time = document.getElementById("event-time");
+    const location = document.getElementById("event-place");
+    const imagePreview = document.getElementById("event-image-preview");
+    const image = document.getElementById("event-image");
+    const id = document.getElementById("id");
 
+    // Clear form fields after successful submission
+    title.value = "";
+    description.value = "";
+    date.value = "";
+    time.value = "";
+    location.value ="";
+    imagePreview.src = "https://static.vecteezy.com/system/resources/previews/026/631/445/non_2x/add-photo-icon-symbol-design-illustration-vector.jpg";
+
+
+    document.getElementById("new-event-modal").style.display = "none";
+    
+}
 
 
 
