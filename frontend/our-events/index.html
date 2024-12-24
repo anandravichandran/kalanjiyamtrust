@@ -24,6 +24,8 @@
   <link rel='stylesheet' id='wp-notification-bars-css'
     href='../wp-content/plugins/wp-notification-bars/public/css/wp-notification-bars-public0718.css?ver=1.0.12'
     type='text/css' media='all' />
+    <script src="https://cdn.tailwindcss.com"></script>
+
   <style id='wp-emoji-styles-inline-css' type='text/css'>
     img.wp-smiley,
     img.emoji {
@@ -1774,8 +1776,28 @@
 
 
   <div class="container">
+    <div class="bg-white text-center">
+      <div class="container mx-auto py-8">
+       <h2 class="text-3xl font-bold mb-2">
+        நிகழ்வுகள்
+       </h2>
+       <p class="text-lg " style="color: #000000;">
+        களஞ்சியம் தமிழ் கலை பண்டாட்டுக் குழுவின் வெற்றிகரமாக நிறைவடைந்த நிகழ்வுகள்.
+       </p>
+      </div>
+    </div>
+
+    <div class="flex justify-center mb-8">
+      <!-- Year selection dropdown with improved UI design -->
+      <select id="year" style="width: 200px;" class="border border-gray-300 rounded-lg p-3 text-lg font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 hover:bg-gray-100 transition-all">
+        <option value=""  selected>Choose Year</option>
+        <!-- The years will be dynamically populated here -->
+      </select>
+    </div>
+
     <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 events">
-      <div class="event-wrapper d-grid">
+      
+      <div class="event-wrapper d-grid" id="events">
         <div class="event-card">
           <div class="event-img">
 
@@ -2097,6 +2119,7 @@
     <span class="screen-reader-text">
       Back to Top </span>
   </a>
+<script src="../dashBoard.js"></script>
 
   <script type="text/javascript" src="../wp-content/plugins/contact-form-7/includes/swv/js/indexe2db.js?ver=5.9.8"
     id="swv-js"></script>
@@ -2125,6 +2148,20 @@
     id="jquery-ui-mouse-js"></script>
   <script type="text/javascript" src="../wp-includes/js/jquery/ui/slider.min3f14.js?ver=1.13.2"
     id="jquery-ui-slider-js"></script>
+    <script>
+      const currentYear = new Date().getFullYear();
+  
+  // Select the year dropdown element
+  const yearSelect = document.querySelector("select");
+
+  // Loop to add years from currentYear - 20 to currentYear + 20
+  for (let year = currentYear - 20; year <= currentYear + 20; year++) {
+    const option = document.createElement("option");
+    option.value = year;
+    option.textContent = year;
+    yearSelect.appendChild(option);
+  }
+    </script>
 </body>
 
 </html>

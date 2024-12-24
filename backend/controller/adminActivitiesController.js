@@ -457,7 +457,34 @@ export const getWebsiteData = async (req,res)=>{
 
 
 
+export const kalanjiyamTrust  = async(req,res)=>{
 
+    try {
+        
+        const admin = await adminModel.findById(process.env.ADMINMONGOID);
+
+        if(admin){
+            return res.json({
+                success:true,
+                carouselImages:admin.carouselImages,
+                events:admin.events,
+                membersInformation:admin.membersInformation})
+        }
+        return res.status(404).json({
+            success: false,
+            message: " data not found.",
+        });
+         
+    } catch (error) {
+        console.error("Error processing request:", error);
+        return res.status(500).json({
+            success: false,
+            message: "Internal Server Error",
+            error: error.message,
+        });
+    }
+
+}
 
 
 

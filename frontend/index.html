@@ -24,6 +24,7 @@
     !function (i, n) { var o, s, e; function c(e) { try { var t = { supportTests: e, timestamp: (new Date).valueOf() }; sessionStorage.setItem(o, JSON.stringify(t)) } catch (e) { } } function p(e, t, n) { e.clearRect(0, 0, e.canvas.width, e.canvas.height), e.fillText(t, 0, 0); var t = new Uint32Array(e.getImageData(0, 0, e.canvas.width, e.canvas.height).data), r = (e.clearRect(0, 0, e.canvas.width, e.canvas.height), e.fillText(n, 0, 0), new Uint32Array(e.getImageData(0, 0, e.canvas.width, e.canvas.height).data)); return t.every(function (e, t) { return e === r[t] }) } function u(e, t, n) { switch (t) { case "flag": return n(e, "\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f", "\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f") ? !1 : !n(e, "\ud83c\uddfa\ud83c\uddf3", "\ud83c\uddfa\u200b\ud83c\uddf3") && !n(e, "\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f", "\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f"); case "emoji": return !n(e, "\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff", "\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff") }return !1 } function f(e, t, n) { var r = "undefined" != typeof WorkerGlobalScope && self instanceof WorkerGlobalScope ? new OffscreenCanvas(300, 150) : i.createElement("canvas"), a = r.getContext("2d", { willReadFrequently: !0 }), o = (a.textBaseline = "top", a.font = "600 32px Arial", {}); return e.forEach(function (e) { o[e] = t(a, e, n) }), o } function t(e) { var t = i.createElement("script"); t.src = e, t.defer = !0, i.head.appendChild(t) } "undefined" != typeof Promise && (o = "wpEmojiSettingsSupports", s = ["flag", "emoji"], n.supports = { everything: !0, everythingExceptFlag: !0 }, e = new Promise(function (e) { i.addEventListener("DOMContentLoaded", e, { once: !0 }) }), new Promise(function (t) { var n = function () { try { var e = JSON.parse(sessionStorage.getItem(o)); if ("object" == typeof e && "number" == typeof e.timestamp && (new Date).valueOf() < e.timestamp + 604800 && "object" == typeof e.supportTests) return e.supportTests } catch (e) { } return null }(); if (!n) { if ("undefined" != typeof Worker && "undefined" != typeof OffscreenCanvas && "undefined" != typeof URL && URL.createObjectURL && "undefined" != typeof Blob) try { var e = "postMessage(" + f.toString() + "(" + [JSON.stringify(s), u.toString(), p.toString()].join(",") + "));", r = new Blob([e], { type: "text/javascript" }), a = new Worker(URL.createObjectURL(r), { name: "wpTestEmojiSupports" }); return void (a.onmessage = function (e) { c(n = e.data), a.terminate(), t(n) }) } catch (e) { } c(n = f(s, u, p)) } t(n) }).then(function (e) { for (var t in e) n.supports[t] = e[t], n.supports.everything = n.supports.everything && n.supports[t], "flag" !== t && (n.supports.everythingExceptFlag = n.supports.everythingExceptFlag && n.supports[t]); n.supports.everythingExceptFlag = n.supports.everythingExceptFlag && !n.supports.flag, n.DOMReady = !1, n.readyCallback = function () { n.DOMReady = !0 } }).then(function () { return e }).then(function () { var e; n.supports.everything || (n.readyCallback(), (e = n.source || {}).concatemoji ? t(e.concatemoji) : e.wpemoji && e.twemoji && (t(e.twemoji), t(e.wpemoji))) })) }((window, document), window._wpemojiSettings);
     /* ]]> */
   </script>
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel='stylesheet' id='wp-notification-bars-css'
     href='wp-content/plugins/wp-notification-bars/public/css/wp-notification-bars-public0718.css?ver=1.0.12'
     type='text/css' media='all' />
@@ -1714,9 +1715,9 @@
   </div>
   <div class="zany-carousel">
     <div class="twisty-slides" id="slideContainer">
-      <div class="whimsical-slide"><img src="final photos/6R9A8185.JPG" alt="Slide 1"></div>
-      <div class="whimsical-slide"><img src="final photos/6R9A7871.JPG" alt="Slide 2"></div>
-      <div class="whimsical-slide"><img src="final photos/6R9A7788.JPG" alt="Slide 3"></div>
+      <div class="whimsical-slide"><img id="carouselImage1" src="../frontend/final photos/6R9A8185.JPG" alt="Slide 1"></div>
+      <div class="whimsical-slide"><img id="carouselImage2" src="../frontend/final photos/6R9A7871.JPG" alt="Slide 2"></div>
+      <div class="whimsical-slide"><img id="carouselImage3" src="../frontend/final photos/6R9A7788.JPG" alt="Slide 3"></div>
     </div>
     <div class="whirly-controls">
       <button class="fancy-button" id="prevButton">❮</button>
@@ -1861,105 +1862,57 @@
     </div>
   </section>
 
-  <section id="team-o">
-    <div class="container">
-      <div class="row">
-        <div class="title-division">
-          <h2 class="section-title">முதல் நிர்வாகக்குழு விவரம்</h2>
-          <p>களஞ்சியம் தமிழ் கலை பண்பாட்டு குழுவின் முதன்மை நிர்வாக குழு உறுப்பினர்கள் மற்றும் அவர்களின் சிறப்பு
-            திறன்கள்.</p>
-        </div>
-        <div class="cc owl-carousel">
-          <div class="team-contents">
-            <div class="box-wrapper">
-
-              <div class="box">
-                <img src="wp-content/uploads/sites/8/2023/05/Image4.png">
-              </div>
-            </div>
-
-            <div class="team-box">
-              <div class="team-title">
-                <a href="team/scott-william-5/index.html">
-
-                </a>
-                <p class="team-content">
-
-                </p>
-              </div>
-              <h5 class="team-heading" style="color: #0b0b0b">
-                Er.M.பழனிசாமி, B.E., M.B.A.,</h5>
-              <h5 style="color: #0b0b0b">நிறுவனர்</h5>
-            </div>
-          </div>
-          <div class="team-contents">
-            <div class="box-wrapper">
-
-              <div class="box">
-                <img src="wp-content/uploads/sites/8/2023/05/Image5.jpg">
-              </div>
-            </div>
-
-            <div class="team-box">
-              <div class="team-title">
-
-
-                <p class="team-content">
-
-                </p>
-              </div>
-              <h5 class="team-heading" style="color: #0b0b0b;">
-                K.G.பால முருகன், B.A.,
-              </h5>
-              <h5 style="color: #0b0b0b;">தலைவர்</h5>
-            </div>
-          </div>
-          <div class="team-contents">
-            <div class="box-wrapper">
-
-              <div class="box">
-                <img src="wp-content/uploads/sites/8/2023/05/Image3.jpg">
-              </div>
-            </div>
-
-            <div class="team-box">
-              <div class="team-title">
-
-
-                <p class="team-content">
-
-                </p>
-              </div>
-              <h5 class="team-heading" style="color: #0b0b0b">
-                P.ஹரிக்குமார், B.sc., </h5>
-              <h5 style="color: #0b0b0b">செயலாளர்</h5>
-            </div>
-          </div>
-          <div class="team-contents">
-            <div class="box-wrapper">
-
-              <div class="box">
-                <img src="wp-content/uploads/sites/8/2023/05/Image1.jpg">
-              </div>
-            </div>
-
-            <div class="team-box">
-              <div class="team-title">
-
-                <p class="team-content">
-
-                </p>
-              </div>
-              <h5 class="team-heading" style="color: #0b0b0b">
-                R.ராம்பிரபு, B.E.,</h5>
-              <h5 style="color: #0b0b0b">பொருளாளர்</h5>
-
-            </div>
-          </div>
-        </div>
-      </div>
+  
+ <div class="bg-white text-black">
+  <div class="container mx-auto px-4 py-8">
+   <h1 class="text-3xl font-bold text-center mb-4">
+    முதல் நிர்வாகக்குழு விவரம்
+   </h1>
+   <p class="text-center mb-8" style="color: #000000;">
+    களஞ்சியம் தமிழ் கலை பண்டாட்டு குழுவின் முதன்மை நிர்வாக குழு உறுப்பினர்கள் மற்றும் அவர்களின் சிறப்பு திறன்கள்.
+   </p>
+   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" id="members">
+    <div class="text-center">
+     <img style="height: 300px; width: 200px;" alt="Er.M.பழனிசாமி, B.E., M.B.A., நிவுவனர்" class="rounded-lg mx-auto mb-4" height="300" src="https://storage.googleapis.com/a1aa/image/jOamvHpbC4ZDBpK85WEDYSlAToEEwTMFQcxuZ18DZiE5yfeTA.jpg" width="300"/>
+     <p class="font-semibold">
+      Er.M.பழனிசாமி, B.E., M.B.A.,
+     </p>
+     <p>
+      நிவுவனர்
+     </p>
     </div>
-  </section>
+    <div class="text-center">
+     <img alt="K.G.பால முருகன், B.A., தலைவர்" class="rounded-lg mx-auto mb-4" height="300" src="https://storage.googleapis.com/a1aa/image/PpNGODCbMUqeAye7ukm4hUkd5laK5i50VnrYiwrP1d0gLf7nA.jpg" width="300"/>
+     <p class="font-semibold">
+      K.G.பால முருகன், B.A.,
+     </p>
+     <p>
+      தலைவர்
+     </p>
+    </div>
+    <div class="text-center">
+     <img alt="P.ஹரிக்குமார், B.Sc., செயலாளர்" class="rounded-lg mx-auto mb-4" height="300" src="https://storage.googleapis.com/a1aa/image/lZQTL4Gnsx4VDtWPIrOJMI0BTMCZWIRG16aD9JUNMLi3yfeTA.jpg" width="300"/>
+     <p class="font-semibold">
+      P.ஹரிக்குமார், B.Sc.,
+     </p>
+     <p>
+      செயலாளர்
+     </p>
+    </div>
+    <div class="text-center">
+     <img alt="R.ராம்பிரபு, B.E., பொருளாளர்" class="rounded-lg mx-auto mb-4" height="300" src="https://storage.googleapis.com/a1aa/image/OMQjjkLKc64pK9xRa1I6e8OB9T2YEcLQJxHh0fdsFBSiLf7nA.jpg" width="300"/>
+     <p class="font-semibold">
+      R.ராம்பிரபு, B.E.,
+     </p>
+     <p>
+      பொருளாளர்
+     </p>
+    </div>
+   </div>
+  </div>
+ </div>
+
+
 
 
 
@@ -2189,6 +2142,7 @@
           updateCarousel();
         });
       </script>
+      <script src="dashBoard.js"></script>
 </body>
 
 </html>
