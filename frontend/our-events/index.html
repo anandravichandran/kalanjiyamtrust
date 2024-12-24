@@ -25,8 +25,56 @@
     href='../wp-content/plugins/wp-notification-bars/public/css/wp-notification-bars-public0718.css?ver=1.0.12'
     type='text/css' media='all' />
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 
   <style id='wp-emoji-styles-inline-css' type='text/css'>
+      /* Blur background when loader is active */
+/* Loader container with blurred background */
+.loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    backdrop-filter: blur(5px); /* Blurred background effect */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  
+  /* Centered loader content */
+  .loader-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  /* Spinning animation */
+  .spinner {
+    width: 50px;
+    height: 50px;
+    border: 6px solid rgba(255, 255, 255, 0.2);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px;
+  }
+  .spinner p{
+    color: white;
+  }
+  
+  /* Spin animation keyframes */
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
     img.wp-smiley,
     img.emoji {
       display: inline !important;
@@ -1773,9 +1821,14 @@
     }
   </style>
 
+<div id="loader" class="loader-container" style="display: none;">
+  <div class="loader-content">
+    <div class="spinner"></div>
+    <p>loading...</p>
+  </div>
+</div>
 
-
-  <div class="container">
+  <div class="container" style="margin-bottom: 50px;">
     <div class="bg-white text-center">
       <div class="container mx-auto py-8">
        <h2 class="text-3xl font-bold mb-2">
@@ -2162,6 +2215,8 @@
     yearSelect.appendChild(option);
   }
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
 </body>
 
 </html>
