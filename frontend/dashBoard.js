@@ -206,7 +206,7 @@ async function fetchData(token) {
     
         try {
             showLoader()
-            const response = await fetch("http://localhost:5000/api/admin/kalanjiyam-trust", {
+            const response = await fetch("https://kalanjiyam-trust-backend.vercel.app/api/admin/kalanjiyam-trust", {
                 method: "GET",
                
             });
