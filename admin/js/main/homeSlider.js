@@ -101,7 +101,7 @@ document.getElementById("submitBtn").addEventListener("click",async()=>{
 
         try {
             showLoader();
-            const response = await fetch("https://kalanjiyam-trust-backend.vercel.app/api/admin/carousel-images",{
+            const response = await fetch("https://kalanjiyamtrustbackend.vercel.app/api/admin/carousel-images",{
                 method:"POST",
                 headers:{
                     token:token
@@ -140,7 +140,7 @@ async function handleDelete(id) {
         showLoader();
 
         // Send the DELETE request
-        const response = await fetch(`https://kalanjiyam-trust-backend.vercel.app/api/admin/carouselImages/delete/${id}`, {
+        const response = await fetch(`https://kalanjiyamtrustbackend.vercel.app/api/admin/carouselImages/delete/${id}`, {
             method: "DELETE",
             headers: {
                 token,
@@ -204,7 +204,7 @@ async function fetchData() {
     if (token) {
         try {
             showLoader()
-            const response = await fetch("https://kalanjiyam-trust-backend.vercel.app/api/admin/get-website-data", {
+            const response = await fetch("https://kalanjiyamtrustbackend.vercel.app/api/admin/get-website-data", {
                 method: "GET",
                 headers: { token },
             });

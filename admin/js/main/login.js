@@ -15,7 +15,7 @@ document.getElementById("loginBtn").addEventListener("click", async (e) => {
         if (logInCurrentStep === "verify") {
             // Step 1: Verify user credentials and send OTP
             showLoader()
-            const response = await fetch("https://kalanjiyam-trust-backend.vercel.app/api/admin/verify", {
+            const response = await fetch("https://kalanjiyamtrustbackend.vercel.app/api/admin/verify", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -49,7 +49,7 @@ document.getElementById("loginBtn").addEventListener("click", async (e) => {
             showLoader();
           console.log(email)
             // Verify OTP
-            const otpResponse = await fetch("https://kalanjiyam-trust-backend.vercel.app/api/admin/verify-otp", {
+            const otpResponse = await fetch("https://kalanjiyamtrustbackend.vercel.app/api/admin/verify-otp", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email: email, otp }),
@@ -62,7 +62,7 @@ document.getElementById("loginBtn").addEventListener("click", async (e) => {
                 // Log in user after OTP verification
                 showLoader();
 
-                const loginResponse = await fetch("https://kalanjiyam-trust-backend.vercel.app/api/admin/login", {
+                const loginResponse = await fetch("https://kalanjiyamtrustbackend.vercel.app/api/admin/login", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -113,7 +113,7 @@ document.getElementById("verifyBtn").addEventListener("click", async (e) => {
     if (currentStep === "sendOTP") {
         try {
             showLoader()
-            const response = await fetch("https://kalanjiyam-trust-backend.vercel.app/api/admin/forgot-password", {
+            const response = await fetch("https://kalanjiyamtrustbackend.vercel.app/api/admin/forgot-password", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email:emailValue }),
@@ -144,7 +144,7 @@ document.getElementById("verifyBtn").addEventListener("click", async (e) => {
 
         try {
             showLoader()
-            const response = await fetch("https://kalanjiyam-trust-backend.vercel.app/api/admin/verify-otp", {
+            const response = await fetch("https://kalanjiyamtrustbackend.vercel.app/api/admin/verify-otp", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email:emailValue, otp }),
@@ -181,7 +181,7 @@ document.getElementById("verifyBtn").addEventListener("click", async (e) => {
 
         try {
             showLoader()
-            const response = await fetch("https://kalanjiyam-trust-backend.vercel.app/api/admin/reset-password", {
+            const response = await fetch("https://kalanjiyamtrustbackend.vercel.app/api/admin/reset-password", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email:emailValue, newPassword,comfirmPassword }),
