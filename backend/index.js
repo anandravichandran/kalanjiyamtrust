@@ -16,6 +16,7 @@ const PORT = 5000;
 connectDB()
 
 
+
 // MIDDLEWARE
 
 app.use(express.json())
