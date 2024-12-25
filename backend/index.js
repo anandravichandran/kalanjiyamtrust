@@ -50,7 +50,9 @@ app.use(cors())
 
 app.use("/api/admin",adminAuthRouter);
 app.use("/api/admin",adminActivityRouter);
-
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
 
 // CREATE THE SERVER
 
