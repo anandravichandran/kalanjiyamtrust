@@ -116,6 +116,8 @@ function openPopup(event) {
     isChanged = false;
     if(event){
        
+    document.getElementById("heading").innerText = "Edit Event";
+    document.getElementById("add-btn").innerText = "Update";
     document.getElementById("event-heading").value = event.title?event.title :"N/A";
     document.getElementById("content-text").value = event.description?event.description :"N/A";
     document.getElementById("event-place").value = event.location?event.location :"N/A";

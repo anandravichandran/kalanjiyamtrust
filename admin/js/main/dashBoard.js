@@ -12,10 +12,16 @@ document.addEventListener("DOMContentLoaded",async()=>{
         let events = [...originalEvents]; // Work with a copy to prevent overwriting
         const yearDropdown = document.getElementById("year");
       
-        // Update carousel and events
-        updateHomeSliderImages(websiteData.data.carouselImages);
-        updateEvents(events);
-        updateMembers(websiteData.data.membersInformation);
+        const membersInformation  = websiteData.data.membersInformation;
+        const sortedMemberInformation = membersInformation.sort((a, b) => {
+          return a.standings - b.standings; // Ascending order
+      });
+      
+      
+      // Update carousel and events
+      updateHomeSliderImages(websiteData.data.carouselImages);
+      updateEvents(events);
+      updateMembers(sortedMemberInformation);
 
         // Add change listener for year filter
         if (yearDropdown) {

@@ -21,6 +21,30 @@ connectDB()
 app.use(express.json())
 app.use(cors())
 
+
+// Dynamic CORS Configuration
+// const allowedOrigins = [
+//   'https://www.kalanjiyamkalyanamalai.in',
+//   'https://kalanjiyam-kalyana-malai-zhkl.vercel.app'
+// ];
+
+// const corsOptions = {
+//   origin: (origin, callback) => {
+//     if (allowedOrigins.includes(origin) || !origin) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error('Not allowed by CORS'));
+//     }
+//   },
+//   methods: 'GET,POST,PUT,DELETE,PATCH',
+//   allowedHeaders: ['Content-Type', 'Authorization', 'token'],
+//   credentials: true,
+// };
+// app.use(cors(corsOptions));
+// app.options('*', cors(corsOptions)); // Handle preflight
+
+
+
 // ROUTES
 
 

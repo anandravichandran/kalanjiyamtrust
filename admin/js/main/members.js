@@ -112,6 +112,8 @@ function openPopup(member) {
 
     if(member){
        
+    document.getElementById("heading").innerText = "Edit Member";
+    document.getElementById("add-btn").innerText = "Update";
     document.getElementById("name").value = member.name?member.name :"N/A";
     document.getElementById("designation").value = member.designation?member.designation :"N/A";
     document.getElementById("degree").value = member.degree?member.degree :"N/A";
