@@ -112,6 +112,8 @@ function openPopup(member) {
 
     if(member){
        
+    document.getElementById("heading").innerText = "Edit Member";
+    document.getElementById("add-btn").innerText = "Update";
     document.getElementById("name").value = member.name?member.name :"N/A";
     document.getElementById("designation").value = member.designation?member.designation :"N/A";
     document.getElementById("degree").value = member.degree?member.degree :"N/A";
@@ -155,7 +157,7 @@ document.getElementById("add-btn").addEventListener("click", async (event) => {
     try {
         showLoader(); // Display loading indicator
 
-        const response = await fetch("http://localhost:5000/api/admin/add-members", {
+        const response = await fetch("https://kalanjiyamtrustbackend.vercel.app/api/admin/add-members", {
             method: "POST",
             headers: {
                 token, // Ensure the `token` variable is defined
@@ -227,7 +229,7 @@ async function handleDelete(id) {
         showLoader();
 
         // Send the DELETE request
-        const response = await fetch(`http://localhost:5000/api/admin/membersInformation/delete/${id}`, {
+        const response = await fetch(`https://kalanjiyamtrustbackend.vercel.app/api/admin/membersInformation/delete/${id}`, {
             method: "DELETE",
             headers: {
                 token,
@@ -288,7 +290,7 @@ async function fetchData(token) {
     if (token) {
         try {
             showLoader()
-            const response = await fetch("http://localhost:5000/api/admin/get-website-data", {
+            const response = await fetch("https://kalanjiyamtrustbackend.vercel.app/api/admin/get-website-data", {
                 method: "GET",
                 headers: { token },
             });

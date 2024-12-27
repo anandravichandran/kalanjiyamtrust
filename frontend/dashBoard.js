@@ -14,7 +14,11 @@ document.addEventListener("DOMContentLoaded",async()=>{
         // Update carousel and events
         updateHomeSliderImages(websiteData.carouselImages);
         updateEvents(events);
-        updateMembers(websiteData.membersInformation);
+        const membersInformation  = websiteData.membersInformation;
+        const sortedMemberInformation = membersInformation.sort((a, b) => {
+          return a.standings - b.standings; // Ascending order
+      });
+      updateMembers(sortedMemberInformation);
 
         // Add change listener for year filter
         if (yearDropdown) {
@@ -202,7 +206,7 @@ async function fetchData(token) {
     
         try {
             showLoader()
-            const response = await fetch("http://localhost:5000/api/admin/kalanjiyam-trust", {
+            const response = await fetch("https://kalanjiyamtrustbackend.vercel.app/api/admin/kalanjiyam-trust", {
                 method: "GET",
                
             });
