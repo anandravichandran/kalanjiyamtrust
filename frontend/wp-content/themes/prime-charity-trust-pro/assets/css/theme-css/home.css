@@ -613,6 +613,7 @@ div#nav-home .tab-left img {
     border: none;
     border-radius: 10px;
     transition: 0.3s ease-in-out;
+    margin-right:60px
 }
 .owl-nav .owl-next:hover,.owl-nav .owl-prev:hover,.owl-nav .owl-prev:hover .fa,.owl-nav .owl-next:hover .fa{
   background: var(--theme-primary-color);
@@ -621,6 +622,7 @@ div#nav-home .tab-left img {
 .owl-nav .owl-prev {
     left: -80px;
     position: absolute;
+    margin-left:10px
 }
 section#team-o .owl-nav {
     position: absolute;
