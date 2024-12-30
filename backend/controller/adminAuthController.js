@@ -103,7 +103,7 @@ export const forgotPassword = async(req,res)=>{
             return res.json({success:false,message:"This Email Is Not Registered. Please Try Again"})
         }else{
            
-           if(sentOTP(email,user.name,"forgot_password")){
+           if(sentOTP(email,user.userName,"forgot_password")){
                     res.json({success:true,message:"OTP has been successfully sent to your registered email address"});  
            }else{
                     res.json({success:false,message:"Failed To Send OTP"});     
