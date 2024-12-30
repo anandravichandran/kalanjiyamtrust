@@ -2,7 +2,7 @@ const defaultProfileImage = "https://static.vecteezy.com/system/resources/previe
 
 
 document.addEventListener("DOMContentLoaded",async()=>{
-
+ 
 
     const websiteData = await fetchData();
 
