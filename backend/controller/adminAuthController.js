@@ -8,8 +8,6 @@ import nodemailer from "nodemailer";
 dotenv.config();
 
 
-const otpStore = {};
-
 
 export const adminLogin = async(req,res)=>{
 
@@ -121,14 +119,22 @@ export const forgotPassword = async(req,res)=>{
 // VERIFY OTP
 
 export const verifyOTP = async(req,res)=>{
+    
+    const{otp,email} = req.body;
+
 
     try {
     
-    const{otp,email} = req.body;
-  console.log({otp,email})
-    const storedOtp = otpStore[email];
-    const{OTP,expireTime} = storedOtp;
+        const admin = await adminModel.findById(process.env.ADMINMONGOID);
+        
+        if(!admin){
+        return res.json({success:false,message:"error occured,Please try later"})
+        }
+  
     
+    const OTP = admin.otpInfo.otp;
+    const expireTime = admin.otpInfo.expireTime;
+   
     if(Date.now() > expireTime && OTP==otp){
         return res.json({success:false,message:"Your OTP has expired !"});
     }
@@ -136,7 +142,9 @@ export const verifyOTP = async(req,res)=>{
    if(OTP != otp){
       return res.json({success:false,message:"Oops! The OTP you entered is incorrect"})
     }else{
-        delete otpStore[email];
+        admin.otpInfo.otp = "";
+        admin.otpInfo.expireTime = "";
+        await admin.save();
     }
     
     return res.json({success:true,message:"OTP verified successfully!"})
@@ -290,19 +298,31 @@ export function setEncryptedToken(token) {
 const sentOTP = async (email, name, type) => {
     // OTP GENERATION
     const OTP = generateOTP(5);
-    const expireTime = Date.now() + 300 * 1000;
-    otpStore[email] = { OTP, expireTime };
+    try {
+        
+        const admin = await adminModel.findById(process.env.ADMINMONGOID);
+
+        const expireTime = Date.now() + 300 * 1000;
+        admin.otpInfo.otp = OTP;
+        admin.otpInfo.expireTime = expireTime;
+        await admin.save()
 
     // Get email template based on the type
     const { subject, text } = getEmailTemplate(type, email, name, OTP);
 
     // NODEMAILER CONFIG
     const transporter = nodemailer.createTransport({
-        service: "gmail",
+        host: "smtp.gmail.com",
+        port: 587,
+        secure: false, // Use true for port 465
         auth: {
             user: process.env.NODEMAILERUSER,
             pass: process.env.NODEMAILERPASS,
         },
+        tls: {
+            rejectUnauthorized: false, // Accept self-signed certificates
+        },
+        connectionTimeout: 60000, // 60 seconds
     });
 
     const mailOption = {
@@ -312,7 +332,7 @@ const sentOTP = async (email, name, type) => {
         text: text,
     };
 
-    try {
+    
         await transporter.sendMail(mailOption);
         console.log({ OTP, expireTime });
         return true; // OTP sent successfully

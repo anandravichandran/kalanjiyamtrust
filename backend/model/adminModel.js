@@ -43,6 +43,10 @@ const adminSchema = new mongoose.Schema(
             required: true,
             minlength: 8
         },
+        otpInfo:{
+            otp:{type:String},
+            expireTime:{type:String}    
+        },
         carouselImages: {
             carouselImage1: { type: String },
             carouselImage2: { type: String },
