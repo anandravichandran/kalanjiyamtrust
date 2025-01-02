@@ -4,7 +4,7 @@ import { adminLogin, forgotPassword, resetPassword, verify, verifyOTP } from "..
 
 const adminAuthRouter = express.Router();
 
-
+ 
 
 adminAuthRouter.post("/login",adminLogin);
 adminAuthRouter.post("/verify",verify);
