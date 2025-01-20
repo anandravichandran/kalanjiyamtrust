@@ -1827,16 +1827,18 @@ section#form-o .form-wrapper .give-form-wrap form #give_purchase_form_wrap #give
     display: block;
 }
 .form-wrapper {
-    background: #fff;
-    height: calc(100vh - 5rem);
-    width: 80%;
-    padding: 0px 0 0 0;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 11px;
-    position: relative;
+  background: #fff;
+  height: calc(100vh - 5rem);
+  width: 40%;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 11px;
+  position:absolute;
+  top:50%; /* Ensure no margin on the left */
+  left:100px;
+  transform:translateY(-50%)/* Automatically push it to the left */
 }
 form[id*=give-form] .give-donation-amount{
   margin: 0 0 0 !important;
