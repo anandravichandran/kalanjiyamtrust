@@ -1300,11 +1300,13 @@ li.loc-mail a i {
   .footer_col_extra {
     margin: 0 0 50px;
   }
-  .form-wrapper {
-    width: 100%;
+   .form-wrapper {
+    width: 70%%;
     padding: 20px;
     overflow-y: scroll;
     overflow-x: hidden;
+    position:absolute;
+    left:60px;
   }
 }
 
