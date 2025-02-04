@@ -613,7 +613,7 @@ div#nav-home .tab-left img {
     border: none;
     border-radius: 10px;
     transition: 0.3s ease-in-out;
-    margin-right:60px
+    margin-right:159px;
 }
 .owl-nav .owl-next:hover,.owl-nav .owl-prev:hover,.owl-nav .owl-prev:hover .fa,.owl-nav .owl-next:hover .fa{
   background: var(--theme-primary-color);
@@ -622,7 +622,8 @@ div#nav-home .tab-left img {
 .owl-nav .owl-prev {
     left: -80px;
     position: absolute;
-    margin-left:10px
+    margin-left:10px;
+    top: 50%;
 }
 section#team-o .owl-nav {
     position: absolute;
@@ -1326,9 +1327,10 @@ section#organization-cause-o {
     color: #000000;
     opacity: 1;
 }
-section#organization-cause-o .post-slider-wrapper .owl-nav .owl-prev,section#organization-cause-o .post-slider-wrapper .owl-nav .owl-next {
-    top: 50%;
-    transform: translateY(-50%);
+section#organization-cause-o .post-slider-wrapper .owl-nav .owl-next {
+  top: 50%;
+  transform: translateY(-0%);
+  transform: translateX(190px);
 }
 
 
@@ -1339,6 +1341,8 @@ section#organization-cause-o .post-slider-wrapper .owl-nav .owl-prev,section#org
   .owl-nav .owl-prev {
     left: 0px;
     position: absolute;
+    top: 50%;
+    transform: translateX(-50px);
   }
   .owl-nav .owl-next{
     right: 0px;
@@ -1488,10 +1492,13 @@ section#organization-cause-o .post-slider-wrapper .owl-nav .owl-prev,section#org
   }
   .owl-nav .owl-next,.owl-nav .owl-prev{
     height: 50px;
+    transform: translateY(-270px);
+    transform: translateX(-30px);
+    top: 50%;
   }
   section#organization-cause-o .post-slider-wrapper .owl-nav .owl-prev, section#organization-cause-o .post-slider-wrapper .owl-nav .owl-next {
-    top: 40%;
-    transform: translateY(-40%);
+    top: 50%;
+    /* transform: translateY(-40%); */
   }
   section#form-o .form-wrapper .give-form-wrap form #give-donation-level-button-wrap li button{
     height: auto !important;
