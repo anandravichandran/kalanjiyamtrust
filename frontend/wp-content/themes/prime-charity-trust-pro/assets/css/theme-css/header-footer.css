@@ -1000,7 +1000,7 @@ div#footer_box .footer-cols .row div #recent-posts-2 ul li .recent-post-box .pos
 .topbar-social ul li a {
     width: 30px;
     height: 30px;
-    background: #000;
+    /* background: #000; */
     border-radius: 50%;
     display: flex;
     justify-content: center;

@@ -1489,10 +1489,21 @@ section#organization-cause-o .post-slider-wrapper .owl-nav .owl-prev,section#org
   .owl-nav .owl-next,.owl-nav .owl-prev{
     height: 50px;
   }
-  section#organization-cause-o .post-slider-wrapper .owl-nav .owl-prev, section#organization-cause-o .post-slider-wrapper .owl-nav .owl-next {
-    top: 40%;
-    transform: translateY(-40%);
-  }
+@media (max-width: 767px) {
+    section#organization-cause-o .post-slider-wrapper .owl-nav .owl-prev,
+    section#organization-cause-o .post-slider-wrapper .owl-nav .owl-next {
+        top: 40%;
+        transform: translateX(10%);
+        /* Adding margin to create space between buttons */
+        margin-left: 15px; /* Adjust the gap between the buttons */
+    }
+
+    /* If you want the "next" button to have additional gap to the right */
+    section#organization-cause-o .post-slider-wrapper .owl-nav .owl-next {
+        margin-right:3px; /* Adjust this as needed */
+    }
+}
+
   section#form-o .form-wrapper .give-form-wrap form #give-donation-level-button-wrap li button{
     height: auto !important;
   }

@@ -1596,6 +1596,53 @@
         padding: 3px 6px;
       }
     }
+
+ /* Button Container */
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Read More Button */
+.read-more-btn {
+  display: inline-block;
+  margin-top: 2%;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  background: linear-gradient(to top left, #f1a91c, #f1a91c, #f1a91c);
+  border-radius: 25px;
+  transition: background 0.3s ease, transform 0.3s ease;
+  transform: translateX(490%);
+  /* Adding box shadow */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Horizontal, Vertical, Blur, Spread */
+}
+
+/* For mobile devices (screen width less than 768px) */
+@media (max-width: 768px) {
+  .read-more-btn {
+    margin-left: 0; /* Remove left margin */
+    margin-top: 10%; /* Adjust top margin for better visibility */
+    width: auto; /* Allow the button width to adjust based on content */
+    transform: translateX(60px);
+  }
+}
+
+
+.read-more-btn:hover {
+  background: linear-gradient(45deg, #f3b455, #f39c12);
+  transform: scale(1.1);
+  
+  /* Shadow on hover for more emphasis */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+}
+
+
   </style>
 </head>
 
@@ -1662,17 +1709,17 @@
           <ul>
             <li>
               <a href="https://www.facebook.com/people/Kalanjiyam-Salem/pfbid02vupVrj6v57XbjS9Vq5VFY16Rn8gonvkBWUKZoZF6dgRxp14fpCHM6jsgYEaGuFUNl/?mibextid=ZbWKwL"
-                target="_blank">
-                <i class="fa fa-facebook" aria-hidden="true"></i>
-              </a>
+              target="_blank">
+              <img src="../frontend/facebook_logo.png" alt="Facebook" style="width: 30px; height: 30px;">
+           </a>
+           
             </li>
             <li style="list-style: none; display: inline-block; margin: 0;">
               <a href="mailto:kalanjiyamsalem@gmail.com" target="_blank"
-                style="text-decoration: none; display: flex; align-items: center; justify-content: center; width: 30px; height: 30px; background: #000; border-radius: 50%; transition: background 0.3s ease-in-out;"
+                style="text-decoration: none; display: flex; align-items: center; justify-content: center; width: 30px; height: 30px;  border-radius: 50%; transition: background 0.3s ease-in-out;"
                 onmouseover="this.style.background='var(--theme-primary-color)'; this.children[0].style.color='#fff';"
                 onmouseout="this.style.background='#000'; this.children[0].style.color='#fff';">
-                <i class="fa-solid fa-envelope"
-                  style="color: #fff; font-family: 'Font Awesome 5 Free'; font-style: normal; font-size: 16px; font-weight: 400; transition: color 0.3s ease-in-out;"></i>
+                <img src="../frontend/emai_logo.png" alt="Facebook" style="width: 30px; height: 30px;">
               </a>
             </li>
 
@@ -1682,7 +1729,7 @@
 
             <li>
               <a href="https://www.instagram.com/kalanjiyamsalem/profilecard/?igsh=am41NnZnZ2tmZzZt" target="_blank">
-                <i class="fa-brands fa-instagram"></i>
+                <img src="../frontend/instagram_logo.png" alt="Instagram" style="width: 30px; height: 30px;">
               </a>
             </li>
           </ul>
@@ -1807,11 +1854,7 @@
             <p class="tag_title">தனித்துவமாக அமைப்புடன் ஏழைகளை உதவுங்கள்</p>
             <h2>களஞ்சியம் தமிழ் கலை பண்பாட்டு குழு</h2>
             <p class="organization-content">
-              தமிழின் கலை மற்றும் பண்பாட்டை பாதுகாக்கும், மேம்படுத்தும் ஒரு சிறப்பு இயக்கமாகத் திகழ்கிறது. இக்குழு,
-              தமிழின் தொல்பொருள் மற்றும் மரபுவழி கலைகளை மீட்டு, அடுத்த தலைமுறைக்கு பரப்ப முனைவதோடு, பாரம்பரியத்தை
-              எளிமையாகப் போதிக்கிறது. இளைஞர்களுக்கு தமிழ் கலைகளில் பயிற்சிகளை வழங்குவதன் மூலம், தமிழ் மரபு கலைகளை
-              உயிர்ப்பிக்க விழைகிறது. மேலும், குழுவின் தலைமையில் பல தமிழ் பண்பாட்டு விழாக்கள், கலை நிகழ்ச்சிகள்
-              நடத்தப்பட்டு, தமிழ் கலைஞர்களின் பேருரைகள் மற்றும் சிந்தனைச் செழுமையையும் ஊக்குவிக்கிறது. </p>
+              தமிழின் கலை மற்றும் பண்பாட்டை அதாவது கலாச்சாரத்தை பாதுகாக்கும், மேம்படுத்தும் ஒரு சிறப்பு இயக்கமாகத் திகழ்கிறது. இக்குழு, தமிழின் தொல்பொருள் நலிந்து வரும் நாட்டுப்புற கலைகளை மற்றும் மரபுவழி கலைகளை மீட்டு, அடுத்த தலைமுறைக்கு பரப்ப முனைவதோடு, பாரம்பரியத்தை எளிமையாகப் போதிக்கிறது. இளைஞர்களுக்கு தமிழ் கலைகளில் பயிற்சிகளை வழங்குவதன் மூலம், தமிழ் மரபு கலைகளை உயிர்ப்பிக்க விழைகிறது. மேலும், குழுவின் தலைமையில் பல தமிழ் பண்பாட்டு விழாக்கள், கலை நிகழ்ச்சிகள் நடத்தப்பட்டு, கல்வி பயிலும் மாணவ மாணவியர்களுக்கு தமிழ் கலைஞர்களின், அறிஞர்களின் பேருரைகள் மற்றும் சிந்தனைச் செழுமையையும் செலுத்தி ஊக்குவிக்கிறது. </p>
             <div class="funds">
               <a href="#">
                 <span class="palm">
@@ -1833,55 +1876,79 @@
     <div class="container">
       <div class="title-division">
         <h2 class="section-title">அமைப்பின் காரணம்</h2>
-        <p>இந்த அமைப்பு சமூகத்தின் தேவைகளை பூர்த்தி செய்ய, கல்வி, தொழில்நுட்பம் மற்றும் வேலைவாய்ப்பு வாய்ப்புகளை
-          மேம்படுத்தும் நோக்கத்தில் உருவாக்கப்பட்டது. மேலும், இளைஞர்களுக்கு அறிவியல் மற்றும் தொழில்முனைவோரை
-          ஊக்குவிக்கும் பணிகளை மேற்கொள்கிறது.</p>
+        <p>இந்த அமைப்பு சமூகத்தின் தேவைகளை பூர்த்தி செய்ய, அதாவது கலை, கல்வி, கலாச்சாரம், இவைகளை வளர்ப்பது, அதோடு மட்டுமல்லாமல் தொழில்நுட்பம் மற்றும் வேலைவாய்ப்புகளை மேம்படுத்தும் நோக்கத்தில் உருவாக்கப்பட்டது. மேலும், இளைஞர்களுக்கு அறிவியல், தொழில் முனைவோரையும்,மற்றும் நாட்டுப்புற கலைஞர்களையும் ஊக்குவிக்கும் பணிகளை மேற்கொள்கிறது.</p>
       </div>
+
       <div class="post-slider-wrapper owl-carousel">
 
-
-
         <div class="post-content-wrapper">
-          <div class="post-img">
-            <img src="final photos/6R9A7694.JPG">
-          </div>
-           <h3>பாரம்பரிய கலை மற்றும் நடனத்தின் சிறப்பு நிகழ்ச்சி</h3>
-                      <p>2024 ஜனவரி 26ஆம் தேதி நடைபெற்ற நிகழ்ச்சியில் பாரம்பரிய கலைகளின் அழகும் நடனத்தின் சிறப்பும் வெளிப்படுத்தப்பட்டது.</p>
+            <div class="post-img">
+                <img src="final photos/6R9A7694.JPG" alt="Image 1">
+            </div>
+            <h4 style="font-size:17px;">தமிழ் வளர்ச்சிக்காக பாடுபடுதல், பேணிக்காத்தல் மற்றும் உரிமை கோருதல்.</h4>
+            <div class="post-text-wrapper">
+                <p class="short-content">
+                 
+                </p>
+                <p class="full-content" style="display:none;">
+                  தமிழ் மொழி மற்றும் அதன் பண்பாடு உலக அளவில் பரப்புவதற்கும் அதன் முக்கியத்துவத்தை நிலைநாட்டுவதற்கும் பாடுபடுதல் அவசியம். தமிழின் அழகையும் தனித்துவத்தையும் உலகிற்கு அறிமுகப்படுத்துவது, அதன் உரிமைகளை பெறுவது, வளர்ச்சியை நிலைநாட்டுவது போன்றது நமது கடமை. தமிழ் மொழிக்கு உரிமையை பெறுதல், அதன் உத்தியோகபூர்வ நிலையை உயர்த்துவது, தமிழின் அழகு மற்றும் அதன் வித்தியாசங்களை பேணிக்காத்தல் முக்கியம்.
+                </p>
+                <a href="javascript:void(0);" class="read-more" style="color: #F1A91C;" onclick="toggleContent(this)">Read More</a>
+            </div>
         </div>
-
-
-
+    
         <div class="post-content-wrapper">
-          <div class="post-img">
-            <img src="final photos/6R9A7846.JPG">
-          </div>
-          <h3>சேலத்தில் அரசு பள்ளி மாணவர்கள் சான்றிதழ் மற்றும் பரிசு பெற்றனர்</h3>
-          <p><p>சேலத்தில் அரசு பள்ளி மாணவர்கள் தேர்வுகளில் உயர்ந்த மதிப்பெண்கள் பெற்று, இது அவர்களின் கடின உழைப்பையும் பிரதிபலிக்கிறது</p>
+            <div class="post-img">
+                <img src="final photos/6R9A7846.JPG" alt="Image 2">
+            </div>
+            <h4 style="font-size:18px;">தமிழை தாய் மொழியாய் கொண்ட தமிழ் கலைஞர்களை ஆதரித்தல்.</h4>
+            <div class="post-text-wrapper">
+                <p class="short-content">
+                   
+                </p>
+                <p class="full-content" style="display:none;">
+                  தமிழ் மொழியில் திறமை வெளிப்படுத்தும் கலைஞர்களின் வழிகாட்டி ஆகி அவர்களுக்கு ஆதரவு அளிக்க வேண்டும். தமிழ் கலைஞர்களின் கலை மற்றும் கலாச்சார வளர்ச்சி என்பது சமூகத்தின் உயர்வுக்கு வழிவகுக்கும். அவர்கள் தங்கள் கலைத்திறமையை மேம்படுத்துவதற்கு தேவையான ஆதரவு, வளம் மற்றும் ஊக்கம் வழங்குவதே எங்களின் நோக்கம்.
+                </p>
+                <a href="javascript:void(0);" class="read-more" style="color: #F1A91C;" onclick="toggleContent(this)">Read More</a>
+            </div>
         </div>
-
-
-
+    
         <div class="post-content-wrapper">
-          <div class="post-img">
-            <img src="final photos/6R9A7536.JPG">
-          </div>
-           <h3>அசத்தல் மல்லக்கம்பம் நிகழ்ச்சியில் பாரம்பரிய கலை</h3>
-                      <p>மல்லக்கம்பம் கலையின் மகத்துவம் இளைஞர்களின் திறமையால் புதிய உச்சியை எட்டிய ஒரு சிறப்பான நிகழ்வாக அமைந்தது.</p>
-          </p>
-
+            <div class="post-img">
+                <img src="final photos/6R9A7536.JPG" alt="Image 3">
+            </div>
+            <h4 style="font-size:17px;">அகில உலகமெல்லாம் வாழும் தமிழர்களின் குடும்ப நலனுக்காக குரல் கொடுத்தல்.</h4>
+            <div class="post-text-wrapper">
+                <p class="short-content">
+                    
+                </p>
+                <p class="full-content" style="display:none;">
+                  தமிழர்களின் குடும்ப நலனுக்காக உலகம் முழுவதும் குரல் கொடுத்தல், சமுதாயம், செல்வாக்கு மற்றும் பலவற்றை மேம்படுத்துவதற்கு உதவியாய் இருக்கும். தமிழ் பேசும் சமூகத்தின் தேவைகள், பிரச்சினைகள் மற்றும் சந்தேகங்களை பரிசீலனை செய்து, அவர்கள் குடும்பத்தை பொருளாதார ரீதியாகவோ, சமூக ரீதியாகவோ செழிப்பான வாழ்க்கை நிலைக்கு கொண்டு வர நடவடிக்கை எடுக்க வேண்டும்.
+                </p>
+                <a href="javascript:void(0);" class="read-more" style="color: #F1A91C;" onclick="toggleContent(this)">Read More</a>
+            </div>
         </div>
-
-
-
+    
         <div class="post-content-wrapper">
-          <div class="post-img">
-            <img src="final photos/6R9A7871.JPG">
-          </div>
-          <h3>இளைஞர்களின் திறமையின் அசத்தல் செய்தனர்</h3>
-                      <p>மல்லக்கம்பத்தில் இளைஞர்கள் திறமையுடன் பங்கேற்றனர்.  மேலும்,  அவர்கள்  பாரம்பரிய  கலைகளின்  மகத்துவத்தை  அனைவருக்கும்   அறிமுகம்.</p>
-          </p>
+            <div class="post-img">
+                <img src="final photos/6R9A7871.JPG" alt="Image 4">
+            </div>
+            <h4 style="font-size:17px;">தமிழர் திருநாளை கோலாகலமாக, தமிழ் உணர்வுடன், நாடு எங்கிலும் கொண்டாடுத.</h4>
+            <div class="post-text-wrapper">
+                <p class="short-content">
+                  
+                <p class="full-content" style="display:none;">
+                  அதிகபட்சமாக கல்வியில் சிறந்து விளங்கும் பாடசாலை, கல்லூரி மற்றும் பல்கலைக்கழக மாணவர்களுக்கு பொருளாதார உதவிகள் வழங்குவதே முக்கியம். அவர்களுக்கு பயிலும் போது ஏற்படும் பொருளாதார சிக்கல்களை தீர்க்க உதவுவதன் மூலம் அவர்கள் கல்வியில் மேலாண்மையாக வளர்ந்து, எதிர்காலத்தில் திறமையாகச் சாதிக்க முடியும்.
+                  </p>
+                </p>
+                <a href="javascript:void(0);" class="read-more" style="color: #F1A91C;" onclick="toggleContent(this)">Read More</a>
+            </div>
         </div>
-      </div>
+    
+    </div>
+    <!-- redirect to the another page -->
+    <a href="../frontend/organization-cause/index.html" class="read-more-btn" style=" justify-content: center;">Read More</a>
+
     </div>
   </section>
 
@@ -1998,7 +2065,7 @@
       <div class="container">
         <div id="footer_box" class="darkbox">
           <div class="container footer-cols">
-            <div class="row  mt-4">
+            <div class="row  mt-4" style="transform: translateX(10%); ">
               <div class="col-lg-3 col-md-6 col-sm-12 footer_col_extra">
                 <aside id="media_image-1" class="widget widget_media_image"><img class="image " src="Website Logo.png"
                     alt="" width="304" height="286" decoding="async" loading="lazy" /></aside>
@@ -2190,6 +2257,25 @@
           currentIndex = (currentIndex - 1 + slideCount) % slideCount;
           updateCarousel();
         });
+
+        function toggleContent(element) {
+    var postContentWrapper = element.closest('.post-content-wrapper');
+    var fullContent = postContentWrapper.querySelector('.full-content');
+    var shortContent = postContentWrapper.querySelector('.short-content');
+    
+    // Toggle the card size and content visibility
+    if (fullContent.style.display === "none") {
+        fullContent.style.display = "block";
+        shortContent.style.display = "none";
+        element.textContent = "Read Less";
+        postContentWrapper.classList.add('expanded');
+    } else {
+        fullContent.style.display = "none";
+        shortContent.style.display = "block";
+        element.textContent = "Read More";
+        postContentWrapper.classList.remove('expanded');
+    }
+}
       </script>
       <script src="dashBoard.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
