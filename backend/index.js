@@ -10,7 +10,7 @@ import bcrypt from "bcryptjs"
 const app = express();
 const PORT = 5000;
 
-
+ 
 // CONNECT DB
 
 connectDB()
