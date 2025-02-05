@@ -26,18 +26,50 @@ Prime Charity Trust Pro WordPress Theme is released under the terms of GNU GPL
 /*---------*/
 
 
-html body{
-  margin:0;
-  padding:0;
-  -ms-word-wrap:break-word;
-  word-wrap:break-word;
-  background-color:#fff;
-  position:relative;
+html, body {
+  padding: 0;
+  margin: 0;
+  -ms-word-wrap: break-word;
+  word-wrap: break-word;
+  background-color: #fff;
+  position: relative;
   font-size: 14px;
   color: var(--black-color);
-  overflow-x: hidden;
+  overflow-x: hidden;  /* Prevent horizontal scrolling */
   font-family: var(--quick-sand-font);
+  width: 100%;  /* Ensure full width */
+  height: 100%; /* Ensure full height */
+  box-sizing: border-box; /* Prevent padding/margins from affecting width */
 }
+
+/* Apply responsive changes for mobile */
+@media (max-width: 768px) {
+  html, body {
+      width: 100%;
+      padding: 0;  /* Ensure no unwanted padding */
+  }
+  
+  /* Ensure all containers are full width */
+  .container, .your-container {
+      width: 100%;
+      max-width: 100%;  /* Prevent width constraints */
+      padding: 0 16px; /* Optional: Add padding for spacing */
+  }
+
+  /* Ensure images are responsive */
+  img {
+      max-width: 100%;
+      height: auto;
+  }
+
+  /* Make sure any other content doesn’t overflow */
+  * {
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+  }
+}
+
+
 label {
   margin-bottom: 0 !important;
 }

@@ -108,19 +108,26 @@
       display: flex;
       transition: transform 0.5s ease-in-out;
     }
-
+    @media (max-width: 768px) {
+    .whimsical-slide img {
+        width: 100%;
+        height:100%;
+        object-fit: contain;
+    }
+  }
     .whimsical-slide {
       min-width: 100%;
       box-sizing: border-box;
       height: 580px;
-      /* Fixed height */
+   
       display: flex;
-      /* Center content */
+     
       justify-content: center;
       align-items: center;
       overflow: hidden;
-      /* Hide overflow */
+     
     }
+
 
     .whimsical-slide img {
       width: 100%;
@@ -141,34 +148,27 @@
     }
 
     .fancy-button {
-      background-color: rgba(255, 255, 255, 0.988);
-      /* Semi-transparent green */
-      color: rgb(23, 15, 15);
-      /* White text */
-      border: none;
-      border-radius: 50%;
-      padding: 12px;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      transition: background-color 0.3s ease, transform 0.2s ease;
-      width: 50px;
-      /* Increased width */
-      height: 50px;
-      /* Increased height */
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      background: rgba(255, 255, 255, 0.2); /* Light transparent white */
+  color: rgb(23, 15, 15);
+  border: none;
+  border-radius: 50%;
+  padding: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(2px); /* Glass effect */
+  -webkit-backdrop-filter: blur(8px);
     }
 
-    .fancy-button:hover {
-      transform: scale(1.2);
-      /* Slightly enlarge on hover */
-    }
-
-    .fancy-button:focus {
-      outline: none;
-      /* Remove outline */
-    }
+    fancy-button:hover {
+  transform: scale(1.2);
+  background: rgba(255, 255, 255, 0.3); /* Slightly stronger effect on hover */
+}
   </style>
   <link rel='stylesheet' id='wp-block-library-css' href='wp-includes/css/dist/block-library/style.min75e4.css?ver=6.4.5'
     type='text/css' media='all' />
@@ -188,6 +188,8 @@
       background: #32373c;
       color: #fff;
       text-decoration: none
+
+      
     }
   </style>
   <style id='global-styles-inline-css' type='text/css'>
@@ -1710,7 +1712,7 @@
             <li>
               <a href="https://www.facebook.com/people/Kalanjiyam-Salem/pfbid02vupVrj6v57XbjS9Vq5VFY16Rn8gonvkBWUKZoZF6dgRxp14fpCHM6jsgYEaGuFUNl/?mibextid=ZbWKwL"
               target="_blank">
-              <img src="../frontend/facebook_logo.png" alt="Facebook" style="width: 30px; height: 30px;">
+              <img src="./facebook_logo.png" alt="Facebook" style="width: 30px; height: 30px;">
            </a>
            
             </li>
@@ -1719,7 +1721,7 @@
                 style="text-decoration: none; display: flex; align-items: center; justify-content: center; width: 30px; height: 30px;  border-radius: 50%; transition: background 0.3s ease-in-out;"
                 onmouseover="this.style.background='var(--theme-primary-color)'; this.children[0].style.color='#fff';"
                 onmouseout="this.style.background='#000'; this.children[0].style.color='#fff';">
-                <img src="../frontend/emai_logo.png" alt="Facebook" style="width: 30px; height: 30px;">
+                <img src="./emai_logo.png" alt="Facebook" style="width: 30px; height: 30px;">
               </a>
             </li>
 
@@ -1729,7 +1731,7 @@
 
             <li>
               <a href="https://www.instagram.com/kalanjiyamsalem/profilecard/?igsh=am41NnZnZ2tmZzZt" target="_blank">
-                <img src="../frontend/instagram_logo.png" alt="Instagram" style="width: 30px; height: 30px;">
+                <img src="./instagram_logo.png" alt="Instagram" style="width: 30px; height: 30px;">
               </a>
             </li>
           </ul>
