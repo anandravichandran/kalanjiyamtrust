@@ -1609,21 +1609,28 @@
 
 /* Read More Button */
 .read-more-btn {
-  display: inline-block;
-  margin-top: 2%;
-  padding: 10px 20px;
-  text-align: center;
-  font-size: 16px;
-  font-weight: bold;
-  text-decoration: none;
-  color: white;
-  background: linear-gradient(to top left, #f1a91c, #f1a91c, #f1a91c);
-  border-radius: 25px;
-  transition: background 0.3s ease, transform 0.3s ease;
-  transform: translateX(490%);
-  /* Adding box shadow */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Horizontal, Vertical, Blur, Spread */
+    display: inline-block;
+    margin-top: 2%;
+    margin-left: 40%;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    background: linear-gradient(to top left, #f1a91c, #f1a91c, #f1a91c);
+    border-radius: 25px;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
+/* Optional: Hover effect */
+.read-more-btn:hover {
+    background: linear-gradient(to top left, #f1a91c, #ff8c00, #f1a91c);  /* Change background on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);  /* Enhance shadow on hover */
+    transform: none;  /* Make sure the button doesn’t move */
+}
+
 
 /* For mobile devices (screen width less than 768px) */
 @media (max-width: 768px) {
