@@ -141,34 +141,45 @@
     }
 
     .fancy-button {
-      background-color: rgba(255, 255, 255, 0.988);
-      /* Semi-transparent green */
-      color: rgb(23, 15, 15);
-      /* White text */
-      border: none;
-      border-radius: 50%;
-      padding: 12px;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      transition: background-color 0.3s ease, transform 0.2s ease;
-      width: 50px;
-      /* Increased width */
-      height: 50px;
-      /* Increased height */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+  background: rgba(255, 255, 255, 0.2); /* Light transparent white */
+  color: rgb(23, 15, 15);
+  border: none;
+  border-radius: 50%;
+  padding: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(2px); /* Glass effect */
+  -webkit-backdrop-filter: blur(8px);
+}
 
-    .fancy-button:hover {
-      transform: scale(1.2);
-      /* Slightly enlarge on hover */
-    }
+.fancy-button:hover {
+  transform: scale(1.2);
+  background: rgba(255, 255, 255, 0.3); /* Slightly stronger effect on hover */
+}
+
 
     .fancy-button:focus {
       outline: none;
       /* Remove outline */
     }
+    @media (max-width: 768px) {
+  .whimsical-slide {
+    height: 300px; /* Reduce height for mobile view */
+  }
+
+  .whimsical-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensure the full image is visible */
+  }
+}
+
   </style>
   <link rel='stylesheet' id='wp-block-library-css' href='wp-includes/css/dist/block-library/style.min75e4.css?ver=6.4.5'
     type='text/css' media='all' />
