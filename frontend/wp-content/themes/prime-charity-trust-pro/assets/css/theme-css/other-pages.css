@@ -3104,7 +3104,7 @@ a.button.product_type_variable.add_to_cart_button {
 a.button.product_type_variable.add_to_cart_button:hover{
   background: #fff;
   border: 1px solid #00A3FC;
-  color: : #00A3FC;
+  color: #00A3FC;
 }
 
 
@@ -3871,12 +3871,61 @@ div#respond form#commentform p.form-submit {
     max-width: 340px;
     width: 100%;
 }
+/* Default (Desktop & Larger Screens) */
 .row.title-banner-wrapper {
-    margin: 50px 0 0;
-    min-height: 300px;
-    justify-content: center;
-    align-items: center;
+  margin: 50px 0 0;
+  min-height: 300px; /* Set a minimum height for larger screens */
+  justify-content: center;
+  align-items: center;
 }
+
+/* Mobile Devices (max-width: 480px) */
+@media (max-width: 480px) {
+.row.title-banner-wrapper {
+  margin: 20px 0 0; /* Adjust the margin for mobile */
+  min-height: auto; /* Remove min-height for better flexibility on mobile */
+  justify-content: center;
+  align-items: center;
+  height: 100px; /* Adjust height for mobile devices to fit image */
+}
+
+.title-banner-wrapper {
+  background-size: contain; /* Ensure the image scales to fit */
+  background-position: center center; /* Centers the image */
+}
+}
+
+/* Medium Devices (481px to 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+.row.title-banner-wrapper {
+  margin: 30px 0 0; /* Adjust margin for tablets */
+  min-height: 200px; /* Smaller minimum height for tablets */
+  justify-content: center;
+  align-items: center;
+  height: 150px; /* Adjust height for medium screens */
+}
+
+.title-banner-wrapper {
+  background-size: contain; /* Ensure the image scales to fit */
+  background-position: center center; /* Centers the image */
+}
+}
+
+/* Large Screens (Desktop, Laptop) */
+@media (min-width: 769px) {
+.row.title-banner-wrapper {
+  margin: 50px 0 0;
+  min-height: 300px; /* Larger height for desktop and laptop */
+  justify-content: center;
+  align-items: center;
+}
+
+.title-banner-wrapper {
+  background-size: cover; /* Use cover for larger screens */
+  background-position: center center; /* Center the image */
+}
+}
+
 .page404 img {
     margin: 30px 0 70px;
 }
