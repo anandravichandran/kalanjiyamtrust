@@ -3911,7 +3911,7 @@ div#respond form#commentform p.form-submit {
 }
 }
 
-/* Large Screens (Desktop, Laptop) */
+/* Large Screens (Desktop, Laptop)*/
 @media (min-width: 769px) {
 .row.title-banner-wrapper {
   margin: 50px 0 0;
